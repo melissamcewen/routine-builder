@@ -1,0 +1,40 @@
+# TypeScript and SvelteKit Project Guidelines
+
+# File Organization
+- All page components must be in src/routes directory
+- Reusable components must be in src/lib/components
+- Store definitions must be in src/lib/stores
+- API routes must be in src/routes with +server.ts files
+- Types and interfaces must be in src/lib/types
+
+# TypeScript Best Practices
+- Never use 'any' or 'unknown' types
+- All functions must have explicit return types
+- All component props must have type annotations
+- Use interfaces for complex data structures
+
+
+# SvelteKit Conventions
+- Use load functions for data fetching in routes
+- Keep components small and focused
+- Use $app/stores for app-level state
+- Follow SvelteKit routing conventions
+- Use server-side rendering when possible
+
+# DaisyUI and Styling
+- Use DaisyUI component classes over raw Tailwind
+- All buttons must use btn classes
+- Maintain consistent theming
+- Use responsive design patterns
+- Implement dark mode support
+
+
+# Code Quality
+- No console.log in production code
+- Use environment variables for sensitive data
+- Implement proper error handling
+- Add loading states for async operations
+- Write comprehensive tests
+
+
+Do not edit products.ts, if something needs to be changed, tell me how to do it
