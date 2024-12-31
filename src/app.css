@@ -2,12 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  .glass {
-    @apply bg-base-100/30 backdrop-blur-sm border border-base-100/10;
-  }
+/* Theme Backgrounds */
+html[data-theme="fantasy"] {
+  background: linear-gradient(
+    135deg,
+    #ffd1dc 0%,
+    #e6e6fa 50%,
+    #d8bfd8 100%
+  );
+  background-attachment: fixed;
 }
 
-.glass {
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+html[data-theme="synthwave"] {
+  background-color: #121236;
+  background-image:
+      radial-gradient(at 47% 33%, hsl(274.62, 100%, 25%) 0, transparent 59%),
+      radial-gradient(at 82% 65%, hsl(240.00, 64%, 27%) 0, transparent 55%);
+}
+
+/* Glass Effects */
+html[data-theme="synthwave"] .glass {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(8, 8, 35, 0.75);
+  background-image: none;
+}
+
+html[data-theme="synthwave"] .glass2 {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(16, 3, 20, 0.75);
+  background-image: none;
+}
+
+/* Readable Text Overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--color-base-100) / 0.7),
+    rgba(var(--color-base-200) / 0.7)
+  );
+  z-index: -1;
 }

@@ -645,7 +645,7 @@ export const products: { [key: string]: Product } = {
     "Targets": [
       "Advanced Signs of Aging",
       "Textural Irregularities",
-      "Uneven Skin Ton"
+      "Uneven Skin Tone"
     ],
     "Skin Types": "",
     "Phase": "Emulsion",

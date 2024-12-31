@@ -7,21 +7,21 @@ export default {
 	theme: {
 		extend: {
 			backdropBlur: {
-				xs: '2px',
+				xs: '2px'
 			}
-		},
+		}
 	},
 
 	plugins: [daisyui],
 
 	daisyui: {
-		themes: ['fantasy', 'night'],
-		darkTheme: 'night',
+		themes: ['fantasy', 'night', 'synthwave'],
+		darkTheme: 'synthwave',
 		base: true,
 		styled: true,
 		utils: true,
 		prefix: '',
 		logs: true,
-		themeRoot: ':root',
-	},
+		themeRoot: ':root'
+	}
 } satisfies Config;
