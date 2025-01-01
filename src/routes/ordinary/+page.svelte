@@ -4,7 +4,7 @@
 	import { goto } from '$app/navigation';
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
-	import { Sun, Moon } from 'lucide-svelte';
+	import { Sun, Moon, Save, FlaskConical } from 'lucide-svelte';
 
 	// Get initial state from URL params if they exist
 	let timeOfDay: 'day' | 'night' = ($page.url.searchParams.get('tod') as 'day' | 'night') || 'day';
@@ -96,6 +96,7 @@
 
 	const phaseOrder: Record<Phase, number> = {
 		Milky: 0,
+		Powder: 0.75,
 		Water: 1,
 		Anhydrous: 2,
 		Oil: 3,
@@ -104,7 +105,7 @@
 		Emulsion: 6,
 		Gel: 6,
 		'Rich cream': 6,
-		Powder: 7,
+
 		'': 999
 	};
 
@@ -166,61 +167,70 @@
 <div class="min-h-screen">
 	<div class="container mx-auto p-4">
 		<div class="flex flex-col gap-8">
-			<div class="glass rounded-box p-6">
-				<div class="md:flex justify-between items-center mb-4">
-					<h1 class="text-4xl font-bold">The Ordinary Advanced Actives Routine Builder</h1>
-					{#if selectedProducts.length > 0}
-						<div class="flex gap-2">
-							<a
-								href="/ordinary/routine?{$page.url.searchParams.toString()}"
-								class="btn btn-sm btn-ghost gap-2"
-								target="_blank"
-							>
-								🔗 Save and Share
-							</a>
-						</div>
-					{/if}
+			<div class="  p-6">
+				<div class="flex flex-col mb-4">
+					<h1 class="text-4xl font-bold text-primary flex items-center gap-2">
+						<FlaskConical class="w-8 h-8 mt-1 flex-shrink-0" /> The Ordinary Advanced Actives Routine
+						Builder
+					</h1>
+
 				</div>
 
-				{#if selectedProducts.length > 0}
-					<div class="flex justify-center mb-4">
-						<input
-							type="text"
-							placeholder="Name your routine..."
-							class="input input-bordered w-full max-w-xs text-center"
-							bind:value={routineName}
-						/>
-					</div>
-				{/if}
+				<div class="md:grid grid-cols-3 gap-4 mb-4">
+					<div class="card card-sm shadow-sm glass text-primary">
+						<div class="card-body">
+							<h2 class="card-title">What's this?</h2>
+							<p>
+								So yes, I know the <a
+									href="https://theordinary.com/en-us/regimen-builder.html"
+									class="link">The Ordinary has their own regimen builder</a
+								> but for those of us who use more advanced routines, it's not very useful. With this tool you can build multiple, complex routines that account for time of day and product compatibility.
+							</p>
 
-				<div class="flex flex-col items-center gap-2 mb-8">
-					<label class="text-lg font-medium">Routine Type</label>
-					<div class="tabs tabs-boxed bg-opacity-60 justify-center">
-						<button
-							class="tab {timeOfDay === 'day' ? 'tab-active' : ''}"
-							on:click={() => (timeOfDay = 'day')}
-						>
-							<Sun class="w-4 h-4 mr-2" /> Day Routine
-						</button>
-						<button
-							class="tab {timeOfDay === 'night' ? 'tab-active' : ''}"
-							on:click={() => (timeOfDay = 'night')}
-						>
-							<Moon class="w-4 h-4 mr-2" /> Night Routine
-						</button>
+						</div>
+					</div>
+          			<div class="card card-sm shadow-sm glass text-primary">
+						<div class="card-body">
+							<h2 class="card-title">Day vs. Night</h2>
+
+							<p>When you select "day" it will filter out any products that are not recommended for the day time.</p>
+						</div>
 					</div>
 				</div>
 
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 					<div class="glass rounded-box p-6">
-						<h2 class="text-2xl font-semibold mb-4 flex items-center">
-							{#if timeOfDay === 'day'}
-								<Sun class="w-5 h-5 mr-2" />
-							{:else}
-								<Moon class="w-5 h-5 mr-2" />
-							{/if}
-							Your {timeOfDay === 'day' ? 'Day' : 'Night'} Routine
-						</h2>
+						<div
+							class="text-2xl font-semibold mb-4 items-center text-secondary flex justify-between gap-2"
+						>
+							<input
+								type="text"
+								placeholder="Name your routine..."
+								class="input input-bordered w-full text-center"
+								bind:value={routineName}
+							/>
+							<a
+								href="/ordinary/routine?{$page.url.searchParams.toString()}"
+								class="btn btn-outline btn-primary gap-2"
+								target="_blank"
+							>
+								<Save class="w-4 h-4 flex-shrink-0" /> Save and Share
+							</a>
+						</div>
+						<div class="tabs tabs-boxed bg-opacity-60 justify-center">
+							<button
+								class="tab {timeOfDay === 'day' ? 'tab-active' : ''}"
+								on:click={() => (timeOfDay = 'day')}
+							>
+								<Sun class="w-4 h-4 mr-2" /> Day Routine
+							</button>
+							<button
+								class="tab {timeOfDay === 'night' ? 'tab-active' : ''}"
+								on:click={() => (timeOfDay = 'night')}
+							>
+								<Moon class="w-4 h-4 mr-2" /> Night Routine
+							</button>
+						</div>
 						{#if selectedProducts.length === 0}
 							<p class="text-base-content/70">
 								No products selected. Start building your routine by selecting products from the

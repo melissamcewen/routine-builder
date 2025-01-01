@@ -14,7 +14,7 @@
 	});
 
 	function toggleTheme() {
-		theme = theme === 'fantasy' ? 'night' : 'fantasy';
+		theme = theme === 'fantasy' ? 'synthwave' : 'fantasy';
 		if (browser) {
 			localStorage.setItem('theme', theme);
 		}

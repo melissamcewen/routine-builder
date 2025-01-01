@@ -169,21 +169,7 @@ export const products: { [key: string]: Product } = {
     ],
     "id": "salicylic-acid-2-solution"
   },
-  "aha-30-bha-2-peeling-solution": {
-    "Name": "AHA 30% + BHA 2% Peeling Solution",
-    "TOD": "",
-    "Step": "",
-    "Targets": [],
-    "Skin Types": "",
-    "Phase": "",
-    "Format": "",
-    "Excludes": [],
-    "Tags": [
-      "Direct Acids",
-      "Salicylic Acid"
-    ],
-    "id": "aha-30-bha-2-peeling-solution"
-  },
+
   "azelaic-acid-suspension-10": {
     "Name": "Azelaic Acid Suspension 10%",
     "TOD": "both",
@@ -211,21 +197,6 @@ export const products: { [key: string]: Product } = {
       "Direct Acids"
     ],
     "id": "azelaic-acid-suspension-10"
-  },
-  "salicylic-acid-2-masque": {
-    "Name": "Salicylic Acid 2% Masque",
-    "TOD": "",
-    "Step": "",
-    "Targets": [],
-    "Skin Types": "",
-    "Phase": "",
-    "Format": "",
-    "Excludes": [],
-    "Tags": [
-      "Direct Acids",
-      "Salicylic Acid"
-    ],
-    "id": "salicylic-acid-2-masque"
   },
   "lactic-acid-10-ha": {
     "Name": "Lactic Acid 10% + HA",

@@ -12,16 +12,5 @@ export default {
 		}
 	},
 
-	plugins: [daisyui],
-
-	daisyui: {
-		themes: ['fantasy', 'night', 'synthwave'],
-		darkTheme: 'synthwave',
-		base: true,
-		styled: true,
-		utils: true,
-		prefix: '',
-		logs: true,
-		themeRoot: ':root'
-	}
+	
 } satisfies Config;
