@@ -282,7 +282,13 @@
 								</li>
 								<li class="flex items-start gap-2">
 									<ListOrdered class="w-4 h-4 mt-1 flex-shrink-0" />
-									<span>Products should be in the recomended application order</span>
+									<span
+										>Products should be in the <a
+											href="https://theordinary.com/en-us/blog/skincare-layering-guide.html"
+											class="link"
+											>recommended application order</a
+										></span
+									>
 								</li>
 								<li class="flex items-start gap-2">
 									<Drama class="w-4 h-4 mt-1 flex-shrink-0" />

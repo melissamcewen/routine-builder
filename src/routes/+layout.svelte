@@ -29,7 +29,7 @@
 <div class="min-h-screen">
 	<nav class="navbar bg-base-100/50 backdrop-blur-sm fixed top-0 z-50">
 		<div class="flex-1">
-			<a href="/" class="btn btn-ghost normal-case text-xl gap-2">
+			<a href="/" class="btn btn-ghost normal-case md:text-xl text-l gap-2">
 				<TestTubeDiagonal size={24} />
 				My Routine Builder
 			</a>
