@@ -185,7 +185,42 @@
 		const form = event.target as HTMLFormElement;
 		form.submit();
 	}
+
+	// Generate dynamic meta description based on selected products
+	$: metaDescription =
+		selectedProducts.length > 0
+			? `My ${timeOfDay} skincare routine with The Ordinary: ${selectedProducts.map((id) => products[id].Name).join(', ')}`
+			: 'Create your personalized skincare routine with The Ordinary products. Features compatibility checks and proper product ordering.';
+
+	// Generate structured data for the routine
+	$: structuredData = {
+		'@context': 'https://schema.org',
+		'@type': 'HowTo',
+		name: routineName || `My ${timeOfDay} Skincare Routine`,
+		description: metaDescription,
+		step: sortedSelectedProducts.map((productId, index) => ({
+			'@type': 'HowToStep',
+			position: index + 1,
+			name: products[productId].Name,
+			text: `Apply ${products[productId].Name} (${products[productId].Phase} phase)`
+		}))
+	};
+
+	onMount(() => {
+		const script = document.createElement('script');
+		script.type = 'application/ld+json';
+		script.text = JSON.stringify(structuredData);
+		document.head.appendChild(script);
+	});
 </script>
+
+<svelte:head>
+	<title
+		>{routineName ? `${routineName} - ` : ''}{timeOfDay === 'day' ? 'Day' : 'Night'} Routine - The Ordinary
+		Advanced Builder</title
+	>
+	<meta name="description" content={metaDescription} />
+</svelte:head>
 
 <div class="min-h-screen">
 	<div class="container mx-auto p-4">
@@ -213,7 +248,10 @@
 								awhile, and might have 2-4 different routines, this is for you.
 							</p>
 
-							<a href="/ordinary/routine?tod=night&products=argireline-solution-10%2Cmatrixyl-10-ha%2Chyaluronic-acid-2-b5-with-ceramides&name=I'm+Old+Now" class="btn btn-primary gap-2">
+							<a
+								href="/ordinary/routine?tod=night&products=argireline-solution-10%2Cmatrixyl-10-ha%2Chyaluronic-acid-2-b5-with-ceramides&name=I'm+Old+Now"
+								class="btn btn-primary gap-2"
+							>
 								<Share2 class="w-4 h-4 flex-shrink-0" /> Example Routine
 							</a>
 						</div>
@@ -246,9 +284,12 @@
 									<ListOrdered class="w-4 h-4 mt-1 flex-shrink-0" />
 									<span>Products should be in the recomended application order</span>
 								</li>
-									<li class="flex items-start gap-2">
+								<li class="flex items-start gap-2">
 									<Drama class="w-4 h-4 mt-1 flex-shrink-0" />
-									<span>This tool is just for fun. If your face falls off I'm really sorry but you shouldn't have used all those direct acids.</span>
+									<span
+										>This tool is just for fun. If your face falls off I'm really sorry but you
+										shouldn't have used all those direct acids.</span
+									>
 								</li>
 							</ul>
 						</div>
@@ -300,7 +341,6 @@
 						<div
 							class="text-2xl font-semxibold mb-4 items-center justify-between gap-2 space-y-2 flex flex-col lg:flex-row"
 						>
-
 							<input
 								type="text"
 								placeholder="Name your routine..."
