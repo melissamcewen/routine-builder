@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { products } from '$lib/products';
 	import { page } from '$app/stores';
+	import { Sun, Moon, FlaskConical, Beaker, Share2, ArrowLeftRight } from 'lucide-svelte';
 
 	let timeOfDay: 'day' | 'night' = ($page.url.searchParams.get('tod') as 'day' | 'night') || 'day';
 	let selectedProducts: string[] =
@@ -50,12 +51,22 @@
 <div class="min-h-screen">
 	<div class="container mx-auto p-4">
 		<div class="glass rounded-box p-6 max-w-2xl mx-auto">
-			<h1 class="text-4xl font-bold mb-8">The Ordinary Routine Builder</h1>
+			<h1 class="text-4xl font-bold mb-8 flex items-center gap-2">
+				<FlaskConical class="w-8 h-8" /> The Ordinary Routine Builder
+			</h1>
 			{#if routineName}
-				<h2 class="text-3xl font-semibold mb-4">{routineName}</h2>
+				<h2 class="text-3xl font-semibold mb-4 flex items-center gap-2">
+					<Share2 class="w-6 h-6" />
+					{routineName}
+				</h2>
 			{/if}
-			<h2 class="text-2xl font-semibold mb-4">
-				Your {timeOfDay === 'day' ? 'Day' : 'Night'} Routine
+			<h2 class="text-2xl font-semibold mb-4 flex items-center gap-2">
+				{#if timeOfDay === 'day'}
+					<Sun class="w-5 h-5" />
+				{:else}
+					<Moon class="w-5 h-5" />
+				{/if}
+				A {timeOfDay === 'day' ? 'Day' : 'Night'} Routine
 			</h2>
 			{#if selectedProducts.length === 0}
 				<p class="text-base-content/70">No products selected.</p>
@@ -64,10 +75,14 @@
 					{#each sortedSelectedProducts as productId}
 						<div class="card card-compact bg-base-100/90">
 							<div class="card-body">
-								<h3 class="card-title text-sm">
+								<h3 class="card-title text-sm flex items-center gap-2">
+									<Beaker class="w-4 h-4" />
 									{products[productId].Name.split(/(?=[A-Z])/).join(' ')}
 								</h3>
-								<p class="text-xs opacity-70">{products[productId].Phase}</p>
+								<p class="text-xs opacity-70 flex items-center gap-2">
+									<ArrowLeftRight class="w-3 h-3" />
+									{products[productId].Phase}
+								</p>
 								{#if products[productId].Tags.length > 0}
 									<p class="text-xs opacity-70">Contains: {products[productId].Tags.join(', ')}</p>
 								{/if}
