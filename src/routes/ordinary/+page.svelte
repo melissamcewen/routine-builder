@@ -4,7 +4,22 @@
 	import { goto } from '$app/navigation';
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
-	import { Sun, Moon, Save, FlaskConical } from 'lucide-svelte';
+	import {
+		Sun,
+		Moon,
+		Save,
+		FlaskConical,
+		X,
+		Info,
+		List,
+		Mail,
+		Beaker,
+		Clock,
+		Sparkles,
+		Drama,
+		Share2,
+		ListOrdered
+	} from 'lucide-svelte';
 
 	// Get initial state from URL params if they exist
 	let timeOfDay: 'day' | 'night' = ($page.url.searchParams.get('tod') as 'day' | 'night') || 'day';
@@ -162,6 +177,14 @@
 		const url = new URL(window.location.href);
 		navigator.clipboard.writeText(url.toString());
 	}
+
+	function handleSubscribe(event: SubmitEvent) {
+		event.preventDefault();
+		window.open('https://buttondown.com/my-routine-builder', 'popupwindow');
+		// Submit the form programmatically
+		const form = event.target as HTMLFormElement;
+		form.submit();
+	}
 </script>
 
 <div class="min-h-screen">
@@ -169,49 +192,124 @@
 		<div class="flex flex-col gap-8">
 			<div class="  p-6">
 				<div class="flex flex-col mb-4">
-					<h1 class="text-4xl font-bold text-primary flex items-center gap-2">
+					<h1 class="text-4xl font-bold flex items-center gap-2">
 						<FlaskConical class="w-8 h-8 mt-1 flex-shrink-0" /> The Ordinary Advanced Actives Routine
 						Builder
 					</h1>
-
 				</div>
 
-				<div class="md:grid grid-cols-3 gap-4 mb-4">
-					<div class="card card-sm shadow-sm glass text-primary">
+				<div class="md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4 space-y-4">
+					<div class="card card-sm shadow-sm glass h-full">
 						<div class="card-body">
-							<h2 class="card-title">What's this?</h2>
+							<h2 class="card-title">
+								<Info class="w-5 h-5" /> What's this?
+							</h2>
 							<p>
-								So yes, I know the <a
+								This is for those of us who need something more advanced than <a
 									href="https://theordinary.com/en-us/regimen-builder.html"
-									class="link">The Ordinary has their own regimen builder</a
-								> but for those of us who use more advanced routines, it's not very useful. With this tool you can build multiple, complex routines that account for time of day and product compatibility.
+									class="link">The Ordinary's own regimen builder</a
+								>. If you don't know what a direct acid or a retinoid is, you should stick with the
+								regimen builder. If you are like me and have been nerding out on skincare for
+								awhile, and might have 2-4 different routines, this is for you.
 							</p>
 
+							<a href="/ordinary/routine?tod=night&products=argireline-solution-10%2Cmatrixyl-10-ha%2Chyaluronic-acid-2-b5-with-ceramides&name=I'm+Old+Now" class="btn btn-primary gap-2">
+								<Share2 class="w-4 h-4 flex-shrink-0" /> Example Routine
+							</a>
 						</div>
 					</div>
-          			<div class="card card-sm shadow-sm glass text-primary">
+					<div class="card card-sm shadow-sm glass h-full">
 						<div class="card-body">
-							<h2 class="card-title">Day vs. Night</h2>
-
-							<p>When you select "day" it will filter out any products that are not recommended for the day time.</p>
+							<h2 class="card-title">
+								<List class="w-5 h-5" /> Basics
+							</h2>
+							<ul class="space-y-2">
+								<li class="flex items-start gap-2">
+									<Beaker class="w-4 h-4 mt-1 flex-shrink-0" />
+									<span
+										>I only included actives, so no plain moisturizers, cleansers, oils. etc.
+										because you can use those with any routine.</span
+									>
+								</li>
+								<li class="flex items-start gap-2">
+									<Clock class="w-4 h-4 mt-1 flex-shrink-0" />
+									<span
+										>Choosing "day" filters out any products that are not recommended for the day
+										time (because they increase photosensitivity)</span
+									>
+								</li>
+								<li class="flex items-start gap-2">
+									<Sparkles class="w-4 h-4 mt-1 flex-shrink-0" />
+									<span>I didn't include masks because they are for occasional use.</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<ListOrdered class="w-4 h-4 mt-1 flex-shrink-0" />
+									<span>Products should be in the recomended application order</span>
+								</li>
+									<li class="flex items-start gap-2">
+									<Drama class="w-4 h-4 mt-1 flex-shrink-0" />
+									<span>This tool is just for fun. If your face falls off I'm really sorry but you shouldn't have used all those direct acids.</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card card-sm shadow-sm glass h-full">
+						<div class="card-body">
+							<h2 class="card-title">
+								<Mail class="w-5 h-5" /> Subscribe
+							</h2>
+							<p class="mb-4">
+								If you want to get updates on this tool subscribe to my newsletter. No more than 1
+								email per month (and possibly no emails because I often forget).
+							</p>
+							<form
+								action="https://buttondown.com/api/emails/embed-subscribe/my-routine-builder"
+								method="post"
+								on:submit|preventDefault={handleSubscribe}
+								class="embeddable-buttondown-form flex flex-col gap-4"
+							>
+								<div class="form-control w-full">
+									<label for="bd-email" class="label">
+										<span class="label-text">Enter your email</span>
+									</label>
+									<input
+										type="email"
+										name="email"
+										id="bd-email"
+										class="input input-bordered w-full"
+									/>
+								</div>
+								<div class="flex flex-col gap-2">
+									<input type="submit" value="Subscribe" class="btn btn-primary w-full" />
+									<p class="text-xs opacity-70 text-center">
+										<a
+											href="https://buttondown.com/refer/my-routine-builder"
+											target="_blank"
+											class="link link-hover">Powered by Buttondown.</a
+										>
+									</p>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
 
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 					<div class="glass rounded-box p-6">
+						<h2 class="text-2xl font-semibold mb-4">Routine Builder</h2>
 						<div
-							class="text-2xl font-semibold mb-4 items-center text-secondary flex justify-between gap-2"
+							class="text-2xl font-semxibold mb-4 items-center justify-between gap-2 space-y-2 flex flex-col lg:flex-row"
 						>
+
 							<input
 								type="text"
 								placeholder="Name your routine..."
-								class="input input-bordered w-full text-center"
+								class="input w-full text-center"
 								bind:value={routineName}
 							/>
 							<a
 								href="/ordinary/routine?{$page.url.searchParams.toString()}"
-								class="btn btn-outline btn-primary gap-2"
+								class="btn btn-primary gap-2 w-full lg:w-auto"
 								target="_blank"
 							>
 								<Save class="w-4 h-4 flex-shrink-0" /> Save and Share
@@ -237,16 +335,50 @@
 								right.
 							</p>
 						{:else}
+							{#if selectedProducts.some((id) => products[id].Targets.length > 0)}
+								<div class="flex flex-wrap gap-2 mb-4">
+									{#each [...new Set(selectedProducts.flatMap((id) => products[id].Targets))] as concern}
+										<span class="badge badge-soft">{concern}</span>
+									{/each}
+								</div>
+							{/if}
 							<div class="flex flex-col gap-4">
 								{#each sortedSelectedProducts as productId}
-									<div class="card card-compact bg-base-100/50 hover:bg-base-100/70 transition-all">
-										<div class="card-body">
+									<div
+										class="card card-compact transition-all {timeOfDay === 'day' &&
+										products[productId].TOD === 'night'
+											? 'bg-base-100/30'
+											: 'bg-base-100/70 hover:bg-base-100/70'}"
+									>
+										<div
+											class="card-body {timeOfDay === 'day' && products[productId].TOD === 'night'
+												? 'opacity-50'
+												: ''}"
+										>
 											<div class="flex justify-between items-start">
 												<div>
 													<h3 class="card-title text-sm">
 														{products[productId].Name.split(/(?=[A-Z])/).join(' ')}
 													</h3>
-													<p class="text-xs opacity-70">{products[productId].Phase}</p>
+													{#if timeOfDay === 'day' && products[productId].TOD === 'night'}
+														<p class="text-xs text-error">Night-only product</p>
+													{/if}
+													<p class="text-xs opacity-70">
+														{products[productId].Phase} •
+														{#if products[productId].TOD === 'both'}
+															<span class="inline-flex gap-1 items-center"
+																>Both <Sun class="w-3 h-3" /> <Moon class="w-3 h-3" /></span
+															>
+														{:else if products[productId].TOD === 'day'}
+															<span class="inline-flex gap-1 items-center"
+																>Day <Sun class="w-3 h-3" /></span
+															>
+														{:else}
+															<span class="inline-flex gap-1 items-center"
+																>Night <Moon class="w-3 h-3" /></span
+															>
+														{/if}
+													</p>
 													{#if products[productId].Tags.length > 0}
 														<p class="text-xs opacity-70">
 															Contains: {products[productId].Tags.join(', ')}
@@ -254,10 +386,10 @@
 													{/if}
 												</div>
 												<button
-													class="btn btn-sm btn-ghost text-error"
+													class="btn btn-sm btn-ghost"
 													on:click={() => toggleProduct(productId)}
 												>
-													✕
+													<X class="w-4 h-4" />
 												</button>
 											</div>
 										</div>
@@ -305,7 +437,7 @@
 								<button
 									type="button"
 									class="card card-compact transition-all cursor-pointer relative text-left w-full {!incompatibilityReason
-										? 'bg-base-100/50 hover:bg-base-100/70'
+										? 'bg-base-100/90 hover:bg-base-200'
 										: 'bg-base-100/30'} {selectedProducts.includes(product.id) ? 'opacity-50' : ''}"
 									on:click={() => toggleProduct(product.id)}
 								>
@@ -319,12 +451,26 @@
 										</div>
 									{/if}
 									<div class="card-body">
-										<h3 class="card-title text-sm">{product.Name.split(/(?=[A-Z])/).join(' ')}</h3>
-										<p class="text-xs opacity-70">{product.Phase} • {product.Format}</p>
+										<h3 class="card-title text-sm">
+											{product.Name.split(/(?=[A-Z])/).join(' ')}
+										</h3>
+										<p class="text-xs opacity-70 flex items-center gap-2">
+											{product.Phase} • {product.Format}
+											<span class="flex gap-1 ml-auto">
+												{#if product.TOD === 'both'}
+													<Sun class="w-3 h-3" />
+													<Moon class="w-3 h-3" />
+												{:else if product.TOD === 'day'}
+													<Sun class="w-3 h-3" />
+												{:else}
+													<Moon class="w-3 h-3" />
+												{/if}
+											</span>
+										</p>
 										{#if product.Targets.length > 0}
 											<div class="flex flex-wrap gap-1">
 												{#each product.Targets as target}
-													<span class="badge badge-sm">{target}</span>
+													<span class="badge badge-sm badge-soft">{target}</span>
 												{/each}
 											</div>
 										{/if}

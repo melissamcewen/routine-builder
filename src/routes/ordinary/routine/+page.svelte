@@ -62,7 +62,7 @@
 			{:else}
 				<div class="flex flex-col gap-4">
 					{#each sortedSelectedProducts as productId}
-						<div class="card card-compact bg-base-100/50">
+						<div class="card card-compact bg-base-100/90">
 							<div class="card-body">
 								<h3 class="card-title text-sm">
 									{products[productId].Name.split(/(?=[A-Z])/).join(' ')}
@@ -77,7 +77,7 @@
 				</div>
 			{/if}
 			<div class="text-center mt-8 text-sm opacity-70">
-				<p>routinebuilder.app</p>
+				<p>myroutinebuilder.com</p>
 			</div>
 		</div>
 	</div>

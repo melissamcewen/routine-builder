@@ -809,21 +809,6 @@ export const products: { [key: string]: Product } = {
     "Tags": [],
     "id": "alpha-arbutin-2-ha"
   },
-  "100-plant-derived-squalane": {
-    "Name": "100% Plant-Derived Squalane",
-    "TOD": "both",
-    "Step": "Treat",
-    "Targets": [
-      "Dryness",
-      "Hair"
-    ],
-    "Skin Types": "",
-    "Phase": "Anhydrous",
-    "Format": "Serum",
-    "Excludes": [],
-    "Tags": [],
-    "id": "100-plant-derived-squalane"
-  },
   "hyaluronic-acid-2-b5-with-ceramides": {
     "Name": "Hyaluronic Acid 2% + B5 (with Ceramides)",
     "TOD": "both",
@@ -871,37 +856,6 @@ export const products: { [key: string]: Product } = {
     "Tags": [],
     "id": "natural-moisturizing-factors-beta-glucan"
   },
-  "100-organic-cold-pressed-moroccan-argan-oil": {
-    "Name": "100% Organic Cold-Pressed Moroccan Argan Oil",
-    "TOD": "both",
-    "Step": "Treat",
-    "Targets": [
-      "Dryness",
-      "Hair"
-    ],
-    "Skin Types": "",
-    "Phase": "Oil",
-    "Format": "",
-    "Excludes": [],
-    "Tags": [],
-    "id": "100-organic-cold-pressed-moroccan-argan-oil"
-  },
-  "100-organic-cold-pressed-rose-hip-seed-oil": {
-    "Name": "100% Organic Cold-Pressed Rose Hip Seed Oil",
-    "TOD": "both",
-    "Step": "Treat",
-    "Targets": [
-      "Dryness",
-      "Dullness",
-      "Signs of Aging"
-    ],
-    "Skin Types": "",
-    "Phase": "Oil",
-    "Format": "",
-    "Excludes": [],
-    "Tags": [],
-    "id": "100-organic-cold-pressed-rose-hip-seed-oil"
-  },
   "marine-hyaluronics": {
     "Name": "Marine Hyaluronics",
     "TOD": "both",
@@ -916,22 +870,6 @@ export const products: { [key: string]: Product } = {
     "Excludes": [],
     "Tags": [],
     "id": "marine-hyaluronics"
-  },
-  "100-cold-pressed-virgin-marula-oil": {
-    "Name": "100% Cold-Pressed Virgin Marula Oil",
-    "TOD": "both",
-    "Step": "Treat",
-    "Targets": [
-      "Dryness",
-      "Antioxidant Support",
-      "Hair"
-    ],
-    "Skin Types": "",
-    "Phase": "Oil",
-    "Format": "",
-    "Excludes": [],
-    "Tags": [],
-    "id": "100-cold-pressed-virgin-marula-oil"
   },
   "amino-acids-b5": {
     "Name": "Amino Acids + B5",

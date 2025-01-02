@@ -2,12 +2,52 @@
 
 @plugin "daisyui" {
 	themes:
-		fantasy --default,
+		shimmer --default,
 		synthwave --prefersdark;
 }
 
+
+
+
+@plugin "daisyui/theme" {
+  name: "shimmer";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(96% 0.018 272.314);
+  --color-base-200: oklch(94% 0.029 294.588);
+  --color-base-300: oklch(90% 0.063 306.703);
+  --color-base-content: oklch(38% 0.189 293.745);
+  --color-primary: oklch(90% 0.076 319.62);
+  --color-primary-content: oklch(37.45% 0.189 325.02);
+  --color-secondary: oklch(87% 0.065 274.039);
+  --color-secondary-content: oklch(45% 0.24 277.023);
+  --color-accent: oklch(89% 0.057 293.283);
+  --color-accent-content: oklch(49% 0.27 292.581);
+  --color-neutral: oklch(97% 0.014 308.299);
+  --color-neutral-content: oklch(62% 0.265 303.9);
+  --color-info: oklch(80% 0.105 251.813);
+  --color-info-content: oklch(48% 0.243 264.376);
+  --color-success: oklch(76% 0.177 163.223);
+  --color-success-content: oklch(43% 0.095 166.913);
+  --color-warning: oklch(83% 0.128 66.29);
+  --color-warning-content: oklch(55% 0.195 38.402);
+  --color-error: oklch(81% 0.117 11.638);
+  --color-error-content: oklch(51% 0.222 16.935);
+  --radius-selector: 1rem;
+  --radius-field: 2rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 2px;
+  --depth: 1;
+  --noise: 0;
+}
+
+
+
 /* Theme Backgrounds */
-html[data-theme='fantasy'] {
+html[data-theme='shimmer'] {
 	background: linear-gradient(135deg, #ffd1dc 0%, #e6e6fa 50%, #d8bfd8 100%);
 	background-attachment: fixed;
 }
@@ -24,8 +64,4 @@ html[data-theme='synthwave'] .glass {
 	-webkit-backdrop-filter: blur(16px) saturate(180%);
 	background-color: rgba(8, 8, 35, 0.75);
 	background-image: none;
-
 }
-
-
-

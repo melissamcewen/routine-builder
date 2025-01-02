@@ -10,11 +10,11 @@
 				<div class="glass rounded-box p-8">
 					<div class="flex items-center justify-center gap-4 mb-4">
 						<TestTubeDiagonal size={32} />
-						<h2 class="text-3xl font-semibold">The Ordinary</h2>
+						<h2 class="text-3xl font-semibold">Routine Builder</h2>
 					</div>
 					<p class="mb-6">
-						Create your perfect skincare routine with The Ordinary products. Our advanced builder
-						helps you select compatible products and organize them in the correct order.
+						This is a site for random skincare/haircare routine builder tools that I built on a whim while procrastinating about building another site.
+						We just have one now, for The Ordinary.
 					</p>
 					<div class="flex flex-wrap gap-4 justify-center">
 						<a href="/ordinary" class="btn btn-primary gap-2">
@@ -29,19 +29,19 @@
 				</div>
 
 				<div class="glass rounded-box p-8">
-					<h2 class="text-2xl font-semibold mb-4">Features</h2>
+					<h2 class="text-2xl font-semibold mb-4">This is just so the home page doesn't look empty</h2>
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 						<div class="text-left">
-							<h3 class="font-semibold mb-2">Smart Compatibility</h3>
+							<h3 class="font-semibold mb-2">Stuff</h3>
 							<p>
-								Our builder automatically checks product compatibility and warns you about potential
-								conflicts.
+								Hi! This is a box!
 							</p>
+
 						</div>
 						<div class="text-left">
-							<h3 class="font-semibold mb-2">Proper Ordering</h3>
+							<h3 class="font-semibold mb-2">I love icons!</h3>
 							<p>
-								Products are automatically arranged in the correct order based on their formulation.
+								Put icons everywhere!
 							</p>
 						</div>
 						<div class="text-left">
