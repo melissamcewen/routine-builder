@@ -300,45 +300,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="card card-sm shadow-sm glass h-full">
-						<div class="card-body">
-							<h2 class="card-title">
-								<Mail class="w-5 h-5" /> Subscribe
-							</h2>
-							<p class="mb-4">
-								If you want to get updates on this tool subscribe to my newsletter. No more than 1
-								email per month (and possibly no emails because I often forget).
-							</p>
-							<form
-								action="https://buttondown.com/api/emails/embed-subscribe/my-routine-builder"
-								method="post"
-								on:submit|preventDefault={handleSubscribe}
-								class="embeddable-buttondown-form flex flex-col gap-4"
-							>
-								<div class="form-control w-full">
-									<label for="bd-email" class="label">
-										<span class="label-text">Enter your email</span>
-									</label>
-									<input
-										type="email"
-										name="email"
-										id="bd-email"
-										class="input input-bordered w-full"
-									/>
-								</div>
-								<div class="flex flex-col gap-2">
-									<input type="submit" value="Subscribe" class="btn btn-primary w-full" />
-									<p class="text-xs opacity-70 text-center">
-										<a
-											href="https://buttondown.com/refer/my-routine-builder"
-											target="_blank"
-											class="link link-hover">Powered by Buttondown.</a
-										>
-									</p>
-								</div>
-							</form>
-						</div>
-					</div>
+	
 				</div>
 
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
