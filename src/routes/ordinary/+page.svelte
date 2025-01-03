@@ -249,7 +249,7 @@
 							</p>
 
 							<a
-								href="/ordinary/routine?tod=night&products=argireline-solution-10%2Cmatrixyl-10-ha%2Chyaluronic-acid-2-b5-with-ceramides&name=I'm+Old+Now"
+								href="/ordinary/routine?tod=night&products=argireline-solution-10%2Cmatrixyl-10-ha%2Calpha-arbutin-2-ha&name=My+Night+Routine"
 								class="btn btn-primary gap-2"
 							>
 								<Share2 class="w-4 h-4 flex-shrink-0" /> Example Routine

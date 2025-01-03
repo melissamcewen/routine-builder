@@ -75,20 +75,6 @@ export const products: { [key: string]: Product } = {
     "Tags": [],
     "id": "niacinamide-10-zinc-1"
   },
-  "natural-moisturizing-factors-ha": {
-    "Name": "Natural Moisturizing Factors + HA",
-    "TOD": "both",
-    "Step": "Seal",
-    "Targets": [
-      "Dryness"
-    ],
-    "Skin Types": "All",
-    "Phase": "Emulsion",
-    "Format": "Serum",
-    "Excludes": [],
-    "Tags": [],
-    "id": "natural-moisturizing-factors-ha"
-  },
   "caffeine-solution-5-egcg": {
     "Name": "Caffeine Solution 5% + EGCG",
     "TOD": "both",
@@ -103,20 +89,6 @@ export const products: { [key: string]: Product } = {
     "Excludes": [],
     "Tags": [],
     "id": "caffeine-solution-5-egcg"
-  },
-  "natural-moisturizing-factors-phytoceramides": {
-    "Name": "Natural Moisturizing Factors + PhytoCeramides",
-    "TOD": "both",
-    "Step": "Seal",
-    "Targets": [
-      "Dryness"
-    ],
-    "Skin Types": "All",
-    "Phase": "Rich cream",
-    "Format": "Moisturizer",
-    "Excludes": [],
-    "Tags": [],
-    "id": "natural-moisturizing-factors-phytoceramides"
   },
   "argireline-solution-10": {
     "Name": "Argireline Solution 10%",
