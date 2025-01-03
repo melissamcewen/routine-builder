@@ -18,7 +18,8 @@
 		Sparkles,
 		Drama,
 		Share2,
-		ListOrdered
+		ListOrdered,
+		Github
 	} from 'lucide-svelte';
 
 	// Get initial state from URL params if they exist
@@ -278,7 +279,7 @@
 								</li>
 								<li class="flex items-start gap-2">
 									<Sparkles class="w-4 h-4 mt-1 flex-shrink-0" />
-									<span>I didn't include masks because they are for occasional use.</span>
+									<span>I didn't include masks because they are for occasional use (and you probably shouldn't use them on the same day as actives)</span>
 								</li>
 								<li class="flex items-start gap-2">
 									<ListOrdered class="w-4 h-4 mt-1 flex-shrink-0" />
@@ -300,7 +301,20 @@
 							</ul>
 						</div>
 					</div>
-	
+				<div class="card card-sm shadow-sm glass h-full">
+						<div class="card-body">
+							<h2 class="card-title">
+								<Info class="w-5 h-5" />Help out (or build your own tool)
+							</h2>
+							<p>
+								This project is open source! So if you want to contribute or submit a bug, check us out on GitHub.
+							</p>
+
+							<div class="card-actions justify-end">
+								<a href="https://github.com/melissamcewen/routine-builder" class="btn btn-primary"><Github class="w-4 h-4 flex-shrink-0" /> GitHub</a>
+							</div>
+						</div>
+					</div>
 				</div>
 
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
