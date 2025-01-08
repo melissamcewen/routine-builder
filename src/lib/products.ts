@@ -869,7 +869,7 @@ export const products: { [key: string]: Product } = {
     ],
     "Skin Types": "",
     "Phase": "Emulsion",
-    "Format": "Water",
+    "Format": "Serum",
     "Excludes": [
       "Direct Vitamin C",
       "Indirect Vitamin C"
@@ -892,5 +892,34 @@ export const products: { [key: string]: Product } = {
     "Excludes": [],
     "Tags": [],
     "id": "balancing-clarifying-serum"
+  },
+  "gf-15-solution": {
+    "Name": "GF 15% Solution",
+    "TOD": "both",
+    "Step": "Treat",
+    "Targets": [
+      "Advanced Signs of Aging"
+    ],
+    "Skin Types": "",
+    "Phase": "Water",
+    "Format": "Serum",
+    "Excludes": [ "Direct Acids", "Direct Vitamin C"],
+    "Tags": ["Peptides"],
+    "id": "gf-15-solution"
+  },
+  "prescription-tretinoin": {
+    "Name": "Prescription Tretinoin (not The Ordinary)",
+    "TOD": "night",
+    "Step": "Treat",
+    "Targets": [
+      "Advanced Signs of Aging"
+    ],
+    "Skin Types": "",
+    "Phase": "Cream",
+    "Format": "Moisturizer",
+    "Excludes": ["Copper Peptides", "Direct Acids", "Direct Vitamin C", "Retinoids"],
+    "Tags": ["Retinoids"],
+    "id": "prescription-tretinoin"
   }
+
 };

@@ -19,7 +19,9 @@
 		Drama,
 		Share2,
 		ListOrdered,
-		Github
+		Github,
+		SunMediumIcon,
+		SunDimIcon
 	} from 'lucide-svelte';
 
 	// Get initial state from URL params if they exist
@@ -116,12 +118,11 @@
 		Water: 1,
 		Anhydrous: 2,
 		Oil: 3,
-		Cream: 4,
 		Suspension: 5,
 		Emulsion: 6,
 		Gel: 6,
 		'Rich cream': 6,
-
+		Cream: 10,
 		'': 999
 	};
 
@@ -271,7 +272,7 @@
 									>
 								</li>
 								<li class="flex items-start gap-2">
-									<Clock class="w-4 h-4 mt-1 flex-shrink-0" />
+									<Sun class="w-4 h-4 mt-1 flex-shrink-0" />
 									<span
 										>Choosing "day" filters out any products that are not recommended for the day
 										time (because they increase photosensitivity)</span
@@ -279,15 +280,17 @@
 								</li>
 								<li class="flex items-start gap-2">
 									<Sparkles class="w-4 h-4 mt-1 flex-shrink-0" />
-									<span>I didn't include masks because they are for occasional use (and you probably shouldn't use them on the same day as actives)</span>
+									<span
+										>I didn't include masks because they are for occasional use (and you probably
+										shouldn't use them on the same day as actives)</span
+									>
 								</li>
 								<li class="flex items-start gap-2">
 									<ListOrdered class="w-4 h-4 mt-1 flex-shrink-0" />
 									<span
 										>Products should be in the <a
 											href="https://theordinary.com/en-us/blog/skincare-layering-guide.html"
-											class="link"
-											>recommended application order</a
+											class="link">recommended application order</a
 										></span
 									>
 								</li>
@@ -301,24 +304,27 @@
 							</ul>
 						</div>
 					</div>
-				<div class="card card-sm shadow-sm glass h-full">
+					<div class="card card-sm shadow-sm glass h-full">
 						<div class="card-body">
 							<h2 class="card-title">
 								<Info class="w-5 h-5" />Help out (or build your own tool)
 							</h2>
 							<p>
-								This project is open source! So if you want to contribute or submit a bug, check us out on GitHub.
+								This project is open source! So if you want to contribute or submit a bug, check us
+								out on GitHub.
 							</p>
 
 							<div class="card-actions justify-end">
-								<a href="https://github.com/melissamcewen/routine-builder" class="btn btn-primary"><Github class="w-4 h-4 flex-shrink-0" /> GitHub</a>
+								<a href="https://github.com/melissamcewen/routine-builder" class="btn btn-primary"
+									><Github class="w-4 h-4 flex-shrink-0" /> GitHub</a
+								>
 							</div>
 						</div>
 					</div>
 				</div>
 
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-					<div class="glass rounded-box p-6">
+					<div class="glass rounded-box shadow-sm p-6">
 						<h2 class="text-2xl font-semibold mb-4">Routine Builder</h2>
 						<div
 							class="text-2xl font-semxibold mb-4 items-center justify-between gap-2 space-y-2 flex flex-col lg:flex-row"
@@ -337,7 +343,7 @@
 								<Save class="w-4 h-4 flex-shrink-0" /> Save and Share
 							</a>
 						</div>
-						<div class="tabs tabs-boxed bg-opacity-60 justify-center">
+						<div class="tabs tabs-box justify-center mb-2">
 							<button
 								class="tab {timeOfDay === 'day' ? 'tab-active' : ''}"
 								on:click={() => (timeOfDay = 'day')}
@@ -362,6 +368,12 @@
 									{#each [...new Set(selectedProducts.flatMap((id) => products[id].Targets))] as concern}
 										<span class="badge badge-soft">{concern}</span>
 									{/each}
+								</div>
+							{/if}
+							{#if selectedProducts.filter((id) => products[id].Format === 'Serum').length > 3}
+								<div class="alert alert-warning mb-4">
+									<Info class="w-4 h-4" />
+									<span>The Ordinary recommends using no more than 3 serums in a routine</span>
 								</div>
 							{/if}
 							<div class="flex flex-col gap-4">
@@ -421,7 +433,7 @@
 						{/if}
 					</div>
 
-					<div class="glass rounded-box p-6">
+					<div class="glass rounded-box p-6 shadow-sm">
 						<div class="flex justify-between items-center mb-4">
 							<h2 class="text-2xl font-semibold">Available Products</h2>
 							<label class="label cursor-pointer gap-2">
@@ -429,6 +441,13 @@
 								<input type="checkbox" class="toggle toggle-sm" bind:checked={showIncompatible} />
 							</label>
 						</div>
+
+						{#if timeOfDay === 'day'}
+							<div class="alert mb-4 alert-info bg-info/50">
+								<Sun class="w-4 h-4" />
+								<span>Only showing products safe for daytime use</span>
+							</div>
+						{/if}
 
 						<div class="flex flex-col gap-4 mb-6">
 							<input
@@ -458,7 +477,7 @@
 								{@const incompatibilityReason = getIncompatibilityReason(product)}
 								<button
 									type="button"
-									class="card card-compact transition-all cursor-pointer relative text-left w-full {!incompatibilityReason
+									class="card card-compact border-2 border-base-200 transition-all cursor-pointer relative text-left w-full {!incompatibilityReason
 										? 'bg-base-100/90 hover:bg-base-200'
 										: 'bg-base-100/30'} {selectedProducts.includes(product.id) ? 'opacity-50' : ''}"
 									on:click={() => toggleProduct(product.id)}
