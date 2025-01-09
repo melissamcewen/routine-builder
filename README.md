@@ -114,12 +114,24 @@ npm run preview
 - Routine scheduling features
 - Integration with more skincare brands
 
-## 📈 Performance Metrics
+## Ordinary References
 
-- Lighthouse Score: 98/100
-- First Contentful Paint: < 1s
-- Time to Interactive: < 2s
-- Perfect accessibility score
+### Layering
+
+Main layers
+1. Prep
+2. Treat
+3. Seal
+
+Secondary layers
+1. Water
+2. Emulsions (except for those also classified as creams)
+3. Anhydrous
+4. Oils
+5. Creams
+6. Suspensions
+
+
 
 ## 🤝 Contributing
 

@@ -20,8 +20,7 @@
 		Share2,
 		ListOrdered,
 		Github,
-		SunMediumIcon,
-		SunDimIcon
+		Lock
 	} from 'lucide-svelte';
 
 	// Get initial state from URL params if they exist
@@ -99,30 +98,22 @@
 		currentPage * productsPerPage
 	);
 
-	type Phase =
-		| 'Water'
-		| 'Anhydrous'
-		| 'Oil'
-		| 'Cream'
-		| 'Suspension'
-		| 'Emulsion'
-		| 'Milky'
-		| 'Gel'
-		| 'Rich cream'
-		| 'Powder'
-		| '';
+	type Phase = 'Water' | 'Emulsion' | 'Anhydrous' | 'Oil' | 'Cream' | 'Suspension' | '';
+
+	const stepOrder: Record<string, number> = {
+		Prep: 0,
+		Treat: 1,
+		Seal: 2,
+		'': 999
+	};
 
 	const phaseOrder: Record<Phase, number> = {
-		Milky: 0,
-		Powder: 0.75,
-		Water: 1,
+		Water: 0,
+		Emulsion: 1,
 		Anhydrous: 2,
 		Oil: 3,
+		Cream: 4,
 		Suspension: 5,
-		Emulsion: 6,
-		Gel: 6,
-		'Rich cream': 6,
-		Cream: 10,
 		'': 999
 	};
 
@@ -144,6 +135,14 @@
 		const productA = products[a];
 		const productB = products[b];
 
+		// First sort by step
+		const stepA = stepOrder[productA.Step];
+		const stepB = stepOrder[productB.Step];
+		if (stepA !== stepB) {
+			return stepA - stepB;
+		}
+
+		// Then sort by phase within each step
 		const phaseA = phaseOrder[productA.Phase as Phase];
 		const phaseB = phaseOrder[productB.Phase as Phase];
 		return phaseA - phaseB;
@@ -265,13 +264,6 @@
 							</h2>
 							<ul class="space-y-2">
 								<li class="flex items-start gap-2">
-									<Beaker class="w-4 h-4 mt-1 flex-shrink-0" />
-									<span
-										>I only included actives, so no plain moisturizers, cleansers, oils. etc.
-										because you can use those with any routine.</span
-									>
-								</li>
-								<li class="flex items-start gap-2">
 									<Sun class="w-4 h-4 mt-1 flex-shrink-0" />
 									<span
 										>Choosing "day" filters out any products that are not recommended for the day
@@ -313,6 +305,15 @@
 								This project is open source! So if you want to contribute or submit a bug, check us
 								out on GitHub.
 							</p>
+							<h3 class="text-md font-semibold">Updates</h3>
+							<ul class="space-y-2 list-disc ml-4">
+								<li>
+									1/8: Added new GF 15% solution, added tret (non-Ordinary product)
+								</li>
+								<li>
+									fixed order of items (prep, treat, seal phases now), added non-active products (like oils) back in
+								</li>
+							</ul>
 
 							<div class="card-actions justify-end">
 								<a href="https://github.com/melissamcewen/routine-builder" class="btn btn-primary"
@@ -377,57 +378,82 @@
 								</div>
 							{/if}
 							<div class="flex flex-col gap-4">
-								{#each sortedSelectedProducts as productId}
-									<div
-										class="card card-compact transition-all {timeOfDay === 'day' &&
-										products[productId].TOD === 'night'
-											? 'bg-base-100/30'
-											: 'bg-base-100/70 hover:bg-base-100/70'}"
-									>
-										<div
-											class="card-body {timeOfDay === 'day' && products[productId].TOD === 'night'
-												? 'opacity-50'
-												: ''}"
-										>
-											<div class="flex justify-between items-start">
-												<div>
-													<h3 class="card-title text-sm">
-														{products[productId].Name.split(/(?=[A-Z])/).join(' ')}
-													</h3>
-													{#if timeOfDay === 'day' && products[productId].TOD === 'night'}
-														<p class="text-xs text-error">Night-only product</p>
-													{/if}
-													<p class="text-xs opacity-70">
-														{products[productId].Phase} •
-														{#if products[productId].TOD === 'both'}
-															<span class="inline-flex gap-1 items-center"
-																>Both <Sun class="w-3 h-3" /> <Moon class="w-3 h-3" /></span
+								{#each ['Prep', 'Treat', 'Seal'] as step}
+									{@const stepProducts = sortedSelectedProducts.filter(
+										(id) => products[id].Step === step
+									)}
+									{#if stepProducts.length > 0}
+										<div class="indicator w-full indicator-center">
+											<span class="indicator-item badge badge-primary gap-1">
+												{#if step === 'Prep'}
+													<Sparkles class="w-3 h-3" />
+												{:else if step === 'Treat'}
+													<FlaskConical class="w-3 h-3" />
+												{:else}
+													<Lock class="w-3 h-3" />
+												{/if}
+												{step}
+											</span>
+											<div class="card bg-base-100/50 w-full">
+												<div class="card-body">
+													{#each stepProducts as productId}
+														<div
+															class="card card-compact transition-all {timeOfDay === 'day' &&
+															products[productId].TOD === 'night'
+																? 'bg-base-100/30'
+																: 'bg-base-100/70 hover:bg-base-100/70'}"
+														>
+															<div
+																class="card-body {timeOfDay === 'day' &&
+																products[productId].TOD === 'night'
+																	? 'opacity-50'
+																	: ''}"
 															>
-														{:else if products[productId].TOD === 'day'}
-															<span class="inline-flex gap-1 items-center"
-																>Day <Sun class="w-3 h-3" /></span
-															>
-														{:else}
-															<span class="inline-flex gap-1 items-center"
-																>Night <Moon class="w-3 h-3" /></span
-															>
-														{/if}
-													</p>
-													{#if products[productId].Tags.length > 0}
-														<p class="text-xs opacity-70">
-															Contains: {products[productId].Tags.join(', ')}
-														</p>
-													{/if}
+																<div class="flex justify-between items-start">
+																	<div>
+																		<h3 class="card-title text-sm">
+																			{products[productId].Name.split(/(?=[A-Z])/).join(' ')}
+																		</h3>
+																		{#if timeOfDay === 'day' && products[productId].TOD === 'night'}
+																			<p class="text-xs text-error">Night-only product</p>
+																		{/if}
+																		<p class="text-xs opacity-70">
+																			{products[productId].Phase} •
+																			{#if products[productId].TOD === 'both'}
+																				<span class="inline-flex gap-1 items-center">
+																					Both <Sun class="w-3 h-3" />
+																					<Moon class="w-3 h-3" />
+																				</span>
+																			{:else if products[productId].TOD === 'day'}
+																				<span class="inline-flex gap-1 items-center">
+																					Day <Sun class="w-3 h-3" />
+																				</span>
+																			{:else}
+																				<span class="inline-flex gap-1 items-center">
+																					Night <Moon class="w-3 h-3" />
+																				</span>
+																			{/if}
+																		</p>
+																		{#if products[productId].Tags.length > 0}
+																			<p class="text-xs opacity-70">
+																				Contains: {products[productId].Tags.join(', ')}
+																			</p>
+																		{/if}
+																	</div>
+																	<button
+																		class="btn btn-sm btn-ghost"
+																		on:click={() => toggleProduct(productId)}
+																	>
+																		<X class="w-4 h-4" />
+																	</button>
+																</div>
+															</div>
+														</div>
+													{/each}
 												</div>
-												<button
-													class="btn btn-sm btn-ghost"
-													on:click={() => toggleProduct(productId)}
-												>
-													<X class="w-4 h-4" />
-												</button>
 											</div>
 										</div>
-									</div>
+									{/if}
 								{/each}
 							</div>
 						{/if}
