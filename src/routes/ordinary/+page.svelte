@@ -38,8 +38,16 @@
 	const productsPerPage = 10;
 	let showIncompatible = false;
 
-	// Update URL when routine changes
+	// Update URL and handle sunscreen when routine changes
 	$: if (browser) {
+		// Handle sunscreen based on time of day
+		if (timeOfDay === 'day' && !selectedProducts.includes('sunscreen')) {
+			selectedProducts = [...selectedProducts, 'sunscreen'];
+		} else if (timeOfDay === 'night' && selectedProducts.includes('sunscreen')) {
+			selectedProducts = selectedProducts.filter((id) => id !== 'sunscreen');
+		}
+
+		// Update URL
 		const url = new URL(window.location.href);
 		url.searchParams.set('tod', timeOfDay);
 		if (selectedProducts.length > 0) {
@@ -87,8 +95,15 @@
 		const matchesFormat = selectedFormat === 'All Types' || product.Format === selectedFormat;
 		const isCompatible = showIncompatible || !getIncompatibilityReason(product);
 		const isNotSelected = !selectedProducts.includes(product.id);
+		const isNotSunscreen = product.id !== 'sunscreen'; // Hide sunscreen from available products
 		return (
-			matchesToD && matchesSearch && matchesTarget && matchesFormat && isCompatible && isNotSelected
+			matchesToD &&
+			matchesSearch &&
+			matchesTarget &&
+			matchesFormat &&
+			isCompatible &&
+			isNotSelected &&
+			isNotSunscreen
 		);
 	});
 
@@ -149,6 +164,11 @@
 	});
 
 	function toggleProduct(productId: string) {
+		// Prevent removing sunscreen during day routine
+		if (productId === 'sunscreen' && timeOfDay === 'day') {
+			return;
+		}
+
 		if (selectedProducts.includes(productId)) {
 			selectedProducts = selectedProducts.filter((id) => id !== productId);
 		} else {
@@ -289,8 +309,7 @@
 								<li class="flex items-start gap-2">
 									<Drama class="w-4 h-4 mt-1 flex-shrink-0" />
 									<span
-										>This tool is just for fun. If your face falls off I'm really sorry but you
-										shouldn't have used all those direct acids.</span
+										>This tool is just for fun. Don't forget to wear SUNSCREEN during the day.</span
 									>
 								</li>
 							</ul>
@@ -307,11 +326,10 @@
 							</p>
 							<h3 class="text-md font-semibold">Updates</h3>
 							<ul class="space-y-2 list-disc ml-4">
+								<li>1/8: Added new GF 15% solution, added tret (non-Ordinary product)</li>
 								<li>
-									1/8: Added new GF 15% solution, added tret (non-Ordinary product)
-								</li>
-								<li>
-									fixed order of items (prep, treat, seal phases now), added non-active products (like oils) back in
+									fixed order of items (prep, treat, seal phases now), added non-active products
+									(like oils) back in
 								</li>
 							</ul>
 

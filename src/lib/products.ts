@@ -777,5 +777,17 @@ export const products: { [key: string]: Product } = {
 		Excludes: [],
 		Tags: [],
 		id: '100-cold-pressed-virgin-marula-oil'
+	},
+	'sunscreen': {
+		Name: 'Sunscreen (generic, use any sunscreen)',
+		TOD: 'day',
+		Step: 'Seal',
+		Targets: ['Sun Protection'],
+		'Skin Types': '',
+		Phase: 'Cream',
+		Format: 'Sunscreen',
+		Excludes: [],
+		Tags: [],
+		id: 'sunscreen'
 	}
 };

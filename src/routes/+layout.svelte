@@ -2,7 +2,7 @@
 	import '../app.css';
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
-	import { TestTubeDiagonal, FlaskConical } from 'lucide-svelte';
+	import { TestTubeDiagonal, FlaskConical, Book } from 'lucide-svelte';
 	import { Sun, Moon } from 'lucide-svelte';
 
 	let theme = 'shimmer';
@@ -38,6 +38,9 @@
 			<a href="/ordinary" class="btn btn-ghost gap-2">
 				<FlaskConical size={20} />
 				The Ordinary
+			</a>
+			<a href="/blog" class="btn btn-ghost gap-2">
+				<Book class="w-4 h-4" /> Blog
 			</a>
 			<button class="btn btn-ghost btn-circle" on:click={toggleTheme}>
 				{#if theme === 'shimmer'}
