@@ -6,7 +6,7 @@ import { mdsvex } from 'mdsvex';
 const config = {
 	kit: {
 		adapter: adapter({
-			runtime: 'edge'
+			runtime: 'nodejs22.x'
 		})
 	},
 	extensions: ['.svelte', '.md', '.svx'],
