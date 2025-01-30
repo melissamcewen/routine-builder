@@ -2,6 +2,7 @@
 	import { products } from '$lib/products';
 	import { page } from '$app/stores';
 	import { Sun, Moon, FlaskConical, Beaker, Share2, ArrowLeftRight, Tag } from 'lucide-svelte';
+	import { sortProductsByPhase } from '$lib/utils';
 
 	let timeOfDay: 'day' | 'night' = ($page.url.searchParams.get('tod') as 'day' | 'night') || 'day';
 	let selectedProducts: string[] =
@@ -11,41 +12,7 @@
 			.filter((id) => products[id]) || [];
 	let routineName = $page.url.searchParams.get('name') || '';
 
-	type Phase =
-		| 'Water'
-		| 'Anhydrous'
-		| 'Oil'
-		| 'Cream'
-		| 'Suspension'
-		| 'Emulsion'
-		| 'Milky'
-		| 'Gel'
-		| 'Rich cream'
-		| 'Powder'
-		| '';
-
-	const phaseOrder: Record<Phase, number> = {
-		Milky: 0,
-		Water: 1,
-		Anhydrous: 2,
-		Oil: 3,
-		Cream: 4,
-		Suspension: 5,
-		Emulsion: 6,
-		Gel: 6,
-		'Rich cream': 6,
-		Powder: 7,
-		'': 999
-	};
-
-	$: sortedSelectedProducts = selectedProducts.sort((a, b) => {
-		const productA = products[a];
-		const productB = products[b];
-
-		const phaseA = phaseOrder[productA.Phase as Phase];
-		const phaseB = phaseOrder[productB.Phase as Phase];
-		return phaseA - phaseB;
-	});
+	$: sortedSelectedProducts = sortProductsByPhase(selectedProducts, products);
 </script>
 
 <div class="min-h-screen">

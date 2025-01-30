@@ -22,14 +22,12 @@
 		Github,
 		Lock
 	} from 'lucide-svelte';
+	import { sortProductsByPhase } from '$lib/utils';
 
 	// Get initial state from URL params if they exist
 	let timeOfDay: 'day' | 'night' = ($page.url.searchParams.get('tod') as 'day' | 'night') || 'day';
 	let selectedProducts: string[] =
-		$page.url.searchParams
-			.get('products')
-			?.split(',')
-			.filter((id) => products[id]) || [];
+		$page.url.searchParams.get('products')?.split(',').filter((id) => products[id]) ?? [];
 	let routineName = $page.url.searchParams.get('name') || '';
 	let searchQuery = '';
 	let selectedTarget = 'All Concerns';
@@ -87,7 +85,7 @@
 		).values()
 	].sort();
 
-	$: filteredProducts = Object.values(products).filter((product: Product) => {
+	$: filteredProducts = Object.values(products).filter((product) => {
 		const matchesToD = product.TOD === timeOfDay || product.TOD === 'both';
 		const matchesSearch = product.Name.toLowerCase().includes(searchQuery.toLowerCase());
 		const matchesTarget =
@@ -107,11 +105,19 @@
 		);
 	});
 
+	$: sortedFilteredProducts = sortProductsByPhase(filteredProducts);
+
 	$: totalPages = Math.ceil(filteredProducts.length / productsPerPage);
-	$: paginatedProducts = filteredProducts.slice(
+	$: paginatedProducts = sortedFilteredProducts.slice(
 		(currentPage - 1) * productsPerPage,
 		currentPage * productsPerPage
 	);
+
+	$: selectedProductsArray = selectedProducts
+		.map((id) => products[id])
+		.filter((product): product is Product => product !== undefined);
+
+	$: sortedSelectedProducts = sortProductsByPhase(selectedProducts, products);
 
 	type Phase = 'Water' | 'Emulsion' | 'Anhydrous' | 'Oil' | 'Cream' | 'Suspension' | '';
 
@@ -145,23 +151,6 @@
 
 		return `Not compatible with: ${incompatibleProducts.map((id) => products[id].Name).join(', ')}`;
 	}
-
-	$: sortedSelectedProducts = selectedProducts.sort((a, b) => {
-		const productA = products[a];
-		const productB = products[b];
-
-		// First sort by step
-		const stepA = stepOrder[productA.Step];
-		const stepB = stepOrder[productB.Step];
-		if (stepA !== stepB) {
-			return stepA - stepB;
-		}
-
-		// Then sort by phase within each step
-		const phaseA = phaseOrder[productA.Phase as Phase];
-		const phaseB = phaseOrder[productB.Phase as Phase];
-		return phaseA - phaseB;
-	});
 
 	function toggleProduct(productId: string) {
 		// Prevent removing sunscreen during day routine
