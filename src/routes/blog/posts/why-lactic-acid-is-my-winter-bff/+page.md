@@ -6,7 +6,15 @@ description: 'Lactic acid is a humectant and exfoliant, and also works as an ant
 keywords: 'lactic acid, winter, dry skin, humectant, exfoliant, antioxidant, anti-aging, anti-acne'
 author: 'Melissa McEwen'
 ---
+<svelte:head>
 
+  <title>Why Lactic Acid is My Winter BFF - My Routine Builder</title>
+  <meta name="description" content="Lactic acid is a humectant and exfoliant, and also works as an antioxidant/anti-aging/anti-acne!" />
+  <meta name="keywords" content="lactic acid, winter, dry skin, humectant, exfoliant, antioxidant, anti-aging, anti-acne" />
+  <script type="application/ld+json">
+    {JSON.stringify(articleData)}
+  </script>
+</svelte:head>
 <script>
   import { InlineReference, References } from '$lib/components';
 
