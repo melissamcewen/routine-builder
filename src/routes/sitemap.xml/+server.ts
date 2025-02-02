@@ -8,6 +8,10 @@ const staticPages = ['', '/blog'];
 // Blog posts
 const posts = [
 	{
+		slug: 'why-lactic-acid-is-my-winter-bff',
+		lastmod: '2025-02-02'
+	},
+	{
 		slug: 'welcome-to-the-ordinary-advanced-builder',
 		lastmod: '2024-01-09'
 	}

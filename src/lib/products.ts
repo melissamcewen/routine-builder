@@ -10,6 +10,8 @@ export interface Product {
   Excludes: string[];
   Tags: string[];
   Notes?: string;
+	Ingredients?: string;
+	KeyIngredients?: string;
 }
 
 export const products: { [key: string]: Product } = {
@@ -32,10 +34,14 @@ export const products: { [key: string]: Product } = {
 			'Saccharomyces Ferment 30% Milky Toner'
 		],
 		Tags: ['Direct Acids'],
-		id: 'glycolic-acid-7-exfoliating-toner'
+		id: 'glycolic-acid-7-exfoliating-toner',
+		Ingredients:
+			'Aqua (Water), Glycolic Acid, Rosa Damascena Flower Water, Centaurea Cyanus Flower Water, Aloe Barbadensis Leaf Water, Propanediol, Glycerin, Triethanolamine, Aminomethyl Propanol, Panax Ginseng Root Extract, Tasmannia Lanceolata Fruit/Leaf Extract, Aspartic Acid, Alanine, Glycine, Serine, Valine, Isoleucine, Proline, Threonine, Histidine, Phenylalanine, Glutamic Acid, Arginine, Pca, Sodium Pca, Sodium Lactate, Fructose, Glucose, Sucrose, Urea, Hexyl Nicotinate, Dextrin, Citric Acid, Polysorbate 20, Gellan Gum, Trisodium Ethylenediamine Disuccinate, Sodium Chloride, Hexylene Glycol, Potassium Sorbate, Sodium Benzoate, 1,2-Hexanediol, Caprylyl Glycol.',
+		KeyIngredients:
+			'Glycolic Acid, Aloe Barbadensis Leaf Water, Panax Ginseng Root Extract, Tasmannia Lanceolata Fruit/Leaf Extract'
 	},
 	'hyaluronic-acid-2-b5-hydrating-serum': {
-		Name: 'Hyaluronic Acid 2% + B5 Hydrating Serum',
+		Name: 'Hyaluronic Acid 2% + B5 (with Ceramides)',
 		TOD: 'both',
 		Step: 'Treat',
 		Targets: ['Dehydration', 'Signs of Aging'],
@@ -44,7 +50,10 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: [],
 		Tags: [],
-		id: 'hyaluronic-acid-2-b5-hydrating-serum'
+		id: 'hyaluronic-acid-2-b5-hydrating-serum',
+		KeyIngredients: 'Hyaluronic acid, ceramides, pro-vitamin B5',
+		Ingredients:
+			'Aqua (Water), Sodium Hyaluronate, Propanediol, Pentylene Glycol, Hydrolyzed Hyaluronic Acid, Sodium Hyaluronate Crosspolymer, Phospholipids, Sphingolipids, Panthenol, Ahnfeltiopsis Concinna Extract, Glycerin, Polysorbate 20, Citric Acid, Sodium Citrate, p-Anisic Acid, Tocopherol, Trisodium Ethylenediamine Disuccinate, Caprylyl Glycol, Ethoxydiglycol, Ethylhexylglycerin, Hexylene Glycol, Phenoxyethanol, Chlorphenesin.'
 	},
 	'niacinamide-10-zinc-1': {
 		Name: 'Niacinamide 10% + Zinc 1%',
@@ -62,7 +71,10 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: ['Direct Vitamin C', 'Indirect Vitamin C'],
 		Tags: [],
-		id: 'niacinamide-10-zinc-1'
+		id: 'niacinamide-10-zinc-1',
+		KeyIngredients: 'Niacinamide, Zinc PCA',
+		Ingredients:
+			'Aqua (Water), Niacinamide, Pentylene Glycol, Zinc PCA, Dimethyl Isosorbide, Tamarindus Indica Seed Gum, Xanthan Gum, Isoceteth-20, Ethoxydiglycol, Phenoxyethanol, Chlorphenesin.'
 	},
 	'caffeine-solution-5-egcg': {
 		Name: 'Caffeine Solution 5% + EGCG',
@@ -74,7 +86,10 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: [],
 		Tags: [],
-		id: 'caffeine-solution-5-egcg'
+		id: 'caffeine-solution-5-egcg',
+		KeyIngredients: 'Caffeine, Epigallocatechin Gallatyl Glucoside',
+		Ingredients:
+			'Aqua (Water), Caffeine, Maltodextrin, Glycerin, Propanediol, Epigallocatechin Gallatyl Glucoside, Gallyl Glucoside, Hyaluronic Acid, Oxidized Glutathione, Melanin, Glycine Soja (Soybean) Seed Extract, Pentylene Glycol, Hydroxyethylcellulose, Polyacrylate Crosspolymer-6, Xanthan gum, Lactic Acid, Dehydroacetic Acid, Trisodium Ethylenediamine Disuccinate, Propyl Gallate, Dimethyl Isosorbide, Benzyl Alcohol, 1,2-Hexanediol, Ethylhexylglycerin, Phenoxyethanol, Caprylyl Glycol.'
 	},
 	'argireline-solution-10': {
 		Name: 'Argireline Solution 10%',
@@ -91,7 +106,10 @@ export const products: { [key: string]: Product } = {
 			'Salicylic Acid'
 		],
 		Tags: ['Peptides'],
-		id: 'argireline-solution-10'
+		id: 'argireline-solution-10',
+		KeyIngredients: 'Acetyl Hexapeptide-8',
+		Ingredients:
+			' Aqua (Water), Propanediol, Acetyl Hexapeptide-8, Trisodium Ethylenediamine Disuccinate, Gellan Gum, Sodium Chloride, Isoceteth-20, Dimethyl Isosorbide, Potassium Sorbate, Phenoxyethanol, Chlorphenesin.'
 	},
 	'salicylic-acid-2-solution': {
 		Name: 'Salicylic Acid 2% Solution',
@@ -112,7 +130,10 @@ export const products: { [key: string]: Product } = {
 			'Saccharomyces Ferment 30% Milky Toner'
 		],
 		Tags: ['Direct Acids', 'Salicylic Acid'],
-		id: 'salicylic-acid-2-solution'
+		id: 'salicylic-acid-2-solution',
+		KeyIngredients: 'Salicylic Acid',
+		Ingredients:
+			'Cocamidopropyl Dimethylamine, Chlorphenesin, Citric Acid, Hydroxyethylcellulose, Phenoxyethanol, Polysorbate 20, Saccharide Isomerate, Sodium Citrate, Sodium Hydroxide, Water.'
 	},
 
 	'azelaic-acid-suspension-10': {
@@ -134,7 +155,10 @@ export const products: { [key: string]: Product } = {
 			'Saccharomyces Ferment 30% Milky Toner'
 		],
 		Tags: ['Direct Acids'],
-		id: 'azelaic-acid-suspension-10'
+		id: 'azelaic-acid-suspension-10',
+		KeyIngredients: 'Azelaic Acid',
+		Ingredients:
+			'Aqua (Water), Isodecyl Neopentanoate, Dimethicone, Azelaic Acid, Dimethicone/Bis-Isobutyl Ppg-20 Crosspolymer, Dimethyl Isosorbide, Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer, Polysilicone-11, Isohexadecane, Tocopherol, Trisodium Ethylenediamine Disuccinate, Isoceteth-20, Polysorbate 60, Triethanolamine, Ethoxydiglycol, Phenoxyethanol, Chlorphenesin.'
 	},
 	'lactic-acid-10-ha': {
 		Name: 'Lactic Acid 10% + HA',
@@ -155,7 +179,11 @@ export const products: { [key: string]: Product } = {
 			'Saccharomyces Ferment 30% Milky Toner'
 		],
 		Tags: ['Direct Acids'],
-		id: 'lactic-acid-10-ha'
+		id: 'lactic-acid-10-ha',
+		KeyIngredients:
+			'Lactic Acid, Sodium Hyaluronate Crosspolymer, Tasmannia Lanceolata Fruit/Leaf Extract',
+		Ingredients:
+			'Aqua (Water), Lactic Acid, Glycerin, Pentylene Glycol, Propanediol, Sodium Hydroxide, Sodium Hyaluronate Crosspolymer, Tasmannia Lanceolata Fruit/Leaf Extract, Acacia Senegal Gum, Xanthan Gum, Isoceteth-20, Trisodium Ethylenediamine Disuccinate, Ethylhexylglycerin, 1,2-Hexanediol, Caprylyl Glycol. '
 	},
 	'salicylic-acid-2-anhydrous-solution': {
 		Name: 'Salicylic Acid 2% Anhydrous Solution',
@@ -176,7 +204,10 @@ export const products: { [key: string]: Product } = {
 			'Saccharomyces Ferment 30% Milky Toner'
 		],
 		Tags: ['Direct Acids', 'Salicylic Acid'],
-		id: 'salicylic-acid-2-anhydrous-solution'
+		id: 'salicylic-acid-2-anhydrous-solution',
+		KeyIngredients: 'Salicylic Acid',
+		Ingredients:
+			'Squalane, Caprylic/Capric Triglyceride, Pentylene Glycol, Salicylic Acid, Oleic/Linoleic/Linolenic Polyglycerides, 4-t-Butylcyclohexanol, Hydroxymethoxyphenyl Decanone, Phenoxyethanol, Chlorphenesin.'
 	},
 	'mandelic-acid-10-ha': {
 		Name: 'Mandelic Acid 10% + HA',
@@ -197,7 +228,11 @@ export const products: { [key: string]: Product } = {
 			'Saccharomyces Ferment 30% Milky Toner'
 		],
 		Tags: ['Direct Acids'],
-		id: 'mandelic-acid-10-ha'
+		id: 'mandelic-acid-10-ha',
+		KeyIngredients:
+			'Mandelic Acid, Sodium Hyaluronate Crosspolymer, Tasmannia Lanceolata Fruit/Leaf Extract',
+		Ingredients:
+			'Propanediol, Aqua (Water), Mandelic Acid, Glycerin, Dimethyl Isosorbide, Sodium Hyaluronate Crosspolymer, Tasmannia Lanceolata Fruit/Leaf Extract, Pentylene Glycol, Polysorbate 20, Sodium Hydroxide, Ethylhexylglycerin, 1,2-Hexanediol, Caprylyl Glycol.'
 	},
 	'lactic-acid-5-ha': {
 		Name: 'Lactic Acid 5% + HA',
@@ -218,7 +253,11 @@ export const products: { [key: string]: Product } = {
 			'Saccharomyces Ferment 30% Milky Toner'
 		],
 		Tags: ['Direct Acids'],
-		id: 'lactic-acid-5-ha'
+		id: 'lactic-acid-5-ha',
+		KeyIngredients:
+			'Lactic Acid, Sodium Hyaluronate Crosspolymer, Tasmannia Lanceolata Fruit/Leaf Extract',
+		Ingredients:
+			'Aqua (Water), Lactic Acid, Glycerin, Pentylene Glycol, Propanediol, Sodium Hyaluronate Crosspolymer, Tasmannia Lanceolata Fruit/Leaf Extract, Acacia Senegal Gum, Xanthan Gum, Isoceteth-20, Trisodium Ethylenediamine Disuccinate, Sodium Hydroxide, Ethylhexylglycerin, 1,2-Hexanediol, Caprylyl Glycol. '
 	},
 	'vitamin-c-suspension-23-ha-spheres-2': {
 		Name: 'Vitamin C Suspension 23% + HA Spheres 2%',
@@ -230,7 +269,10 @@ export const products: { [key: string]: Product } = {
 		Format: '',
 		Excludes: [],
 		Tags: ['Direct Vitamin C'],
-		id: 'vitamin-c-suspension-23-ha-spheres-2'
+		id: 'vitamin-c-suspension-23-ha-spheres-2',
+		KeyIngredients: 'Ascorbic Acid, Sodium Hyaluronate',
+		Ingredients:
+			'Ascorbic Acid, Squalane, Isodecyl Neopentanoate, Isononyl Isononanoate, Coconut Alkanes, Ethylene/Propylene/Styrene Copolymer, Ethylhexyl Palmitate, Silica Dimethyl Silylate, Sodium Hyaluronate, Glucomannan, Coco-Caprylate/Caprate, Butylene/Ethylene/Styrene Copolymer, Acrylates/Ethylhexyl Acrylate Crosspolymer, Trihydroxystearin, Bht.'
 	},
 	'100-l-ascorbic-acid-powder': {
 		Name: '100% L-Ascorbic Acid Powder',
@@ -251,7 +293,9 @@ export const products: { [key: string]: Product } = {
 			''
 		],
 		Tags: ['Direct Vitamin C'],
-		id: '100-l-ascorbic-acid-powder'
+		id: '100-l-ascorbic-acid-powder',
+		KeyIngredients: 'Ascorbic Acid',
+		Ingredients: 'Ascorbic Acid'
 	},
 	'vitamin-c-suspension-30-in-silicone': {
 		Name: 'Vitamin C Suspension 30% in Silicone',
@@ -283,7 +327,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: ['Copper Peptides', 'EUK', 'Peptides', 'Re: Pigment'],
 		Tags: ['Resveratrol and Ferulic Acid', 'Strong Antioxidants'],
-		id: 'resveratrol-3-ferulic-acid-3'
+		id: 'resveratrol-3-ferulic-acid-3',
+		KeyIngredients: 'Resveratrol, Ferulic Acid',
+		Ingredients: 'Propanediol, Resveratrol, Ferulic Acid. '
 	},
 	'ascorbyl-glucoside-solution-12': {
 		Name: 'Ascorbyl Glucoside Solution 12%',
@@ -295,7 +341,10 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: ['Niacinamide'],
 		Tags: ['Indirect Vitamin C'],
-		id: 'ascorbyl-glucoside-solution-12'
+		id: 'ascorbyl-glucoside-solution-12',
+		KeyIngredients: 'Ascorbyl Glucoside',
+		Ingredients:
+			'Aqua (Water), Ascorbyl Glucoside, Propanediol, Aminomethyl Propanol, Triethanolamine, Isoceteth-20, Xanthan Gum, Dimethyl Isosorbide, Ethoxydiglycol, Trisodium Ethylenediamine Disuccinate, 1,2-Hexanediol, Caprylyl Glycol.'
 	},
 	'ascorbyl-tetraisopalmitate-solution-20-in-vitamin-f': {
 		Name: 'Ascorbyl Tetraisopalmitate Solution 20% in Vitamin F',
@@ -307,7 +356,10 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: ['Niacinamide'],
 		Tags: ['Indirect Vitamin C'],
-		id: 'ascorbyl-tetraisopalmitate-solution-20-in-vitamin-f'
+		id: 'ascorbyl-tetraisopalmitate-solution-20-in-vitamin-f',
+		KeyIngredients: 'Tetrahexyldecyl Ascorbate, Ethyl Linoleate',
+		Ingredients:
+			'Coconut Alkanes, Tetrahexyldecyl Ascorbate, Ethyl Linoleate, Coco-Caprylate/Caprate, Simmondsia Chinensis (Jojoba) Seed Oil, Solanum Lycopersicum (Tomato) Fruit Extract, Squalane.'
 	},
 	'multi-peptide-copper-peptides-1-serum': {
 		Name: 'Multi-Peptide + Copper Peptides 1% Serum',
@@ -327,7 +379,11 @@ export const products: { [key: string]: Product } = {
 			'Salicylic Acid'
 		],
 		Tags: ['Copper Peptides'],
-		id: 'multi-peptide-copper-peptides-1-serum'
+		id: 'multi-peptide-copper-peptides-1-serum',
+		KeyIngredients:
+			'Copper Tripeptide-1, Lactococcus Ferment Lysate, Acetyl Hexapeptide-8, Palmitoyl Tripeptide-1, Pentapeptide-18, Palmitoyl Tetrapeptide-7, Palmitoyl Tripeptide-38, Dipeptide Diaminobutyroyl Benzylamide Diacetate, Acetylarginyltryptophyl Diphenylglycine, Sodium Hyaluronate.',
+		Ingredients:
+			' Aqua (Water), Glycerin, Lactococcus Ferment Lysate, Copper Tripeptide-1, Acetyl Hexapeptide-8, Pentapeptide-18, Palmitoyl Tripeptide-1, Palmitoyl Tetrapeptide-7, Palmitoyl Tripeptide-38, Dipeptide Diaminobutyroyl Benzylamide Diacetate, Acetylarginyltryptophyl Diphenylglycine, Sodium Hyaluronate Crosspolymer, Sodium Hyaluronate, Allantoin, Glycine, Alanine, Serine, Valine, Isoleucine, Proline, Threonine, Histidine, Phenylalanine, Arginine, Aspartic Acid, Trehalose, Fructose, Glucose, Maltose, Urea, Sodium Pca, Pca, Sodium Lactate, Citric Acid, Hydroxypropyl Cyclodextrin, Sodium Chloride, Sodium Hydroxide, Butylene Glycol, Pentylene Glycol, Acacia Senegal Gum, Xanthan Gum, Carbomer, Polysorbate 20, Dimethyl Isosorbide, Sodium Benzoate, Caprylyl Glycol, Ethylhexylglycerin, Phenoxyethanol, Chlorphenesin. '
 	},
 	'100-niacinamide-powder': {
 		Name: '100% Niacinamide Powder',
@@ -339,7 +395,9 @@ export const products: { [key: string]: Product } = {
 		Format: '',
 		Excludes: ['Direct Vitamin C', 'Indirect Vitamin C', 'Direct Acids'],
 		Tags: ['Niacinamide Powder'],
-		id: '100-niacinamide-powder'
+		id: '100-niacinamide-powder',
+		KeyIngredients: 'Niacinamide',
+		Ingredients: 'Niacinamide'
 	},
 	'euk-134-0-1': {
 		Name: 'EUK 134 0.1%',
@@ -356,7 +414,9 @@ export const products: { [key: string]: Product } = {
 			'Resveratrol and Ferulic Acid'
 		],
 		Tags: ['EUK'],
-		id: 'euk-134-0-1'
+		id: 'euk-134-0-1',
+		KeyIngredients: 'EUK 134',
+		Ingredients: 'Propanediol, Ethylbisiminomethylguaiacol Manganese Chloride.'
 	},
 	'multi-peptide-ha-serum': {
 		Name: 'Multi-Peptide + HA Serum',
@@ -373,7 +433,11 @@ export const products: { [key: string]: Product } = {
 			'Salicylic Acid'
 		],
 		Tags: ['Peptides'],
-		id: 'multi-peptide-ha-serum'
+		id: 'multi-peptide-ha-serum',
+		Ingredients:
+			'Aqua (Water), Glycerin, Lactococcus Ferment Lysate, Acetyl Hexapeptide-8, Pentapeptide-18, Palmitoyl Tripeptide-1, Palmitoyl Tetrapeptide-7, Palmitoyl Tripeptide-38, Dipeptide Diaminobutyroyl Benzylamide Diacetate, Acetylarginyltryptophyl Diphenylglycine, Sodium Hyaluronate Crosspolymer, Sodium Hyaluronate, Allantoin, Glycine, Alanine, Serine, Valine, Isoleucine, Proline, Threonine, Histidine, Phenylalanine, Arginine, Aspartic Acid, Trehalose, Fructose, Glucose, Maltose, Urea, Sodium PCA, PCA, Sodium Lactate, Citric Acid, Hydroxypropyl Cyclodextrin, Sodium Chloride, Sodium Hydroxide, Butylene Glycol, Pentylene Glycol, Acacia Senegal Gum, Xanthan Gum, Carbomer, Polysorbate 20, PPG-26-Buteth-26, PEG-40 Hydrogenated Castor Oil, Trisodium Ethylenediamine Disuccinate, Ethoxydiglycol, Sodium Benzoate, Caprylyl Glycol, Ethylhexylglycerin, Phenoxyethanol, Chlorphenesin. ',
+		KeyIngredients:
+			'Lactococcus Ferment Lysate, Acetyl Hexapeptide-8, Palmitoyl Tripeptide-1, Pentapeptide-18, Palmitoyl Tetrapeptide-7, Palmitoyl Tripeptide-38, Dipeptide Diaminobutyroyl Benzylamide Diacetate, Acetylarginyltryptophyl Diphenylglycine, Sodium Hyaluronate'
 	},
 	'multi-peptide-eye-serum': {
 		Name: 'Multi-Peptide Eye Serum',
@@ -390,7 +454,11 @@ export const products: { [key: string]: Product } = {
 			'Salicylic Acid'
 		],
 		Tags: ['Peptides'],
-		id: 'multi-peptide-eye-serum'
+		id: 'multi-peptide-eye-serum',
+		KeyIngredients:
+			'Epigallocatechin Gallatyl Glucoside, Niacinamide, Fraxinus Excelsior Bark Extract, Palmitoyl Tripeptide-38, Acetyl Tetrapeptide-5, Myristoyl Nonapeptide-3, Dipeptide Diaminobutyroyl Benzylamide Diacetate, Caffeine',
+		Ingredients:
+			' Aqua (Water), Glycerin, Butylene Glycol, Propanediol, Dipropylene Glycol, Acetyl Glucosamine, Niacinamide, Palmitoyl Tripeptide-38, Acetyl Tetrapeptide-5, Myristoyl Nonapeptide-3, Dipeptide Diaminobutyroyl Benzylamide Diacetate, Caffeine, Epigallocatechin Gallatyl Glucoside, Gallyl Glucoside, Fraxinus Excelsior Bark Extract, Silanetriol, Arginine, Pentylene Glycol, Hydroxymethoxyphenyl Decanone, Propyl Gallate, Maltodextrin, Hydroxypropyl Cyclodextrin, Hydroxyethylcellulose, Xanthan Gum, Citric Acid, Glycolic Acid, Sodium Citrate, Polysorbate 20, Trisodium Ethylenediamine Disuccinate, Dehydroacetic Acid, Ethylhexylglycerin, Benzyl Alcohol, Phenoxyethanol, Chlorphenesin. '
 	},
 	'aloe-2-nag-2-solution': {
 		Name: 'Aloe 2% + NAG 2% Solution',
@@ -407,7 +475,10 @@ export const products: { [key: string]: Product } = {
 			'Salicylic Acid'
 		],
 		Tags: ['Peptides'],
-		id: 'aloe-2-nag-2-solution'
+		id: 'aloe-2-nag-2-solution',
+		KeyIngredients:
+			'Aloe Barbadensis Leaf Juice Powder, N-Acetyl Glucosamine, Palmitoyl Pentapeptide-4',
+		Ingredients: 'Aqua (Water), Propanediol, Glycerin, Dipropylene Glycol, Aloe Barbadensis Leaf Juice Powder, N-Acetyl Glucosamine, Palmitoyl Pentapeptide-4, Biosaccharide Gum-2, Pentylene Glycol, Xanthan Gum, Isoceteth-20, Hydroxymethoxyphenyl Decanone, Sodium Lactate, Lactic Acid, Sodium Hydroxide, Ethylhexylglycerin, Phenoxyethanol, Chlorphenesin.'
 	},
 	'matrixyl-10-ha': {
 		Name: 'Matrixyl 10% + HA',
@@ -778,7 +849,7 @@ export const products: { [key: string]: Product } = {
 		Tags: [],
 		id: '100-cold-pressed-virgin-marula-oil'
 	},
-	'sunscreen': {
+	sunscreen: {
 		Name: 'Sunscreen (generic, use any sunscreen)',
 		TOD: 'day',
 		Step: 'Seal',

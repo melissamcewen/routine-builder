@@ -4,7 +4,7 @@ slug: welcome-to-the-ordinary-advanced-builder
 date: '2024-01-09'
 description: 'Learn how to use The Ordinary Advanced Builder to create perfect skincare routines with real-time compatibility checking and proper product ordering.'
 keywords: 'The Ordinary, skincare routine, product compatibility, skincare guide, routine builder'
-author: 'My Routine Builder'
+author: 'Melissa McEwen'
 ---
 
 <script>
@@ -18,8 +18,8 @@ author: 'My Routine Builder'
     'headline': 'Welcome to The Ordinary Advanced Builder',
     'datePublished': '2024-01-09',
     'author': {
-      '@type': 'Organization',
-      'name': 'My Routine Builder'
+      '@type': 'Person',
+      'name': 'Melissa McEwen'
     },
     'description': 'Learn how to use The Ordinary Advanced Builder to create perfect skincare routines with real-time compatibility checking and proper product ordering.'
   };

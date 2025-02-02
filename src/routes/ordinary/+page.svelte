@@ -20,7 +20,8 @@
 		Share2,
 		ListOrdered,
 		Github,
-		Lock
+		Lock,
+		Coffee
 	} from 'lucide-svelte';
 	import { sortProductsByPhase } from '$lib/utils';
 
@@ -315,16 +316,17 @@
 							</p>
 							<h3 class="text-md font-semibold">Updates</h3>
 							<ul class="space-y-2 list-disc ml-4">
+								<li>2/2: Fixed bug with ordering in share page, new blog post <a href="/blog/posts/why-lactic-acid-is-my-winter-bff" class="link">Why Lactic Acid is My Winter BFF</a></li>
 								<li>1/8: Added new GF 15% solution, added tret (non-Ordinary product)</li>
-								<li>
-									fixed order of items (prep, treat, seal phases now), added non-active products
-									(like oils) back in
-								</li>
+
 							</ul>
 
 							<div class="card-actions justify-end">
-								<a href="https://github.com/melissamcewen/routine-builder" class="btn btn-primary"
+								<a href="https://github.com/melissamcewen/routine-builder" class="btn btn-sm btn-primary"
 									><Github class="w-4 h-4 flex-shrink-0" /> GitHub</a
+								>
+								<a href="https://buymeacoffee.com/melissamcewen" class="btn btn-sm btn-secondary"
+									><Coffee class="w-4 h-4 flex-shrink-0" /> Buy me a coffee</a
 								>
 							</div>
 						</div>
