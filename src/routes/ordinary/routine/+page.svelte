@@ -13,7 +13,44 @@
 	let routineName = $page.url.searchParams.get('name') || '';
 
 	$: sortedSelectedProducts = sortProductsByPhase(selectedProducts, products);
+
+	// Generate dynamic meta description based on selected products
+	$: metaDescription =
+		selectedProducts.length > 0
+			? `${routineName ? `${routineName}: ` : ''}${timeOfDay} skincare routine with The Ordinary products: ${selectedProducts.map((id) => products[id].Name).join(', ')}`
+			: 'Create and share your personalized skincare routine with The Ordinary products. Features compatibility checks and proper product ordering.';
+
+	// Generate structured data for the routine
+	$: structuredData = {
+		'@context': 'https://schema.org',
+		'@type': 'HowTo',
+		name: routineName || `${timeOfDay} Skincare Routine`,
+		description: metaDescription,
+		step: sortedSelectedProducts.map((productId, index) => ({
+			'@type': 'HowToStep',
+			position: index + 1,
+			name: products[productId].Name,
+			text: `Apply ${products[productId].Name} (${products[productId].Phase} phase)`
+		}))
+	};
 </script>
+
+<svelte:head>
+	<title
+		>{routineName ? `${routineName} - ` : ''}{timeOfDay === 'day' ? 'Day' : 'Night'} Routine - The Ordinary
+		Routine Builder</title
+	>
+	<meta name="description" content={metaDescription} />
+	<meta
+		name="keywords"
+		content="The Ordinary, skincare routine, {timeOfDay} routine, {selectedProducts
+			.map((id) => products[id].Name.toLowerCase())
+			.join(', ')}"
+	/>
+	<script type="application/ld+json">
+		{JSON.stringify(structuredData)}
+	</script>
+</svelte:head>
 
 <div class="min-h-screen">
 	<div class="container mx-auto p-4">

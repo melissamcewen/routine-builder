@@ -633,8 +633,8 @@ export const products: { [key: string]: Product } = {
 		Tags: [],
 		id: 'alpha-arbutin-2-ha'
 	},
-	'hyaluronic-acid-2-b5-with-ceramides': {
-		Name: 'Hyaluronic Acid 2% + B5 (with Ceramides)',
+	'hyaluronic-acid-2-b5-original-formulation': {
+		Name: 'Hyaluronic Acid 2% + B5 (Original Formulation)',
 		TOD: 'both',
 		Step: 'Treat',
 		Targets: ['Dehydration', 'Signs of Aging'],
@@ -643,7 +643,7 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: [],
 		Tags: [],
-		id: 'hyaluronic-acid-2-b5-with-ceramides'
+		id: 'hyaluronic-acid-2-b5-original-formulation'
 	},
 	'soothing-barrier-support-serum': {
 		Name: 'Soothing & Barrier Support Serum',
@@ -780,11 +780,11 @@ export const products: { [key: string]: Product } = {
 	'natural-moisturizing-factors-ha': {
 		Name: 'Natural Moisturizing Factors + HA',
 		TOD: 'both',
-		Step: 'Treat',
+		Step: 'Seal',
 		Targets: ['Dryness'],
 		'Skin Types': '',
 		Phase: 'Cream',
-		Format: 'Serum',
+		Format: 'Moisturizer',
 		Excludes: [],
 		Tags: [],
 		id: 'natural-moisturizing-factors-ha'
