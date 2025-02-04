@@ -789,8 +789,8 @@ export const products: { [key: string]: Product } = {
 		Tags: [],
 		id: 'natural-moisturizing-factors-ha'
 	},
-	'squalene-cleanser': {
-		Name: 'Squalene Cleanser',
+	'squalane-cleanser': {
+		Name: 'Squalane Cleanser',
 		TOD: 'both',
 		Step: 'Prep',
 		Targets: ['Dryness'],
@@ -799,7 +799,7 @@ export const products: { [key: string]: Product } = {
 		Format: 'Cleanser',
 		Excludes: [],
 		Tags: [],
-		id: 'squalene-cleanser'
+		id: 'squalane-cleanser'
 	},
 	'100-organic-cold-pressed-moroccan-argan-oil': {
 		Name: '100% Organic Cold-Pressed Moroccan Argan Oil',

@@ -5,13 +5,26 @@
 	const blogData = {
 		'@context': 'https://schema.org',
 		'@type': 'Blog',
-		name: 'The Ordinary Advanced Builder Blog',
+		name: 'Routine Builder Blog',
 		description:
 			'Tips, guides, and updates about using The Ordinary skincare products and building effective routines.',
+		url: 'https://myroutinebuilder.com/blog',
 		publisher: {
 			'@type': 'Organization',
-			name: 'My Routine Builder'
-		}
+			name: 'My Routine Builder',
+			url: 'https://myroutinebuilder.com'
+		},
+		blogPost: posts.map((post) => ({
+			'@type': 'BlogPosting',
+			headline: post.title,
+			description: post.description,
+			datePublished: post.date,
+			url: `https://myroutinebuilder.com/blog/posts/${post.slug}`,
+			author: {
+				'@type': 'Person',
+				name: 'Melissa McEwen'
+			}
+		}))
 	};
 
 	const posts = [
@@ -32,7 +45,7 @@
 </script>
 
 <svelte:head>
-	<title>Blog - The Ordinary Advanced Builder</title>
+	<title>Blog - Routine Builder</title>
 	<meta
 		name="description"
 		content="Tips, guides, and updates about using The Ordinary skincare products and building effective routines."
