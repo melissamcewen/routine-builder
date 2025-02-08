@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { products } from '$lib/products';
 	import { page } from '$app/stores';
-	import { Sun, Moon, FlaskConical, Beaker, Share2, ArrowLeftRight, Tag } from 'lucide-svelte';
+	import { Sun, Moon, FlaskConical, Beaker, Share2, ArrowLeftRight, Tag, Sparkles } from 'lucide-svelte';
 	import { sortProductsByPhase } from '$lib/utils';
 
 	let timeOfDay: 'day' | 'night' = ($page.url.searchParams.get('tod') as 'day' | 'night') || 'day';
@@ -117,11 +117,15 @@
 					{/each}
 				</ul>
 			{/if}
-
 			<div class="divider mt-8" />
 			<div class="text-center text-sm opacity-70">
+
 				<p>Created with myroutinebuilder.com</p>
-				<p class="text-xs mt-1">Products arranged in optimal application order</p>
+					<a href="/ordinary" class="btn  btn-primary m-4
+					"
+									><Sparkles class="w-4 h-4 flex-shrink-0" /> Create Your Own Routine</a
+								>
+
 			</div>
 		</div>
 	</div>
