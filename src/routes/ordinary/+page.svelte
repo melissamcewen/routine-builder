@@ -24,11 +24,15 @@
 		Coffee
 	} from 'lucide-svelte';
 	import { sortProductsByPhase } from '$lib/utils';
+	import UpdateCard from '$lib/components/UpdateCard.svelte';
 
 	// Get initial state from URL params if they exist
 	let timeOfDay: 'day' | 'night' = ($page.url.searchParams.get('tod') as 'day' | 'night') || 'day';
 	let selectedProducts: string[] =
-		$page.url.searchParams.get('products')?.split(',').filter((id) => products[id]) ?? [];
+		$page.url.searchParams
+			.get('products')
+			?.split(',')
+			.filter((id) => products[id]) ?? [];
 	let routineName = $page.url.searchParams.get('name') || '';
 	let searchQuery = '';
 	let selectedTarget = 'All Concerns';
@@ -223,6 +227,21 @@
 		script.text = JSON.stringify(structuredData);
 		document.head.appendChild(script);
 	});
+
+	const updates = [
+		{
+			date: '2/2',
+			content: 'Fixed bug with ordering in share page, new blog post ',
+			link: {
+				url: '/blog/posts/why-lactic-acid-is-my-winter-bff',
+				text: 'Why Lactic Acid is My Winter BFF'
+			}
+		},
+		{
+			date: '1/8',
+			content: 'Added new GF 15% solution, added tret (non-Ordinary product)'
+		}
+	];
 </script>
 
 <svelte:head>
@@ -305,32 +324,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="card card-sm shadow-sm glass h-full">
-						<div class="card-body">
-							<h2 class="card-title">
-								<Info class="w-5 h-5" />Help out (or build your own tool)
-							</h2>
-							<p>
-								This project is open source! So if you want to contribute or submit a bug, check us
-								out on GitHub.
-							</p>
-							<h3 class="text-md font-semibold">Updates</h3>
-							<ul class="space-y-2 list-disc ml-4">
-								<li>2/2: Fixed bug with ordering in share page, new blog post <a href="/blog/posts/why-lactic-acid-is-my-winter-bff" class="link">Why Lactic Acid is My Winter BFF</a></li>
-								<li>1/8: Added new GF 15% solution, added tret (non-Ordinary product)</li>
-
-							</ul>
-
-							<div class="card-actions justify-end">
-								<a href="https://github.com/melissamcewen/routine-builder" class="btn btn-sm btn-primary"
-									><Github class="w-4 h-4 flex-shrink-0" /> GitHub</a
-								>
-								<a href="https://buymeacoffee.com/melissamcewen" class="btn btn-sm btn-secondary"
-									><Coffee class="w-4 h-4 flex-shrink-0" /> Buy me a coffee</a
-								>
-							</div>
-						</div>
-					</div>
+					<UpdateCard />
 				</div>
 
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -585,3 +579,5 @@
 		</div>
 	</div>
 </div>
+
+

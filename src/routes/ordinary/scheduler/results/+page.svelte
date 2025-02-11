@@ -20,19 +20,12 @@
 	}
 
 	function getIncompatibilityReason(product: Product, existingProducts: string[]): string | null {
-		// Some products can always be used together regardless of tags
-		const alwaysCompatible = [
-			'glycolipid-cream-cleanser',
-			'balancing-clarifying-serum',
-			'hyaluronic-acid-2-b5-hydrating-serum',
-			'natural-moisturizing-factors-phytoceramides'
-		];
 
 		if (alwaysCompatible.includes(product.id)) return null;
 
 		const incompatibleProducts = existingProducts.filter((id) => {
 			// Skip compatibility check for always compatible products
-			if (alwaysCompatible.includes(id)) return false;
+
 
 			const existingProduct = products[id];
 			return (
@@ -100,6 +93,11 @@
 				}
 			} while (madeProgress);
 
+			// Add sunscreen to day routines
+			if (timeOfDay === 'day' && !routine.products.includes('sunscreen')) {
+				routine.products.push('sunscreen');
+			}
+
 			// Sort products by phase if we added any
 			if (routine.products.length > 0) {
 				routine.products = sortProductsByPhase(routine.products, products);
@@ -142,6 +140,28 @@
 
 	function goBack() {
 		goto('/ordinary/scheduler');
+	}
+
+	function formatRoutineText(routine: Routine, routineNumber: number): string {
+		const lines: string[] = [];
+		lines.push(`${routine.timeOfDay === 'day' ? 'Day' : 'Night'} Routine ${routineNumber}`);
+
+		['Prep', 'Treat', 'Seal'].forEach((step) => {
+			const stepProducts = routine.products.filter((id) => products[id].Step === step);
+			if (stepProducts.length > 0) {
+				lines.push(`\n${step}:`);
+				sortProductsByPhase(stepProducts, products).forEach((productId) => {
+					lines.push(`- ${products[productId].Name}`);
+				});
+			}
+		});
+
+		return lines.join('\n');
+	}
+
+	async function copyRoutine(routine: Routine, routineNumber: number) {
+		const text = formatRoutineText(routine, routineNumber);
+		await navigator.clipboard.writeText(text);
 	}
 </script>
 
@@ -217,6 +237,14 @@
 												</div>
 											{/if}
 										{/each}
+										<div class="card-actions justify-end mt-4">
+											<button
+												class="btn btn-sm btn-primary"
+												on:click={() => copyRoutine(routine, index + 1)}
+											>
+												Copy Routine
+											</button>
+										</div>
 									</div>
 								</div>
 							{/each}
@@ -265,6 +293,14 @@
 												</div>
 											{/if}
 										{/each}
+										<div class="card-actions justify-end mt-4">
+											<button
+												class="btn btn-sm btn-primary"
+												on:click={() => copyRoutine(routine, index + 1)}
+											>
+												Copy Routine
+											</button>
+										</div>
 									</div>
 								</div>
 							{/each}

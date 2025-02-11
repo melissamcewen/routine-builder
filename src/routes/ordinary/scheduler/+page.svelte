@@ -3,6 +3,7 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { FlaskConical, X, Info, List, Beaker, ArrowRight, ListOrdered } from 'lucide-svelte';
+	import UpdateCard from '$lib/components/UpdateCard.svelte';
 
 	// Get initial state from URL params if they exist
 	let selectedProducts: string[] =
@@ -136,6 +137,7 @@
 							</ul>
 						</div>
 					</div>
+					<UpdateCard />
 				</div>
 
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">

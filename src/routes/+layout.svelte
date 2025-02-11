@@ -2,15 +2,14 @@
 	import '../app.css';
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
-	import { TestTubeDiagonal, FlaskConical, Book } from 'lucide-svelte';
-	import { Sun, Moon } from 'lucide-svelte';
+	import Navbar from '$lib/components/Navbar.svelte';
 
-	let theme = 'shimmer';
+	let theme: 'shimmer' | 'synthwave' = 'shimmer';
 
 	onMount(() => {
 		if (browser) {
 			// Get theme from localStorage or default to shimmer
-			theme = localStorage.getItem('theme') || 'shimmer';
+			theme = (localStorage.getItem('theme') as 'shimmer' | 'synthwave') || 'shimmer';
 		}
 	});
 
@@ -27,34 +26,20 @@
 </script>
 
 <div class="min-h-screen">
-	<nav class="navbar bg-base-100/50 backdrop-blur-sm fixed top-0 z-50">
-		<div class="flex-1">
-			<a href="/" class="btn btn-ghost normal-case md:text-xl text-l gap-2">
-				<TestTubeDiagonal size={24} />
-				My Routine Builder
-			</a>
-		</div>
-		<div class="flex-none gap-2">
-			<a href="/ordinary" class="btn btn-ghost gap-2">
-				<FlaskConical size={20} />
-				The Ordinary
-			</a>
-			<a href="/blog" class="btn btn-ghost gap-2">
-				<Book class="w-4 h-4" /> Blog
-			</a>
-			<button class="btn btn-ghost btn-circle" on:click={toggleTheme}>
-				{#if theme === 'shimmer'}
-					<Moon size={24} />
-				{:else}
-					<Sun size={24} />
-				{/if}
-			</button>
-		</div>
-	</nav>
+	<Navbar {theme} on:click={toggleTheme} />
 
 	<main class="pt-16">
 		<slot />
 	</main>
+
+	<footer class="footer footer-center p-4 bg-base-300 text-base-content mt-8">
+		<aside>
+			<p class="text-sm">
+				This site is not affiliated with, endorsed by, or connected to DECIEM or The Ordinary. It is
+				an independent fan project created for educational and entertainment purposes only.
+			</p>
+		</aside>
+	</footer>
 </div>
 
 <style>
