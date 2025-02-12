@@ -21,8 +21,6 @@
 
 	function getIncompatibilityReason(product: Product, existingProducts: string[]): string | null {
 
-		if (alwaysCompatible.includes(product.id)) return null;
-
 		const incompatibleProducts = existingProducts.filter((id) => {
 			// Skip compatibility check for always compatible products
 
