@@ -20,11 +20,7 @@
 	}
 
 	function getIncompatibilityReason(product: Product, existingProducts: string[]): string | null {
-
 		const incompatibleProducts = existingProducts.filter((id) => {
-			// Skip compatibility check for always compatible products
-
-
 			const existingProduct = products[id];
 			return (
 				product.Excludes.includes(existingProduct.Tags[0]) ||
@@ -105,13 +101,30 @@
 			return productList;
 		}
 
-		// First try to create a day routine with all compatible products
+		// Always create a day routine first
 		remainingProducts = fillRoutine('day', null, [...remainingProducts]);
 
-		// Keep track of products that need their own routines
-		const productsNeedingRoutines = remainingProducts.slice();
+		// Always create at least one night routine
+		const nightProducts = remainingProducts.length > 0 ? remainingProducts : [...productIds];
+		const nightCompatibleProducts = nightProducts.filter((id) => {
+			const product = products[id];
+			return product.TOD === 'night' || product.TOD === 'both';
+		});
 
-		// Then create routines for each remaining product
+		if (nightCompatibleProducts.length > 0) {
+			remainingProducts = fillRoutine('night', nightCompatibleProducts[0], nightProducts);
+		} else {
+			// If no night-specific products, try to create a night routine with any compatible products
+			remainingProducts = fillRoutine('night', null, nightProducts);
+		}
+
+		// Keep track of products that still need their own routines
+		const productsNeedingRoutines = remainingProducts.filter((id) => {
+			// Only include products that aren't in any existing routine
+			return !routines.some((routine) => routine.products.includes(id));
+		});
+
+		// Then create additional routines for each remaining product
 		while (productsNeedingRoutines.length > 0) {
 			const nextProduct = productsNeedingRoutines[0];
 			const product = products[nextProduct];
@@ -137,7 +150,9 @@
 	$: generatedRoutines = generateRoutines(selectedProducts);
 
 	function goBack() {
-		goto('/ordinary/scheduler');
+		const url = new URL('/ordinary/scheduler', window.location.href);
+		url.searchParams.set('products', selectedProducts.join(','));
+		goto(url.toString());
 	}
 
 	function formatRoutineText(routine: Routine, routineNumber: number): string {
