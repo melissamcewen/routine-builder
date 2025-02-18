@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { FlaskConical, Sparkles, Clock } from 'lucide-svelte';
 
 	// Structured data for SEO
 	const structuredData = {
@@ -9,8 +10,7 @@
 		description:
 			'Create and share personalized skincare routines with The Ordinary products. Features product compatibility checks and proper ordering.',
 		applicationCategory: 'Skincare',
-		operatingSystem: 'Web',
-
+		operatingSystem: 'Web'
 	};
 
 	onMount(() => {
@@ -37,7 +37,12 @@
 				Create advanced skincare routines with The Ordinary products. Features compatibility checks,
 				proper ordering, and easy sharing.
 			</p>
-			<a href="/ordinary" class="btn btn-primary">Get Started</a>
+			<a href="/ordinary" class="btn btn-primary gap-2">
+				<FlaskConical class="w-5 h-5" /> Build a routine from scratch
+			</a>
+			<a href="/ordinary/scheduler" class="btn btn-secondary mt-3 gap-2">
+				<Clock class="w-5 h-5" /> Generate routines for products you already have
+			</a>
 		</div>
 	</div>
 </div>
