@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { TestTubeDiagonal, FlaskConical, Book, Sun, Moon, Menu, Clock} from 'lucide-svelte';
+	import { TestTubeDiagonal, FlaskConical, Book, Sun, Moon, Menu, Clock } from 'lucide-svelte';
 	import { browser } from '$app/environment';
 
 	export let theme: 'shimmer' | 'synthwave';
@@ -33,10 +33,13 @@
 
 	<div class="navbar-end">
 		<div class="dropdown dropdown-end lg:hidden">
-			<button class="btn btn-ghost">
+			<label tabindex="0" class="btn btn-ghost">
 				<Menu class="h-5 w-5" />
-			</button>
-			<ul class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+			</label>
+			<ul
+				tabindex="0"
+				class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+			>
 				{#each menuItems as item}
 					<li>
 						<a href={item.href} class="gap-2">

@@ -8,13 +8,9 @@
 		name: 'The Ordinary Advanced Routine Builder',
 		description:
 			'Create and share personalized skincare routines with The Ordinary products. Features product compatibility checks and proper ordering.',
-		applicationCategory: 'HealthApplication',
+		applicationCategory: 'Skincare',
 		operatingSystem: 'Web',
-		offers: {
-			'@type': 'Offer',
-			price: '0',
-			priceCurrency: 'USD'
-		}
+
 	};
 
 	onMount(() => {
