@@ -228,5 +228,41 @@ describe('Routine Generator Utils', () => {
 			// Verify the total number of unique products matches the input
 			expect(usedProducts.size).toBe(testProducts.length);
 		});
+
+		it('should create minimal day routine when only night products are selected', () => {
+			const testProducts = ['glycolic-acid-7-exfoliating-toner']; // night-only product
+
+			const routines = generateRoutines(testProducts);
+			const dayRoutines = routines.filter((r) => r.timeOfDay === 'day');
+			const nightRoutines = routines.filter((r) => r.timeOfDay === 'night');
+
+			// Should have exactly one day routine with just sunscreen
+			expect(dayRoutines.length).toBe(1);
+			expect(dayRoutines[0].products).toEqual(['sunscreen']);
+
+			// Should have one night routine with glycolic acid
+			expect(nightRoutines.length).toBe(1);
+			expect(nightRoutines[0].products).toContain('glycolic-acid-7-exfoliating-toner');
+		});
+
+		it('should create both day and night routines for a day/night compatible product', () => {
+			const testProducts = ['saccharomyces-ferment-30-milky-toner']; // product with TOD='both'
+
+			const routines = generateRoutines(testProducts);
+			const dayRoutines = routines.filter((r) => r.timeOfDay === 'day');
+			const nightRoutines = routines.filter((r) => r.timeOfDay === 'night');
+
+			// Should have exactly one day routine with the product + sunscreen
+			expect(dayRoutines.length).toBe(1);
+			expect(dayRoutines[0].products).toContain('saccharomyces-ferment-30-milky-toner');
+			expect(dayRoutines[0].products).toContain('sunscreen');
+			expect(dayRoutines[0].products.length).toBe(2);
+
+			// Should have exactly one night routine with just the product
+			expect(nightRoutines.length).toBe(1);
+			expect(nightRoutines[0].products).toContain('saccharomyces-ferment-30-milky-toner');
+			expect(nightRoutines[0].products).not.toContain('sunscreen');
+			expect(nightRoutines[0].products.length).toBe(1);
+		});
 	});
 });

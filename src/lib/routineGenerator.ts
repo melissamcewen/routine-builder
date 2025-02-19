@@ -113,9 +113,7 @@ export function generateRoutines(productIds: string[]): Routine[] {
 	let routineId = 1;
 
 	// Create arrays for day and night compatible products
-	const dayProducts = productIds.filter(
-		(id) => products[id].TOD === 'day' || products[id].TOD === 'both'
-	);
+	const dayProducts = productIds.filter((id) => products[id].TOD === 'both');
 	const nightProducts = productIds.filter(
 		(id) => products[id].TOD === 'night' || products[id].TOD === 'both'
 	);
@@ -124,7 +122,7 @@ export function generateRoutines(productIds: string[]): Routine[] {
 	const unusedProducts = new Set(productIds);
 
 	// Keep track of whether we can still create day routines
-	let canCreateDayRoutine = true;
+	let canCreateDayRoutine = dayProducts.length > 0;
 
 	// Alternate between day and night routines until all products are used
 	while (unusedProducts.size > 0) {
@@ -169,14 +167,25 @@ export function generateRoutines(productIds: string[]): Routine[] {
 	const dayRoutines = routines.filter((r) => r.timeOfDay === 'day');
 	const nightRoutines = routines.filter((r) => r.timeOfDay === 'night');
 
-	if (dayRoutines.length === 0 && nightRoutines.length > 0) {
-		// Copy the first night routine to a day routine
-		const dayRoutine = copyRoutineToOtherTimeOfDay(nightRoutines[0], 'day', routineId++);
-		routines.push(dayRoutine);
-	} else if (nightRoutines.length === 0 && dayRoutines.length > 0) {
-		// Copy the first day routine to a night routine
-		const nightRoutine = copyRoutineToOtherTimeOfDay(dayRoutines[0], 'night', routineId++);
-		routines.push(nightRoutine);
+	if (dayRoutines.length === 0) {
+		// Create a minimal day routine with just sunscreen
+		routines.push({
+			id: routineId++,
+			timeOfDay: 'day',
+			products: ['sunscreen']
+		});
+	}
+
+	if (nightRoutines.length === 0 && dayRoutines.length > 0) {
+		// Copy the first day routine to night, but remove sunscreen
+		const dayProducts = dayRoutines[0].products.filter((p) => p !== 'sunscreen');
+		if (dayProducts.length > 0) {
+			routines.push({
+				id: routineId++,
+				timeOfDay: 'night',
+				products: dayProducts
+			});
+		}
 	}
 
 	return routines;
