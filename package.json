@@ -12,15 +12,20 @@
 		"test:unit": "vitest",
 		"test": "npm run test:unit -- --run",
 		"format": "prettier --write .",
-		"lint": "prettier --check ."
+		"lint": "prettier --check .",
+		"test:ui": "vitest --ui"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "^5.5.2",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"@tailwindcss/typography": "^0.5.16",
+		"@testing-library/jest-dom": "^6.6.3",
+		"@testing-library/svelte": "^5.2.7",
+		"@vitest/ui": "^2.1.8",
 		"autoprefixer": "^10.4.20",
 		"daisyui": "^5.0.0-beta.1",
+		"jsdom": "^26.0.0",
 		"postcss": "^8",
 		"prettier": "^3.3.2",
 		"prettier-plugin-svelte": "^3.2.6",
