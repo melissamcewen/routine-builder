@@ -69,51 +69,83 @@ function createRoutine(
 	return routine;
 }
 
+function findNextStartingProduct(
+	unusedProducts: Set<string>,
+	timeOfDay: 'day' | 'night',
+	productIds: string[]
+): string | null {
+	// First try to find an unused product that matches the time of day
+	for (const productId of productIds) {
+		if (!unusedProducts.has(productId)) continue;
+		const product = products[productId];
+		if (
+			timeOfDay === 'day'
+				? product.TOD === 'day' || product.TOD === 'both'
+				: product.TOD === 'night' || product.TOD === 'both'
+		) {
+			return productId;
+		}
+	}
+	return null;
+}
+
 export function generateRoutines(productIds: string[]): Routine[] {
 	if (productIds.length === 0) return [];
 
 	const routines: Routine[] = [];
 	let routineId = 1;
 
-	// Create sets for day and night products
-	const allDayProducts = productIds.filter((id) => {
-		const product = products[id];
-		return product.TOD === 'day' || product.TOD === 'both';
-	});
+	// Create arrays for day and night compatible products
+	const dayProducts = productIds.filter(
+		(id) => products[id].TOD === 'day' || products[id].TOD === 'both'
+	);
+	const nightProducts = productIds.filter(
+		(id) => products[id].TOD === 'night' || products[id].TOD === 'both'
+	);
 
-	const allNightProducts = productIds.filter((id) => {
-		const product = products[id];
-		return product.TOD === 'night' || product.TOD === 'both';
-	});
+	// Track all unused products in one set
+	const unusedProducts = new Set(productIds);
 
-	// Track which products still need to be used
-	const unusedDayProducts = new Set(allDayProducts);
-	const unusedNightProducts = new Set(allNightProducts);
+	// Keep track of whether we can still create day routines
+	let canCreateDayRoutine = true;
 
-	// Generate day routines until all day products are used
-	while (unusedDayProducts.size > 0) {
-		const startingProduct = Array.from(unusedDayProducts)[0];
-		const routine = createRoutine('day', startingProduct, allDayProducts, routineId++);
+	// Alternate between day and night routines until all products are used
+	while (unusedProducts.size > 0) {
+		let routine: Routine | null = null;
 
-		// Remove used products from the unused set
-		routine.products.forEach((id) => {
-			if (id !== 'sunscreen') {
-				unusedDayProducts.delete(id);
+		if (canCreateDayRoutine) {
+			// Try to create a day routine
+			const startingProduct = findNextStartingProduct(unusedProducts, 'day', productIds);
+			if (startingProduct) {
+				routine = createRoutine('day', startingProduct, dayProducts, routineId++);
+			} else {
+				canCreateDayRoutine = false;
 			}
-		});
+		}
 
-		routines.push(routine);
-	}
+		if (!routine) {
+			// Try to create a night routine
+			const startingProduct = findNextStartingProduct(unusedProducts, 'night', productIds);
+			if (startingProduct) {
+				routine = createRoutine('night', startingProduct, nightProducts, routineId++);
+			} else if (!canCreateDayRoutine) {
+				// If we can't create either type of routine, we're done
+				break;
+			}
+		}
 
-	// Generate night routines until all night products are used
-	while (unusedNightProducts.size > 0) {
-		const startingProduct = Array.from(unusedNightProducts)[0];
-		const routine = createRoutine('night', startingProduct, allNightProducts, routineId++);
+		if (routine) {
+			// Remove used products from the unused set
+			routine.products.forEach((id) => {
+				if (id !== 'sunscreen') {
+					unusedProducts.delete(id);
+				}
+			});
+			routines.push(routine);
+		}
 
-		// Remove used products from the unused set
-		routine.products.forEach((id) => unusedNightProducts.delete(id));
-
-		routines.push(routine);
+		// If we created a day routine, try night next time and vice versa
+		canCreateDayRoutine = routine ? routine.timeOfDay === 'night' : canCreateDayRoutine;
 	}
 
 	return routines;
