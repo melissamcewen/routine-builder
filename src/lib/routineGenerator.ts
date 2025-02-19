@@ -89,6 +89,23 @@ function findNextStartingProduct(
 	return null;
 }
 
+function copyRoutineToOtherTimeOfDay(
+	routine: Routine,
+	newTimeOfDay: 'day' | 'night',
+	routineId: number
+): Routine {
+	const newRoutine: Routine = {
+		id: routineId,
+		timeOfDay: newTimeOfDay,
+		// Filter out sunscreen if copying to night
+		products:
+			newTimeOfDay === 'night'
+				? routine.products.filter((id) => id !== 'sunscreen')
+				: [...routine.products, 'sunscreen']
+	};
+	return newRoutine;
+}
+
 export function generateRoutines(productIds: string[]): Routine[] {
 	if (productIds.length === 0) return [];
 
@@ -146,6 +163,20 @@ export function generateRoutines(productIds: string[]): Routine[] {
 
 		// If we created a day routine, try night next time and vice versa
 		canCreateDayRoutine = routine ? routine.timeOfDay === 'night' : canCreateDayRoutine;
+	}
+
+	// Ensure at least one routine of each type
+	const dayRoutines = routines.filter((r) => r.timeOfDay === 'day');
+	const nightRoutines = routines.filter((r) => r.timeOfDay === 'night');
+
+	if (dayRoutines.length === 0 && nightRoutines.length > 0) {
+		// Copy the first night routine to a day routine
+		const dayRoutine = copyRoutineToOtherTimeOfDay(nightRoutines[0], 'day', routineId++);
+		routines.push(dayRoutine);
+	} else if (nightRoutines.length === 0 && dayRoutines.length > 0) {
+		// Copy the first day routine to a night routine
+		const nightRoutine = copyRoutineToOtherTimeOfDay(dayRoutines[0], 'night', routineId++);
+		routines.push(nightRoutine);
 	}
 
 	return routines;
