@@ -38,6 +38,9 @@ export function canAddToRoutine(product: Product, routine: Routine): boolean {
 	return true;
 }
 
+// Add this at the top level
+const serumUsageCounts = new Map<string, number>();
+
 function createRoutine(
 	timeOfDay: 'day' | 'night',
 	startingProduct: string,
@@ -50,11 +53,26 @@ function createRoutine(
 		products: [startingProduct]
 	};
 
-	// Try to add all compatible products
-	for (const productId of compatibleProducts) {
-		if (productId === startingProduct) continue;
-		const product = products[productId];
-		if (canAddToRoutine(product, routine)) {
+	// Get all compatible serums and sort by usage count
+	const compatibleSerums = compatibleProducts
+		.filter((id) => products[id].Format === 'Serum' && id !== startingProduct)
+		.sort((a, b) => (serumUsageCounts.get(a) || 0) - (serumUsageCounts.get(b) || 0));
+
+	// Get all non-serums
+	const nonSerums = compatibleProducts.filter(
+		(id) => products[id].Format !== 'Serum' && id !== startingProduct
+	);
+
+	// Try to add serums first, prioritizing least used ones
+	for (const serumId of compatibleSerums) {
+		if (canAddToRoutine(products[serumId], routine)) {
+			routine.products.push(serumId);
+		}
+	}
+
+	// Then add non-serums
+	for (const productId of nonSerums) {
+		if (canAddToRoutine(products[productId], routine)) {
 			routine.products.push(productId);
 		}
 	}
@@ -63,6 +81,13 @@ function createRoutine(
 	if (timeOfDay === 'day') {
 		routine.products.push('sunscreen');
 	}
+
+	// Update serum usage counts
+	routine.products.forEach((productId) => {
+		if (products[productId].Format === 'Serum') {
+			serumUsageCounts.set(productId, (serumUsageCounts.get(productId) || 0) + 1);
+		}
+	});
 
 	// Sort products by phase
 	routine.products = sortProductsByPhase(routine.products, products);
@@ -108,6 +133,14 @@ function copyRoutineToOtherTimeOfDay(
 
 export function generateRoutines(productIds: string[]): Routine[] {
 	if (productIds.length === 0) return [];
+
+	// Reset serum usage counts at the start of routine generation
+	serumUsageCounts.clear();
+	productIds.forEach((id) => {
+		if (products[id].Format === 'Serum') {
+			serumUsageCounts.set(id, 0);
+		}
+	});
 
 	const routines: Routine[] = [];
 	let routineId = 1;

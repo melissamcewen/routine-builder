@@ -264,5 +264,53 @@ describe('Routine Generator Utils', () => {
 			expect(nightRoutines[0].products).not.toContain('sunscreen');
 			expect(nightRoutines[0].products.length).toBe(1);
 		});
+
+		it('should distribute serums evenly based on usage count', () => {
+			const testProducts = [
+				'hyaluronic-acid-2-b5-hydrating-serum',
+				'balancing-clarifying-serum',
+				'matrixyl-10-ha',
+				'argireline-solution-10',
+				'glycolipid-cream-cleanser',
+				'natural-moisturizing-factors-phytoceramides',
+				'mandelic-acid-10-ha',
+				'ascorbyl-glucoside-solution-12'
+			];
+
+			const routines = generateRoutines(testProducts);
+
+			// Count how many times each serum is used across all routines
+			const serumUsageCounts = new Map<string, number>();
+			const serums = testProducts.filter((id) => products[id].Format === 'Serum');
+
+			// Initialize counts
+			serums.forEach((serum) => serumUsageCounts.set(serum, 0));
+
+			// Count serum usage
+			routines.forEach((routine) => {
+				routine.products.forEach((productId) => {
+					if (serums.includes(productId)) {
+						serumUsageCounts.set(productId, serumUsageCounts.get(productId)! + 1);
+					}
+				});
+			});
+
+			// Log the usage counts for debugging
+			console.log('Serum usage counts:', Object.fromEntries(serumUsageCounts));
+
+			// Get min and max usage counts
+			const usageCounts = Array.from(serumUsageCounts.values());
+			const maxUsage = Math.max(...usageCounts);
+			const minUsage = Math.min(...usageCounts);
+
+			// No serum should be used more than once more than any other serum
+			expect(maxUsage - minUsage).toBeLessThanOrEqual(1);
+
+			// Each serum should be used at least once
+			expect(minUsage).toBeGreaterThan(0);
+
+			// Log the usage counts for debugging
+			console.log('Serum usage counts:', Object.fromEntries(serumUsageCounts));
+		});
 	});
 });
