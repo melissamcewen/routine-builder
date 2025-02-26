@@ -871,7 +871,7 @@ export const products: { [key: string]: Product } = {
 		'Skin Types': '',
 		Phase: 'Water',
 		Format: 'Essence',
-		Excludes: [],
+		Excludes: ['Retinoids', 'Direct Acids'],
 		Tags: [],
 	}
 };
