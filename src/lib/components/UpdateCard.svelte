@@ -14,14 +14,11 @@
 		<h3 class="text-md font-semibold">Updates</h3>
 		<ul class="space-y-2 list-disc ml-4">
 			<li>
-				2/11: Added a new tool for if you already have some products you want to use that generates
-				conflict-free routines: <a href="/ordinary/scheduler" class="link">Ordinary Scheduler</a>
+				2/26: Added Multi-Active Delivery Essence to the product list
 			</li>
 			<li>
-				2/2: Fixed bug with ordering in share page, new blog post
-				<a href="/blog/posts/why-lactic-acid-is-my-winter-bff" class="link"
-					>Why Lactic Acid is My Winter BFF</a
-				>
+				2/11: Added a new tool for if you already have some products you want to use that generates
+				conflict-free routines: <a href="/ordinary/scheduler" class="link">Ordinary Scheduler</a>
 			</li>
 
 		</ul>

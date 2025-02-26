@@ -478,7 +478,8 @@ export const products: { [key: string]: Product } = {
 		id: 'aloe-2-nag-2-solution',
 		KeyIngredients:
 			'Aloe Barbadensis Leaf Juice Powder, N-Acetyl Glucosamine, Palmitoyl Pentapeptide-4',
-		Ingredients: 'Aqua (Water), Propanediol, Glycerin, Dipropylene Glycol, Aloe Barbadensis Leaf Juice Powder, N-Acetyl Glucosamine, Palmitoyl Pentapeptide-4, Biosaccharide Gum-2, Pentylene Glycol, Xanthan Gum, Isoceteth-20, Hydroxymethoxyphenyl Decanone, Sodium Lactate, Lactic Acid, Sodium Hydroxide, Ethylhexylglycerin, Phenoxyethanol, Chlorphenesin.'
+		Ingredients:
+			'Aqua (Water), Propanediol, Glycerin, Dipropylene Glycol, Aloe Barbadensis Leaf Juice Powder, N-Acetyl Glucosamine, Palmitoyl Pentapeptide-4, Biosaccharide Gum-2, Pentylene Glycol, Xanthan Gum, Isoceteth-20, Hydroxymethoxyphenyl Decanone, Sodium Lactate, Lactic Acid, Sodium Hydroxide, Ethylhexylglycerin, Phenoxyethanol, Chlorphenesin.'
 	},
 	'matrixyl-10-ha': {
 		Name: 'Matrixyl 10% + HA',
@@ -860,5 +861,17 @@ export const products: { [key: string]: Product } = {
 		Excludes: [],
 		Tags: [],
 		id: 'sunscreen'
+	},
+	'multi-active-delivery-essence': {
+		Name: 'Multi-Active Delivery Essence',
+		id: 'multi-active-delivery-essence',
+		TOD: 'both',
+		Step: 'Prep',
+		Targets: ['Dryness', 'Dullness', 'Textural Irregularities', 'Dehydration'],
+		'Skin Types': '',
+		Phase: 'Water',
+		Format: 'Essence',
+		Excludes: [],
+		Tags: [],
 	}
 };
