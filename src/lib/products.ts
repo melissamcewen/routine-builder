@@ -873,5 +873,17 @@ export const products: { [key: string]: Product } = {
 		Format: 'Essence',
 		Excludes: ['Retinoids', 'Direct Acids'],
 		Tags: [],
+	},
+	'fermented-rose-hip-seed-oil': {
+		Name: 'Fermented Rose Hip Seed Oil',
+		id: 'fermented-rose-hip-seed-oil',
+		TOD: 'both',
+		Step: 'Treat',
+		Targets: ['Advanced Signs of Aging', 'Antioxidant Support', 'Dullness', 'Look of Redness'],
+		'Skin Types': '',
+		Phase: 'Oil',
+		Format: 'Oil',
+		Excludes: [],
+		Tags: [],
 	}
 };
