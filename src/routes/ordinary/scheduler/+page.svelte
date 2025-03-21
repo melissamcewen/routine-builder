@@ -134,6 +134,15 @@
 									<ListOrdered class="w-4 h-4 mt-1 flex-shrink-0" />
 									<span>Get multiple routines that use all your products</span>
 								</li>
+								<li class="flex items-start gap-2">
+									<ListOrdered class="w-4 h-4 mt-1 flex-shrink-0" />
+									<span>
+										Need help? I made this short instructional video:
+										<a href="https://www.youtube.com/watch?v=Y71gOJ1Job0&feature=youtu.be" target="_blank"
+											>Watch it here</a
+										>
+									</span>
+								</li>
 							</ul>
 						</div>
 					</div>

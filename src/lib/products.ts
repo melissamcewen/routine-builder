@@ -315,7 +315,8 @@ export const products: { [key: string]: Product } = {
 			'Retinoids'
 		],
 		Tags: ['Direct Vitamin C'],
-		id: 'vitamin-c-suspension-30-in-silicone'
+		id: 'vitamin-c-suspension-30-in-silicone',
+		Ingredients: 'Dimethicone, Ascorbic Acid, Polysilicone-11, Peg-10 Dimethicone'
 	},
 	'resveratrol-3-ferulic-acid-3': {
 		Name: 'Resveratrol 3% + Ferulic Acid 3%',
@@ -383,7 +384,7 @@ export const products: { [key: string]: Product } = {
 		KeyIngredients:
 			'Copper Tripeptide-1, Lactococcus Ferment Lysate, Acetyl Hexapeptide-8, Palmitoyl Tripeptide-1, Pentapeptide-18, Palmitoyl Tetrapeptide-7, Palmitoyl Tripeptide-38, Dipeptide Diaminobutyroyl Benzylamide Diacetate, Acetylarginyltryptophyl Diphenylglycine, Sodium Hyaluronate.',
 		Ingredients:
-			' Aqua (Water), Glycerin, Lactococcus Ferment Lysate, Copper Tripeptide-1, Acetyl Hexapeptide-8, Pentapeptide-18, Palmitoyl Tripeptide-1, Palmitoyl Tetrapeptide-7, Palmitoyl Tripeptide-38, Dipeptide Diaminobutyroyl Benzylamide Diacetate, Acetylarginyltryptophyl Diphenylglycine, Sodium Hyaluronate Crosspolymer, Sodium Hyaluronate, Allantoin, Glycine, Alanine, Serine, Valine, Isoleucine, Proline, Threonine, Histidine, Phenylalanine, Arginine, Aspartic Acid, Trehalose, Fructose, Glucose, Maltose, Urea, Sodium Pca, Pca, Sodium Lactate, Citric Acid, Hydroxypropyl Cyclodextrin, Sodium Chloride, Sodium Hydroxide, Butylene Glycol, Pentylene Glycol, Acacia Senegal Gum, Xanthan Gum, Carbomer, Polysorbate 20, Dimethyl Isosorbide, Sodium Benzoate, Caprylyl Glycol, Ethylhexylglycerin, Phenoxyethanol, Chlorphenesin. '
+			'Aqua (Water), Glycerin, Lactococcus Ferment Lysate, Copper Tripeptide-1, Acetyl Hexapeptide-8, Pentapeptide-18, Palmitoyl Tripeptide-1, Palmitoyl Tetrapeptide-7, Palmitoyl Tripeptide-38, Dipeptide Diaminobutyroyl Benzylamide Diacetate, Acetylarginyltryptophyl Diphenylglycine, Sodium Hyaluronate Crosspolymer, Sodium Hyaluronate, Allantoin, Glycine, Alanine, Serine, Valine, Isoleucine, Proline, Threonine, Histidine, Phenylalanine, Arginine, Aspartic Acid, Trehalose, Fructose, Glucose, Maltose, Urea, Sodium Pca, Pca, Sodium Lactate, Citric Acid, Hydroxypropyl Cyclodextrin, Sodium Chloride, Sodium Hydroxide, Butylene Glycol, Pentylene Glycol, Acacia Senegal Gum, Xanthan Gum, Carbomer, Polysorbate 20, Dimethyl Isosorbide, Sodium Benzoate, Caprylyl Glycol, Ethylhexylglycerin, Phenoxyethanol, Chlorphenesin. '
 	},
 	'100-niacinamide-powder': {
 		Name: '100% Niacinamide Powder',
@@ -496,7 +497,9 @@ export const products: { [key: string]: Product } = {
 			'Salicylic Acid'
 		],
 		Tags: ['Peptides'],
-		id: 'matrixyl-10-ha'
+		id: 'matrixyl-10-ha',
+		Ingredients:
+			'Aqua (Water), Glycerin, Butylene Glycol, Palmitoyl Tripeptide-1, Palmitoyl Tetrapeptide-7, Palmitoyl Tripeptide-38, Sodium Hyaluronate, Hydroxypropyl Cyclodextrin, PPG-26-Buteth-26, PEG-40 Hydrogenated Castor Oil, Polyacrylate Crosspolymer-6, Trisodium Ethylenediamine Disuccinate, Carbomer, Polysorbate 20, Ethoxydiglycol, Phenoxyethanol, Chlorphenesin. '
 	},
 	'retinal-0-2-emulsion': {
 		Name: 'Retinal 0.2% Emulsion',
@@ -508,7 +511,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: ['Copper Peptides', 'Direct Acids', 'Direct Vitamin C', 'Retinoids'],
 		Tags: ['Retinoids'],
-		id: 'retinal-0-2-emulsion'
+		id: 'retinal-0-2-emulsion',
+		Ingredients:
+			'Aqua (Water), Coco-Caprylate/Caprate, Propanediol, Pentylene Glycol, Hydroxyapatite, Retinal, Cetylhydroxyproline Palmitamide, 4-t-Butylcyclohexanol, Hydroxyphenyl Propamidobenzoic Acid, Ergothioneine, Biosaccharide Gum-1, Bisabolol, Brassica Campestris Sterols, Zingiber Officinale Root Extract, Butylene Glycol, Isohexadecane, Hexyldecanol, Maltodextrin, Caesalpinia Spinosa Gum, Polyacrylate Crosspolymer-6, Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer, Stearic Acid, Isoceteth-20, Polysorbate 60, Ascorbyl Palmitate, Tocopherol, Lactic Acid, Sodium Lactate, Sodium Hydroxide, Ethylhexylglycerin, Phenoxyethanol, Chlorphenesin. '
 	},
 	'retinol-1-in-squalane': {
 		Name: 'Retinol 1% in Squalane',
@@ -526,7 +531,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: ['Copper Peptides', 'Direct Acids', 'Direct Vitamin C', 'Retinoids'],
 		Tags: ['Retinoids'],
-		id: 'retinol-1-in-squalane'
+		id: 'retinol-1-in-squalane',
+		Ingredients:
+			'Squalane, Caprylic/Capric Triglyceride, Simmondsia Chinensis (Jojoba) Seed Oil, Retinol, Solanum Lycopersicum (Tomato) Fruit Extract, Rosmarinus Officinalis (Rosemary) Leaf Extract, Hydroxymethoxyphenyl Decanone, BHT'
 	},
 	'retinol-0-5-in-squalane': {
 		Name: 'Retinol 0.5% in Squalane',
@@ -544,7 +551,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: ['Copper Peptides', 'Direct Acids', 'Direct Vitamin C', 'Retinoids'],
 		Tags: ['Retinoids'],
-		id: 'retinol-0-5-in-squalane'
+		id: 'retinol-0-5-in-squalane',
+		Ingredients:
+			'Squalane, Caprylic/Capric Triglyceride, Simmondsia Chinensis (Jojoba) Seed Oil, Retinol, Solanum Lycopersicum (Tomato) Fruit Extract, Rosmarinus Officinalis (Rosemary) Leaf Extract, Hydroxymethoxyphenyl Decanone, BHT. '
 	},
 	'granactive-retinoid-2-emulsion': {
 		Name: 'Granactive Retinoid 2% Emulsion',
@@ -561,7 +570,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: ['Copper Peptides', 'Direct Acids', 'Direct Vitamin C', 'Retinoids'],
 		Tags: ['Retinoids'],
-		id: 'granactive-retinoid-2-emulsion'
+		id: 'granactive-retinoid-2-emulsion',
+		Ingredients:
+			' Aqua (Water), Glycerin, Caprylic/Capric Triglyceride, Ethyl Linoleate, Propanediol, Dimethyl Isosorbide, Cetearyl Isononanoate, Bisabolol, Hydroxypinacolone Retinoate, Retinol, Tasmannia Lanceolata Fruit/Leaf Extract, Inulin Lauryl Carbamate, Glyceryl Stearate, Ceteareth-12, Ceteareth-20, Cetearyl Alcohol, Carrageenan, Xanthan Gum, Acacia Senegal Gum, Cetyl Palmitate, Sucrose Laurate, Polysorbate 20, Isoceteth-20, Rosmarinus Officinalis (Rosemary) Leaf Extract, Hydroxymethoxyphenyl Decanone, Behentrimonium Chloride, Trisodium Ethylenediamine Disuccinate, Disodium Edta, Dehydroacetic Acid, Benzoic Acid, Ethylhexylglycerin, Phenoxyethanol, Chlorphenesin'
 	},
 	'retinol-0-2-in-squalane': {
 		Name: 'Retinol 0.2% in Squalane',
@@ -579,7 +590,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: ['Copper Peptides', 'Direct Acids', 'Direct Vitamin C', 'Retinoids'],
 		Tags: ['Retinoids'],
-		id: 'retinol-0-2-in-squalane'
+		id: 'retinol-0-2-in-squalane',
+		Ingredients:
+			'Squalane, Caprylic/Capric Triglyceride, Simmondsia Chinensis (Jojoba) Seed Oil, Retinol, Solanum Lycopersicum (Tomato) Fruit Extract, Rosmarinus Officinalis (Rosemary) Leaf Extract, Hydroxymethoxyphenyl Decanone, BHT'
 	},
 	'granactive-retinoid-5-in-squalane': {
 		Name: 'Granactive Retinoid 5% in Squalane',
@@ -596,7 +609,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: ['Copper Peptides', 'Direct Acids', 'Direct Vitamin C', 'Retinoids'],
 		Tags: ['Retinoids'],
-		id: 'granactive-retinoid-5-in-squalane'
+		id: 'granactive-retinoid-5-in-squalane',
+		Ingredients:
+			'Squalane, C12-15 Alkyl Benzoate, Bisabolol, Dimethyl Isosorbide, Caprylic/Capric Triglyceride, Simmondsia Chinensis (Jojoba) Seed Oil, Hydroxypinacolone Retinoate, Solanum Lycopersicum (Tomato) Fruit Extract, Rosmarinus Officinalis (Rosemary) Leaf Extract, Hydroxymethoxyphenyl Decanone'
 	},
 	'saccharomyces-ferment-30-milky-toner': {
 		Name: 'Saccharomyces Ferment 30% Milky Toner',
@@ -608,7 +623,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Toner',
 		Excludes: ['Direct Acids'],
 		Tags: ['Saccharomyces Ferment 30% Milky Toner'],
-		id: 'saccharomyces-ferment-30-milky-toner'
+		id: 'saccharomyces-ferment-30-milky-toner',
+		Ingredients:
+			'Aqua (Water), Yeast Extract, Squalane, Lauryl Glucoside, Myristyl Glucoside, Polyglyceryl-6 Laurate, Isoceteth-20, Trisodium Ethylenediamine Disuccinate, Citric Acid, Sodium Citrate, Sodium Hydroxide, Phenoxyethanol, Chlorphenesin'
 	},
 	'pycnogenol-5': {
 		Name: 'Pycnogenol 5%',
@@ -620,7 +637,8 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: ['Copper Peptides'],
 		Tags: ['Strong Antioxidants'],
-		id: 'pycnogenol-5'
+		id: 'pycnogenol-5',
+		Ingredients: 'Propanediol, Pinus Pinaster Bark Extract'
 	},
 	'alpha-arbutin-2-ha': {
 		Name: 'Alpha Arbutin 2% + HA',
@@ -632,7 +650,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: [],
 		Tags: [],
-		id: 'alpha-arbutin-2-ha'
+		id: 'alpha-arbutin-2-ha',
+		Ingredients:
+			'Aqua (Water), Alpha-Arbutin, Polyacrylate Crosspolymer-6, Hydrolyzed Sodium Hyaluronate, Propanediol, PPG-26-Buteth-26, PEG-40 Hydrogenated Castor Oil, Lactic Acid, Trisodium Ethylenediamine Disuccinate, Ethoxydiglycol, Phenoxyethanol, Chlorphenesin'
 	},
 	'hyaluronic-acid-2-b5-original-formulation': {
 		Name: 'Hyaluronic Acid 2% + B5 (Original Formulation)',
@@ -644,7 +664,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: [],
 		Tags: [],
-		id: 'hyaluronic-acid-2-b5-original-formulation'
+		id: 'hyaluronic-acid-2-b5-original-formulation',
+		Ingredients:
+			'Aqua (Water), Sodium Hyaluronate, Pentylene Glycol, Propanediol, Sodium Hyaluronate Crosspolymer, Panthenol, Ahnfeltia Concinna Extract, Glycerin, Trisodium Ethylenediamine Disuccinate, Citric Acid, Isoceteth-20, Ethoxydiglycol, Ethylhexylglycerin, Hexylene Glycol, 1,2-Hexanediol, Phenoxyethanol, Caprylyl Glycol'
 	},
 	'soothing-barrier-support-serum': {
 		Name: 'Soothing & Barrier Support Serum',
@@ -656,7 +678,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: ['Direct Vitamin C', 'Indirect Vitamin C'],
 		Tags: [],
-		id: 'soothing-barrier-support-serum'
+		id: 'soothing-barrier-support-serum',
+		Ingredients:
+			'Aqua (Water), Propanediol, Isodecyl Neopentanoate, Pentylene Glycol, Niacinamide, Hexyldecanol, Cetearyl Alcohol, Xylitylglucoside, Ceteth-20 Phosphate, Anhydroxylitol, Ethyl Linoleate, Asiaticoside, Asiatic Acid, Madecassic Acid, Naringenin, Cyanocobalamin, Panthenyl Triacetate, 4-T-Butylcyclohexanol, Hydroxyphenyl Propamidobenzoic Acid, Cetylhydroxyproline Palmitamide, Bisabolol, Brassica Campestris Sterols, Sphingolipids, Phospholipids, Epigallocatechin Gallatyl Glucoside, Gallyl Glucoside, Propyl Gallate, Xylitol, Zingiber Officinale Root Extract, Stearic Acid, Dicetyl Phosphate, Isoceteth-20, Xanthan Gum, Trisodium Ethylenediamine Disuccinate, Tocopherol, Dehydroacetic Acid, P-Anisic Acid, Phytic Acid, Sodium Phytate, Sodium Citrate, Sodium Hydroxide, Benzyl Alcohol, Ethylhexylglycerin, Phenoxyethanol, Chlorphenesin'
 	},
 	'natural-moisturizing-factors-beta-glucan': {
 		Name: 'Natural Moisturizing Factors + Beta Glucan',
@@ -668,7 +692,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Moisturizer',
 		Excludes: [],
 		Tags: [],
-		id: 'natural-moisturizing-factors-beta-glucan'
+		id: 'natural-moisturizing-factors-beta-glucan',
+		Ingredients:
+			'Aqua (Water), PPG-24-Glycereth-24, Propanediol, Betaine, Beta-Glucan, Arginine, Glycine, Alanine, Serine, Proline, Threonine, Glutamic Acid, Lysine HCl, Glucose, Maltose, Fructose, Trehalose, Xylitol, Anhydroxylitol, Xylitylglucoside, Sodium PCA, PCA, Sodium Lactate, Urea, Allantoin, Sodium Hyaluronate, Phospholipids, Sphingolipids, Glycerin, Pentylene Glycol, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Sodium Hydroxide, Sodium Chloride, Sodium Citrate, Citric Acid, Tocopherol, P-Anisic Acid, Aminomethyl Propanol, Phenoxyethanol, Chlorphenesin'
 	},
 	'marine-hyaluronics': {
 		Name: 'Marine Hyaluronics',
@@ -680,7 +706,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: [],
 		Tags: [],
-		id: 'marine-hyaluronics'
+		id: 'marine-hyaluronics',
+		Ingredients:
+			'Aqua (Water), Glycerin, Algae Extract, Pseudoalteromonas Exopolysaccharides, Pseudoalteromonas Ferment Extract, Ahnfeltia Concinna Extract, Arginine, Glycine, Alanine, Serine, Valine, Isoleucine, Proline, Threonine, Histidine, Phenylalanine, Aspartic Acid, PCA, Sodium PCA, Sodium Lactate, Salicylic Acid, Citric Acid, Propanediol, Dimethyl Isosorbide, Ethoxydiglycol, Polysorbate 20, Potassium Sorbate, Sodium Salicylate, Sodium Benzoate, Hexylene Glycol, 1,2-Hexanediol, Phenoxyethanol, Caprylyl Glycol'
 	},
 	'amino-acids-b5': {
 		Name: 'Amino Acids + B5',
@@ -692,7 +720,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: [],
 		Tags: [],
-		id: 'amino-acids-b5'
+		id: 'amino-acids-b5',
+		Ingredients:
+			'Aqua (Water), Propanediol, Betaine, Sodium PCA, Panthenol, Sodium Lactate, Arginine, PCA, Aspartic Acid, Glycine, Alanine, Serine, Threonine, Valine, Proline, Isoleucine, Lysine HCl, Histidine, Phenylalanine, Glutamic Acid, Citric Acid, Dimethyl Isosorbide, Polysorbate 20, Trisodium Ethylenediamine Disuccinate, 1,2-Hexanediol, Caprylyl Glycol'
 	},
 	'niacinamide-5-face-and-body-emulsion': {
 		Name: 'Niacinamide 5% Face and Body Emulsion',
@@ -704,7 +734,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: ['Direct Vitamin C', 'Indirect Vitamin C'],
 		Tags: [],
-		id: 'niacinamide-5-face-and-body-emulsion'
+		id: 'niacinamide-5-face-and-body-emulsion',
+		Ingredients:
+			'Aqua (Water), Ethyl Macadamiate, Niacinamide, Propanediol, Glycerin, Sphingomonas Ferment Extract, Pentylene Glycol, Ethylhexyl Olivate, Polyglyceryl-4 Oleate, Sodium Acrylates Copolymer, Isoceteth-20, Sodium Citrate, Citric Acid, Malic Acid, Trisodium Ethylenediamine Disuccinate, Tocopherol, Ethylhexylglycerin, Phenoxyethanol, Chlorphenesin'
 	},
 	'balancing-clarifying-serum': {
 		Name: 'Balancing & Clarifying Serum',
@@ -716,7 +748,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: [],
 		Tags: [],
-		id: 'balancing-clarifying-serum'
+		id: 'balancing-clarifying-serum',
+		Ingredients:
+			'Aqua (Water), Lactococcus Ferment Lysate, Propanediol, Potassium Azeloyl Diglycinate, Carnitine, Acetyl Glucosamine, Sarcosine, Ectoin, Adenosine, Polylysine, Silanetriol, Glycerin, Pentylene Glycol, Sclerotium Gum, Xanthan Gum, Isoceteth-20, Citric Acid, Sodium Citrate, Trisodium Ethylenediamine Disuccinate, Sodium Chloride, Ethylhexylglycerin, Sodium Benzoate, Phenoxyethanol, Chlorphenesin'
 	},
 	'gf-15-solution': {
 		Name: 'GF 15% Solution',
@@ -728,7 +762,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Serum',
 		Excludes: ['Direct Acids', 'Direct Vitamin C'],
 		Tags: ['Peptides'],
-		id: 'gf-15-solution'
+		id: 'gf-15-solution',
+		Ingredients:
+			'Aqua/Water/Eau, Butylene Glycol, Nicotiana Benthamiana Hexapeptide-40 sh-Oligopeptide-1, Nicotiana Benthamiana Hexapeptide-40 sh-Polypeptide-76, Nicotiana Benthamiana Octapeptide-30 sh-Oligopeptide-2, Sclerotium Gum, Glycerin, Trisodium Ethylenediamine Disuccinate, Citric Acid, Sodium Citrate, Phenoxyethanol, Chlorphenesin'
 	},
 	'prescription-tretinoin': {
 		Name: 'Prescription Tretinoin (not The Ordinary)',
@@ -752,7 +788,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Moisturizer',
 		Excludes: [],
 		Tags: [],
-		id: 'natural-moisturizing-factors-phytoceramides'
+		id: 'natural-moisturizing-factors-phytoceramides',
+		Ingredients:
+			'Aqua (Water), Caprylic/Capric Triglyceride, Cetyl Ethylhexanoate, Isodecyl Neopentanoate, Glycerin, Propanediol, Polyglyceryl-6 Polyricinoleate, Hydrogenated Vegetable Oil, Polyglyceryl-2 Isostearate, Isosorbide Dicaprylate, Disteardimonium Hectorite, Phytosteryl Canola Glycerides, Glycosphingolipids, Glycolipids, Linoleic Acid, Oleic Acid, Palmitic Acid, Stearic Acid, Arginine, Glycine, Alanine, Serine, Proline, Threonine, Glutamic Acid, Lysine HCl, Betaine, Xylitylglucoside, Anhydroxylitol, Xylitol, Glucose, Maltose, Fructose, Trehalose, Sodium PCA, PCA, Sodium Lactate, Urea, Allantoin, Sodium Hyaluronate, Lecithin, Triolein, Dimethyl Isosorbide, Pentylene Glycol, Tocopherol, Hydroxymethoxyphenyl Decanone, Citric Acid, Trisodium Ethylenediamine Disuccinate, Magnesium Sulfate, Sodium Chloride, Sodium Hydroxide, Phenoxyethanol, Chlorphenesin'
 	},
 	'glycolipid-cream-cleanser': {
 		Name: 'Glycolipid Cream Cleanser',
@@ -764,7 +802,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Cleanser',
 		Excludes: [],
 		Tags: [],
-		id: 'glycolipid-cream-cleanser'
+		id: 'glycolipid-cream-cleanser',
+		Ingredients:
+			'Aqua (Water), Behenyl Alcohol, Polyglyceryl-2 Stearate, Glycolipids, Pentylene Glycol, Polyglyceryl-6 Dicaprate, Glyceryl Stearate, Stearyl Alcohol, Diutan Gum, Polyacrylate Crosspolymer-6, Sodium Phytate, Phytic Acid, Trisodium Ethylenediamine Disuccinate, Sodium Benzoate, Phenoxyethanol, Chlorphenesin'
 	},
 	'the-ordinary-glucoside-foaming-cleanser': {
 		Name: 'The Ordinary Glucoside Foaming Cleanser',
@@ -776,7 +816,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Cleanser',
 		Excludes: [],
 		Tags: [],
-		id: 'the-ordinary-glucoside-foaming-cleanser'
+		id: 'the-ordinary-glucoside-foaming-cleanser',
+		Ingredients:
+			'Aqua (Water), Decyl Glucoside, Coco Glucoside, Xanthan Gum, Tocopherol, Phytic Acid, Benzyl Alcohol, Ethylhexylglycerin'
 	},
 	'natural-moisturizing-factors-ha': {
 		Name: 'Natural Moisturizing Factors + HA',
@@ -788,7 +830,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Moisturizer',
 		Excludes: [],
 		Tags: [],
-		id: 'natural-moisturizing-factors-ha'
+		id: 'natural-moisturizing-factors-ha',
+		Ingredients:
+			'Aqua (Water), Caprylic/Capric Triglyceride, Cetyl Alcohol, Propanediol, Stearyl Alcohol, Glycerin, Sodium Hyaluronate, Arginine, Aspartic Acid, Glycine, Alanine, Serine, Valine, Isoleucine, Proline, Threonine, Histidine, Phenylalanine, Glucose, Maltose, Fructose, Trehalose, Sodium PCA, PCA, Sodium Lactate, Urea, Allantoin, Linoleic Acid, Oleic Acid, Phytosteryl Canola Glycerides, Palmitic Acid, Stearic Acid, Lecithin, Triolein, Tocopherol, Carbomer, Isoceteth-20, Polysorbate 60, Sodium Chloride, Citric Acid, Trisodium Ethylenediamine Disuccinate, Pentylene Glycol, Triethanolamine, Sodium Hydroxide, Phenoxyethanol, Chlorphenesin'
 	},
 	'squalane-cleanser': {
 		Name: 'Squalane Cleanser',
@@ -800,7 +844,9 @@ export const products: { [key: string]: Product } = {
 		Format: 'Cleanser',
 		Excludes: [],
 		Tags: [],
-		id: 'squalane-cleanser'
+		id: 'squalane-cleanser',
+		Ingredients:
+			'Squalane, Aqua (Water), Coco-Caprylate/Caprate, Glycerin, Sucrose Stearate, Ethyl Macadamiate, Caprylic/Capric Triglyceride, Hydrogenated Starch Hydrolysate, Sucrose Laurate, Polyacrylate Crosspolymer-6, Isoceteth-20, Sodium Polyacrylate, Tocopherol, Hydroxymethoxyphenyl Decanone, Trisodium Ethylenediamine Disuccinate, Malic Acid, Ethylhexylglycerin, Chlorphenesin'
 	},
 	'100-organic-cold-pressed-moroccan-argan-oil': {
 		Name: '100% Organic Cold-Pressed Moroccan Argan Oil',
@@ -824,7 +870,8 @@ export const products: { [key: string]: Product } = {
 		Format: 'Oil',
 		Excludes: [],
 		Tags: [],
-		id: '100-organic-cold-pressed-rose-hip-seed-oil'
+		id: '100-organic-cold-pressed-rose-hip-seed-oil',
+		Ingredients: 'Argania Spinosa Kernel Oil'
 	},
 	'100-plant-derived-squalane': {
 		Name: '100% Plant-Derived Squalane',
@@ -836,7 +883,8 @@ export const products: { [key: string]: Product } = {
 		Format: 'Oil',
 		Excludes: [],
 		Tags: [],
-		id: '100-plant-derived-squalane'
+		id: '100-plant-derived-squalane',
+		Ingredients: 'Squalane'
 	},
 	'100-cold-pressed-virgin-marula-oil': {
 		Name: '100% Cold-Pressed Virgin Marula Oil',
@@ -848,7 +896,8 @@ export const products: { [key: string]: Product } = {
 		Format: 'Oil',
 		Excludes: [],
 		Tags: [],
-		id: '100-cold-pressed-virgin-marula-oil'
+		id: '100-cold-pressed-virgin-marula-oil',
+		Ingredients: 'Marula Oil'
 	},
 	sunscreen: {
 		Name: 'Sunscreen (generic, use any sunscreen)',
@@ -873,6 +922,8 @@ export const products: { [key: string]: Product } = {
 		Format: 'Essence',
 		Excludes: ['Retinoids', 'Direct Acids'],
 		Tags: [],
+		Ingredients:
+			'Aqua/Water/Eau, Glycerin, Propanediol, Sodium Caproyl Prolinate, Glycogen, Gellan Gum, Citric Acid, Sodium Chloride, Trisodium Ethylenediamine Disuccinate, Phenoxyethanol, Chlorphenesin'
 	},
 	'fermented-rose-hip-seed-oil': {
 		Name: 'Fermented Rose Hip Seed Oil',
@@ -885,5 +936,6 @@ export const products: { [key: string]: Product } = {
 		Format: 'Oil',
 		Excludes: [],
 		Tags: [],
+		Ingredients: 'Rosa Canina Seed Oil'
 	}
 };
