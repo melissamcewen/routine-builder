@@ -1,4 +1,4 @@
-import { type Ingredient } from '../src/lib/ingredients.js';
+import { type Ingredient } from '../src/lib/types/ingredients.js';
 
 // List of ingredients to exclude from parsing
 export const EXCLUDED_INGREDIENTS = ['Water', 'Aqua (Water)', 'Aqua/Water/Eau', 'Aqua (Water/Eau)'];
@@ -9,7 +9,16 @@ export const INGREDIENT_SYNONYMS: Record<string, string> = {
 	'Hydrolyzed Hyaluronic Acid': 'Hyaluronic Acid',
 	'Hyaluronate Sodium': 'Hyaluronic Acid',
 	Hyaluronan: 'Hyaluronic Acid',
-	'Sodium Hyaluronate Crosspolymer': 'Hyaluronic Acid'
+	'Sodium Hyaluronate Crosspolymer': 'Hyaluronic Acid',
+	Sphingolipids: 'Ceramides',
+	Panthenol: 'Pro-Vitamin B5',
+	Ethylbisiminomethylguaiacol: 'Euk 134',
+	Retinal: 'Retinaldehyde',
+	'Cetylhydroxyproline Palmitamide': 'Synthetic Oat Analogues',
+	'Yeast Extract': 'Saccharomyces Ferment',
+	Asiaticoside: 'Centella Asiatica Phytotechnologies',
+	'Asiatic Acid': 'Centella Asiatica Phytotechnologies',
+	'Madecassic Acid': 'Centella Asiatica Phytotechnologies'
 };
 
 export function generateIngredientId(name: string): string {
@@ -118,11 +127,17 @@ export function parseIngredients(
 				(key) => normalizeIngredientName(key) === normalizedName
 			);
 
+			// Find any synonyms for this ingredient
+			const synonyms = Object.entries(INGREDIENT_SYNONYMS)
+				.filter(([, primaryName]) => primaryName === normalizedName)
+				.map(([synonym]) => synonym);
+
 			// If ingredient exists, update its products array and tags
 			if (ingredientMap.has(id)) {
 				const existingIngredient = ingredientMap.get(id)!;
 				const products = existingIngredient.products || [];
 				const tags = new Set(existingIngredient.tags || []);
+				const existingSynonyms = new Set(existingIngredient.synonyms || []);
 
 				if (!products.includes(productId)) {
 					products.push(productId);
@@ -132,20 +147,25 @@ export function parseIngredients(
 					tags.add('key-ingredient');
 				}
 
+				// Add any new synonyms
+				synonyms.forEach((synonym) => existingSynonyms.add(synonym));
+
 				ingredientMap.set(id, {
 					...existingIngredient,
 					products,
-					tags: Array.from(tags)
+					tags: Array.from(tags),
+					synonyms: Array.from(existingSynonyms)
 				});
 				return;
 			}
 
-			// Add new ingredient with product reference and tags
+			// Add new ingredient with product reference, tags, and synonyms
 			ingredientMap.set(id, {
 				name: normalizedName,
 				id,
 				products: [productId],
-				tags: isKeyIngredient ? ['key-ingredient'] : []
+				tags: isKeyIngredient ? ['key-ingredient'] : [],
+				...(synonyms.length > 0 && { synonyms })
 			});
 		});
 

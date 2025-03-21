@@ -1,15 +1,15 @@
 export interface Product {
-  id: string;
-  Name: string;
-  TOD: 'day' | 'night' | 'both' | '';
-  Step: 'Prep' | 'Treat' | 'Seal' | '';
-  Targets: string[];
-  'Skin Types': string;
-  Phase: 'Water' | 'Emulsion' | 'Anhydrous' | 'Oil' | 'Cream' | 'Suspension' | '';
-  Format: string;
-  Excludes: string[];
-  Tags: string[];
-  Notes?: string;
+	id: string;
+	Name: string;
+	TOD: 'day' | 'night' | 'both' | '';
+	Step: 'Prep' | 'Treat' | 'Seal' | '';
+	Targets: string[];
+	'Skin Types': string;
+	Phase: 'Water' | 'Emulsion' | 'Anhydrous' | 'Oil' | 'Cream' | 'Suspension' | '';
+	Format: string;
+	Excludes: string[];
+	Tags: string[];
+	Notes?: string;
 	Ingredients?: string;
 	KeyIngredients?: string;
 }
@@ -768,7 +768,8 @@ export const products: { [key: string]: Product } = {
 		Excludes: [],
 		Tags: [],
 		id: 'balancing-clarifying-serum',
-		KeyIngredients: 'Sarcosine, L-Carnitine, Polylysine, Adenosine, N-Acetylglucosamine, Ectoin, Lactococcus Ferment Lysate',
+		KeyIngredients:
+			'Sarcosine, L-Carnitine, Polylysine, Adenosine, N-Acetylglucosamine, Ectoin, Lactococcus Ferment Lysate',
 		Ingredients:
 			'Aqua (Water), Lactococcus Ferment Lysate, Propanediol, Potassium Azeloyl Diglycinate, Carnitine, Acetyl Glucosamine, Sarcosine, Ectoin, Adenosine, Polylysine, Silanetriol, Glycerin, Pentylene Glycol, Sclerotium Gum, Xanthan Gum, Isoceteth-20, Citric Acid, Sodium Citrate, Trisodium Ethylenediamine Disuccinate, Sodium Chloride, Ethylhexylglycerin, Sodium Benzoate, Phenoxyethanol, Chlorphenesin'
 	},
@@ -783,7 +784,7 @@ export const products: { [key: string]: Product } = {
 		Excludes: ['Direct Acids', 'Direct Vitamin C'],
 		Tags: ['Peptides'],
 		id: 'gf-15-solution',
-		KeyIngredients: 'IGF, EGF, TGF'
+		KeyIngredients: 'IGF, EGF, TGF',
 		Ingredients:
 			'Aqua/Water/Eau, Butylene Glycol, Nicotiana Benthamiana Hexapeptide-40 sh-Oligopeptide-1, Nicotiana Benthamiana Hexapeptide-40 sh-Polypeptide-76, Nicotiana Benthamiana Octapeptide-30 sh-Oligopeptide-2, Sclerotium Gum, Glycerin, Trisodium Ethylenediamine Disuccinate, Citric Acid, Sodium Citrate, Phenoxyethanol, Chlorphenesin'
 	},
@@ -810,7 +811,8 @@ export const products: { [key: string]: Product } = {
 		Excludes: [],
 		Tags: [],
 		id: 'natural-moisturizing-factors-phytoceramides',
-		KeyIngredients: 'Glycosphingolipids, Glycolipids, Fatty Acids, PCA, Sodium Lactate, Urea, Sodium Hyaluronate, and Amino Acids',
+		KeyIngredients:
+			'Glycosphingolipids, Glycolipids, Fatty Acids, PCA, Sodium Lactate, Urea, Sodium Hyaluronate, and Amino Acids',
 		Ingredients:
 			'Aqua (Water), Caprylic/Capric Triglyceride, Cetyl Ethylhexanoate, Isodecyl Neopentanoate, Glycerin, Propanediol, Polyglyceryl-6 Polyricinoleate, Hydrogenated Vegetable Oil, Polyglyceryl-2 Isostearate, Isosorbide Dicaprylate, Disteardimonium Hectorite, Phytosteryl Canola Glycerides, Glycosphingolipids, Glycolipids, Linoleic Acid, Oleic Acid, Palmitic Acid, Stearic Acid, Arginine, Glycine, Alanine, Serine, Proline, Threonine, Glutamic Acid, Lysine HCl, Betaine, Xylitylglucoside, Anhydroxylitol, Xylitol, Glucose, Maltose, Fructose, Trehalose, Sodium PCA, PCA, Sodium Lactate, Urea, Allantoin, Sodium Hyaluronate, Lecithin, Triolein, Dimethyl Isosorbide, Pentylene Glycol, Tocopherol, Hydroxymethoxyphenyl Decanone, Citric Acid, Trisodium Ethylenediamine Disuccinate, Magnesium Sulfate, Sodium Chloride, Sodium Hydroxide, Phenoxyethanol, Chlorphenesin'
 	},
@@ -855,7 +857,8 @@ export const products: { [key: string]: Product } = {
 		Excludes: [],
 		Tags: [],
 		id: 'natural-moisturizing-factors-ha',
-		KeyIngredients: 'Sodium Hyaluronate, Arginine, Sodium PCA, PCA, Lactates, Lactic Acid, and Minerals',
+		KeyIngredients:
+			'Sodium Hyaluronate, Arginine, Sodium PCA, PCA, Lactates, Lactic Acid, and Minerals',
 		Ingredients:
 			'Aqua (Water), Caprylic/Capric Triglyceride, Cetyl Alcohol, Propanediol, Stearyl Alcohol, Glycerin, Sodium Hyaluronate, Arginine, Aspartic Acid, Glycine, Alanine, Serine, Valine, Isoleucine, Proline, Threonine, Histidine, Phenylalanine, Glucose, Maltose, Fructose, Trehalose, Sodium PCA, PCA, Sodium Lactate, Urea, Allantoin, Linoleic Acid, Oleic Acid, Phytosteryl Canola Glycerides, Palmitic Acid, Stearic Acid, Lecithin, Triolein, Tocopherol, Carbomer, Isoceteth-20, Polysorbate 60, Sodium Chloride, Citric Acid, Trisodium Ethylenediamine Disuccinate, Pentylene Glycol, Triethanolamine, Sodium Hydroxide, Phenoxyethanol, Chlorphenesin'
 	},
