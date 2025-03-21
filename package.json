@@ -14,7 +14,8 @@
 		"test": "vitest run",
 		"test:watch": "vitest",
 		"test:ui": "vitest --ui --coverage",
-		"test:coverage": "vitest run --coverage"
+		"test:coverage": "vitest run --coverage",
+		"update-ingredients": "NODE_OPTIONS='--loader ts-node/esm' node scripts/updateIngredients.ts"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "^5.5.2",

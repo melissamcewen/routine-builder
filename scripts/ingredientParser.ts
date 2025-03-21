@@ -42,7 +42,7 @@ export function parseIngredientString(ingredientString: string): string[] {
 }
 
 export function parseIngredients(
-	ingredientsMap: Record<string, { Ingredients?: string }>,
+	ingredientsMap: Record<string, { Ingredients?: string; id: string }>,
 	existingIngredients: Record<string, Ingredient> = {}
 ): Record<string, Ingredient> {
 	const ingredientMap = new Map<string, Ingredient>();
@@ -53,7 +53,7 @@ export function parseIngredients(
 	});
 
 	// Process each product's ingredients
-	Object.values(ingredientsMap).forEach((product) => {
+	Object.entries(ingredientsMap).forEach(([productId, product]) => {
 		if (!product.Ingredients) return;
 
 		const ingredients = parseIngredientString(product.Ingredients);
@@ -62,15 +62,25 @@ export function parseIngredients(
 			const normalizedName = normalizeIngredientName(ingredient);
 			const id = generateIngredientId(ingredient);
 
-			// If ingredient already exists, preserve existing data
+			// If ingredient exists, update its products array
 			if (ingredientMap.has(id)) {
+				const existingIngredient = ingredientMap.get(id)!;
+				const products = existingIngredient.products || [];
+				if (!products.includes(productId)) {
+					products.push(productId);
+				}
+				ingredientMap.set(id, {
+					...existingIngredient,
+					products
+				});
 				return;
 			}
 
-			// Add new ingredient
+			// Add new ingredient with product reference
 			ingredientMap.set(id, {
 				name: normalizedName,
-				id
+				id,
+				products: [productId]
 			});
 		});
 	});
