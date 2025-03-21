@@ -1,11 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import { products } from '../src/lib/products.js';
+import { type Ingredient } from '../src/lib/ingredients.js';
 import {
 	generateIngredientId,
 	normalizeIngredientName,
 	parseIngredientString,
-	parseIngredients,
-	type Ingredient
+	parseIngredients
 } from './ingredientParser.js';
 
 describe('Ingredient Parsing', () => {

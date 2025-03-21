@@ -1,11 +1,4 @@
-export interface Ingredient {
-	name: string;
-	id: string;
-	// Add optional fields that can be manually added
-	category?: string;
-	description?: string;
-	concerns?: string[];
-}
+import { type Ingredient } from '../src/lib/ingredients.js';
 
 export function generateIngredientId(name: string): string {
 	return name
