@@ -11,7 +11,10 @@ export const load: PageLoad = ({ params }) => {
 	}
 
 	// Get the full product details for each product that contains this ingredient
-	const relatedProducts = ingredient.products?.map((productId) => products[productId]) || [];
+	// Filter out any products that don't exist in the products object
+	const relatedProducts = ingredient.products
+		?.map((productId) => products[productId])
+		.filter((product) => product !== undefined) || [];
 
 	return {
 		ingredient,
