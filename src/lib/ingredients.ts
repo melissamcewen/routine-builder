@@ -800,7 +800,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'soothing-barrier-support-serum'
 		],
 		tags: ['key-ingredient'],
-		synonyms: ['Epigallocatechin Gallatyl Glucoside']
+		synonyms: ['Epigallocatechin Gallatyl Glucoside'],
+		category: 'Antioxidants',
+		description: 'Green tea antioxidant with anti-inflammatory properties'
 	},
 	ergothioneine: {
 		name: 'Ergothioneine',
@@ -835,14 +837,18 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'soothing-barrier-support-serum'
 		],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Emollients',
+		description: 'Vitamin F, a useful skin-protecting emollient'
 	},
 	'ethyl-macadamiate': {
 		name: 'Ethyl Macadamiate',
 		id: 'ethyl-macadamiate',
 		products: ['niacinamide-5-face-and-body-emulsion', 'squalane-cleanser'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Emollients',
+		description: 'A skin-protecting emollient derived from macadamia oil'
 	},
 	'ethylbisiminomethylguaiacol-manganese-chloride': {
 		name: 'Ethylbisiminomethylguaiacol Manganese Chloride.',
@@ -910,7 +916,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 		id: 'fraxinus-excelsior-bark-extract',
 		products: ['multi-peptide-eye-serum'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Antioxidants',
+		description: 'Ash tree bark extract with antioxidant properties'
 	},
 	fructose: {
 		name: 'Fructose',
@@ -953,7 +961,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 		id: 'ginger-root-extract',
 		products: ['retinal-0-2-emulsion', 'soothing-barrier-support-serum'],
 		tags: ['key-ingredient'],
-		synonyms: ['Zingiber Officinale Root Extract']
+		synonyms: ['Zingiber Officinale Root Extract'],
+		category: 'Botanicals',
+		description: 'Ginger root extract with anti-inflammatory and antioxidant properties'
 	},
 	glucomannan: {
 		name: 'Glucomannan',
@@ -1016,7 +1026,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'multi-active-delivery-essence'
 		],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Humectants',
+		description: 'One of the most common and effective humectants'
 	},
 	'glyceryl-stearate': {
 		name: 'Glyceryl Stearate',
@@ -1053,28 +1065,38 @@ export const ingredients: { [key: string]: Ingredient } = {
 		id: 'glycogen',
 		products: ['multi-active-delivery-essence'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Humectants',
+		description: 'A film-forming humectant that helps seal in moisture'
 	},
 	'glycolic-acid': {
 		name: 'Glycolic Acid',
 		id: 'glycolic-acid',
 		products: ['glycolic-acid-7-exfoliating-toner', 'multi-peptide-eye-serum'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Acids',
+		description:
+			'An AHA (alpha hydroxy acid) useful as an antioxidant, exfoliant, and potential collagen stimulant'
 	},
 	glycolipids: {
 		name: 'Glycolipids',
 		id: 'glycolipids',
 		products: ['natural-moisturizing-factors-phytoceramides', 'glycolipid-cream-cleanser'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Surfactants',
+		description: 'A natural surfactant used for cleansing or emulsifying'
 	},
 	glycosphingolipids: {
 		name: 'Glycosphingolipids',
 		id: 'glycosphingolipids',
 		products: ['natural-moisturizing-factors-phytoceramides'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Surfactants',
+		description:
+			'A natural surfactant that can also act as an emollient that strengthens the skin barrier'
 	},
 	'hexyl-nicotinate': {
 		name: 'Hexyl Nicotinate',
@@ -1140,8 +1162,12 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'Hydrolyzed Hyaluronic Acid',
 			'Hyaluronate Sodium',
 			'Hyaluronan',
-			'Sodium Hyaluronate Crosspolymer'
-		]
+			'Sodium Hyaluronate Crosspolymer',
+			'Hydrolyzed Sodium Hyaluronate'
+		],
+		category: 'Humectants',
+		description:
+			'Trendy and very effective humectant. We grouped all the different forms of hyaluronic acid together.'
 	},
 	'hydrogenated-starch-hydrolysate': {
 		name: 'Hydrogenated Starch Hydrolysate',
@@ -1155,13 +1181,6 @@ export const ingredients: { [key: string]: Ingredient } = {
 		id: 'hydrogenated-vegetable-oil',
 		products: ['natural-moisturizing-factors-phytoceramides'],
 		tags: [],
-		synonyms: []
-	},
-	'hydrolyzed-sodium-hyaluronate': {
-		name: 'Hydrolyzed Sodium Hyaluronate',
-		id: 'hydrolyzed-sodium-hyaluronate',
-		products: ['alpha-arbutin-2-ha'],
-		tags: ['key-ingredient'],
 		synonyms: []
 	},
 	hydroxyapatite: {
@@ -1215,7 +1234,10 @@ export const ingredients: { [key: string]: Ingredient } = {
 		id: 'hydroxypinacolone-retinoate',
 		products: ['granactive-retinoid-2-emulsion', 'granactive-retinoid-5-in-squalane'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Retinoids',
+		description:
+			'A supposedly less irritating retinoid that may be just as effective at stimulating collagen production and skin cell turnover'
 	},
 	'hydroxypropyl-cyclodextrin': {
 		name: 'Hydroxypropyl Cyclodextrin',
@@ -1312,7 +1334,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 		id: 'l-carnitine',
 		products: ['balancing-clarifying-serum'],
 		tags: ['key-ingredient'],
-		synonyms: ['Carnitine']
+		synonyms: ['Carnitine'],
+		category: 'Biologics',
+		description: 'A biologic that may reduce inflammation and improve skin barrier function'
 	},
 	'lactic-acid': {
 		name: 'Lactic Acid',
@@ -1326,7 +1350,10 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'alpha-arbutin-2-ha'
 		],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Acids',
+		description:
+			'An multifunctional AHA (alpha hydroxy acid) that exfoliates and acts as a humectant'
 	},
 	'lactococcus-ferment-lysate': {
 		name: 'Lactococcus Ferment Lysate',
@@ -1337,7 +1364,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'balancing-clarifying-serum'
 		],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Probiotics',
+		description: 'A probiotic that may improve skin barrier function and act as a growth factor'
 	},
 	'lauryl-glucoside': {
 		name: 'Lauryl Glucoside',
@@ -1417,14 +1446,20 @@ export const ingredients: { [key: string]: Ingredient } = {
 		id: 'mandelic-acid',
 		products: ['mandelic-acid-10-ha'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Acids',
+		description:
+			'A AHA (alpha hydroxy acid) that exfoliates and has anti-bacterial properties that might help with acne'
 	},
 	'marula-oil': {
 		name: 'Marula Oil',
 		id: 'marula-oil',
 		products: ['100-cold-pressed-virgin-marula-oil'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: ['Sclerocarya Birrea Seed Oil'],
+		category: 'Oils',
+		description:
+			'Oil from the Marula tree, can act as an emollient, antioxidant, and may help reduce redness'
 	},
 	melanin: {
 		name: 'Melanin',
@@ -1438,7 +1473,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 		id: 'myristoyl-nonapeptide-3',
 		products: ['multi-peptide-eye-serum'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Peptides',
+		description: 'A peptide that may improve skin cell turnover and promote collagen production'
 	},
 	'myristyl-glucoside': {
 		name: 'Myristyl Glucoside',
@@ -1450,16 +1487,11 @@ export const ingredients: { [key: string]: Ingredient } = {
 	'n-acetyl-glucosamine': {
 		name: 'N-Acetyl Glucosamine',
 		id: 'n-acetyl-glucosamine',
-		products: ['aloe-2-nag-2-solution'],
+		products: ['multi-peptide-eye-serum', 'balancing-clarifying-serum', 'aloe-2-nag-2-solution'],
 		tags: ['key-ingredient'],
-		synonyms: []
-	},
-	'n-acetylglucosamine': {
-		name: 'N-Acetylglucosamine',
-		id: 'n-acetylglucosamine',
-		products: ['multi-peptide-eye-serum', 'balancing-clarifying-serum'],
-		tags: ['key-ingredient'],
-		synonyms: ['Acetyl Glucosamine']
+		synonyms: ['Acetyl Glucosamine'],
+		category: 'Biologics',
+		description: 'Moisturizing ingredient that may reduce wrinkles and brown spots'
 	},
 	naringenin: {
 		name: 'Naringenin',
@@ -1479,7 +1511,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'niacinamide-5-face-and-body-emulsion'
 		],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+    category: 'Multifunctional',
+    description: 'Basically does everything? Fades brown spots, fights acne, reduces wrinkles, improves skin barrier function, and more'
 	},
 	'nicotiana-benthamiana-hexapeptide-40-sh-oligopeptide-1': {
 		name: 'Nicotiana Benthamiana Hexapeptide-40 Sh-Oligopeptide-1',
@@ -1546,21 +1580,27 @@ export const ingredients: { [key: string]: Ingredient } = {
 		id: 'palmitoyl-pentapeptide-4',
 		products: ['aloe-2-nag-2-solution'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+    category: 'Peptides',
+    description: 'A peptide that can reduce wrinkles and improve skin texture'
 	},
 	'palmitoyl-tetrapeptide-7': {
 		name: 'Palmitoyl Tetrapeptide-7',
 		id: 'palmitoyl-tetrapeptide-7',
 		products: ['multi-peptide-copper-peptides-1-serum', 'multi-peptide-ha-serum', 'matrixyl-10-ha'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+    category: 'Peptides',
+    description: 'A peptide that can reduce inflammation and collagen degradation'
 	},
 	'palmitoyl-tripeptide-1': {
 		name: 'Palmitoyl Tripeptide-1',
 		id: 'palmitoyl-tripeptide-1',
 		products: ['multi-peptide-copper-peptides-1-serum', 'multi-peptide-ha-serum', 'matrixyl-10-ha'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+    category: 'Peptides',
+    description: 'A peptide that may reduce wrinkles by boosting collagen production'
 	},
 	'palmitoyl-tripeptide-38': {
 		name: 'Palmitoyl Tripeptide-38',
@@ -1572,14 +1612,18 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'matrixyl-10-ha'
 		],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+    category: 'Peptides',
+    description: 'A peptide that may boost collagen production'
 	},
 	'panax-ginseng-root-extract': {
 		name: 'Panax Ginseng Root Extract',
 		id: 'panax-ginseng-root-extract',
 		products: ['glycolic-acid-7-exfoliating-toner'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+    category: 'Botanicals',
+    description: 'A traditional medicinal plant that acts as an antioxidant and may improve circulation'
 	},
 	'panthenyl-triacetate': {
 		name: 'Panthenyl Triacetate',
