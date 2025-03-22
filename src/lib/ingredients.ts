@@ -42,16 +42,6 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [],
     "synonyms": []
   },
-  "acetyl-glucosamine": {
-    "name": "Acetyl Glucosamine",
-    "id": "acetyl-glucosamine",
-    "products": [
-      "multi-peptide-eye-serum",
-      "balancing-clarifying-serum"
-    ],
-    "tags": [],
-    "synonyms": []
-  },
   "acetyl-hexapeptide-8": {
     "name": "Acetyl Hexapeptide-8",
     "id": "acetyl-hexapeptide-8",
@@ -63,7 +53,9 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [
       "key-ingredient"
     ],
-    "synonyms": []
+    "synonyms": ["Argireline"],
+    "category": "Peptides",
+    "description": "A peptide that targets dynamic wrinkles"
   },
   "acetyl-tetrapeptide-5": {
     "name": "Acetyl Tetrapeptide-5",
@@ -74,7 +66,9 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [
       "key-ingredient"
     ],
-    "synonyms": []
+    "synonyms": [],
+    "category": "Peptides",
+    "description": "A peptide designed to target undereye puffiness"
   },
   "acetylarginyltryptophyl-diphenylglycine": {
     "name": "Acetylarginyltryptophyl Diphenylglycine",
@@ -86,7 +80,9 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [
       "key-ingredient"
     ],
-    "synonyms": []
+    "synonyms": ["Relistase"],
+    "category": "Peptides",
+    "description": "A peptide designed improve skin elasticity"
   },
   "acrylates-c10-30-alkyl-acrylate-crosspolymer": {
     "name": "Acrylates/C10-30 Alkyl Acrylate Crosspolymer",
@@ -115,7 +111,9 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [
       "key-ingredient"
     ],
-    "synonyms": []
+    "synonyms": [],
+    "category": "Biologics",
+    "description": "A molecule with anti-inflammatory properties"
   },
   "ahnfeltia-concinna-extract": {
     "name": "Ahnfeltia Concinna Extract",
@@ -127,7 +125,9 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [
       "key-ingredient"
     ],
-    "synonyms": []
+    "synonyms": [],
+    "category": "Botanicals",
+    "description": "A film-foaming humectant that helps improve skin hydration"
   },
   "ahnfeltiopsis-concinna-extract": {
     "name": "Ahnfeltiopsis Concinna Extract",
@@ -151,7 +151,9 @@ export const ingredients: { [key: string]: Ingredient } = {
       "natural-moisturizing-factors-phytoceramides",
       "natural-moisturizing-factors-ha"
     ],
-    "tags": [],
+    "tags": [
+      "amino-acids"
+    ],
     "synonyms": []
   },
   "algae-extract": {
@@ -185,7 +187,9 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [
       "key-ingredient"
     ],
-    "synonyms": []
+    "synonyms": [],
+    "category": "Botanicals",
+    "description": "Powdered form of aloe vera leaf juice with soothing and film-forming humectant properties"
   },
   "aloe-barbadensis-leaf-water": {
     "name": "Aloe Barbadensis Leaf Water",
@@ -196,7 +200,9 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [
       "key-ingredient"
     ],
-    "synonyms": []
+    "synonyms": [],
+    "category": "Botanicals",
+    "description": "The juice of aloe vera leaf with film-forming humectant and soothing properties"
   },
   "alpha-arbutin": {
     "name": "Alpha-Arbutin",
@@ -207,7 +213,9 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [
       "key-ingredient"
     ],
-    "synonyms": []
+    "synonyms": [],
+    "category": "Antioxidants",
+    "description": "A plant-derived compound that may help prevent the formation of brown spots"
   },
   "aminomethyl-propanol": {
     "name": "Aminomethyl Propanol",
@@ -235,13 +243,14 @@ export const ingredients: { [key: string]: Ingredient } = {
     "name": "Argania Spinosa Kernel Oil",
     "id": "argania-spinosa-kernel-oil",
     "products": [
-      "100-organic-cold-pressed-rose-hip-seed-oil",
       "100-organic-cold-pressed-moroccan-argan-oil"
     ],
     "tags": [
       "key-ingredient"
     ],
-    "synonyms": []
+    "synonyms": [],
+    "category": "Oils",
+    "description": "An oil with naturally-occurring antioxidants and fatty acids"
   },
   "arginine": {
     "name": "Arginine",
@@ -258,9 +267,12 @@ export const ingredients: { [key: string]: Ingredient } = {
       "natural-moisturizing-factors-ha"
     ],
     "tags": [
-      "key-ingredient"
+      "key-ingredient",
+      "amino-acids"
     ],
-    "synonyms": []
+    "synonyms": [],
+    "category": "Amino Acids",
+    "description": "An amino acid that acts as a film-forming humectant"
   },
   "ascorbic-acid": {
     "name": "Ascorbic Acid",
@@ -273,7 +285,9 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [
       "key-ingredient"
     ],
-    "synonyms": []
+    "synonyms": [],
+    "category": "Antioxidants",
+    "description": "An antioxidant that helps prevent free radical/sun damage/browning and may also boost collagen production"
   },
   "ascorbyl-glucoside": {
     "name": "Ascorbyl Glucoside",
@@ -284,7 +298,9 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [
       "key-ingredient"
     ],
-    "synonyms": []
+    "synonyms": [],
+    "category": "Antioxidants",
+    "description": "Stable better-penetrating form of vitamin C, used for preventing free radical damage/boosting collagen"
   },
   "ascorbyl-palmitate": {
     "name": "Ascorbyl Palmitate",
@@ -293,6 +309,28 @@ export const ingredients: { [key: string]: Ingredient } = {
       "retinal-0-2-emulsion"
     ],
     "tags": [],
+    "synonyms": []
+  },
+  "asiatic-acid": {
+    "name": "Asiatic Acid",
+    "id": "asiatic-acid",
+    "products": [
+      "soothing-barrier-support-serum"
+    ],
+    "tags": [
+      "centella-asiatica-phytotechnologies"
+    ],
+    "synonyms": []
+  },
+  "asiaticoside": {
+    "name": "Asiaticoside",
+    "id": "asiaticoside",
+    "products": [
+      "soothing-barrier-support-serum"
+    ],
+    "tags": [
+      "centella-asiatica-phytotechnologies"
+    ],
     "synonyms": []
   },
   "aspartic-acid": {
@@ -318,7 +356,9 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [
       "key-ingredient"
     ],
-    "synonyms": []
+    "synonyms": [],
+    "category": "Acids",
+    "description": "An carboxylic acid known to be effective for treating acne, rosacea, and melasma"
   },
   "behentrimonium-chloride": {
     "name": "Behentrimonium Chloride",
@@ -369,7 +409,9 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [
       "key-ingredient"
     ],
-    "synonyms": []
+    "synonyms": [],
+    "category": "Humectants",
+    "description": "A film-forming humectant that may have anti-aging properties"
   },
   "betaine": {
     "name": "Betaine",
@@ -382,7 +424,10 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [
       "key-ingredient"
     ],
-    "synonyms": []
+
+    "synonyms": [],
+    "category": "Humectants",
+    "description": "A plant-derived humectant derived from sugar beets"
   },
   "bht": {
     "name": "Bht",
@@ -426,17 +471,9 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [
       "key-ingredient"
     ],
-    "synonyms": []
-  },
-  "brassica-campestris-sterols": {
-    "name": "Brassica Campestris Sterols",
-    "id": "brassica-campestris-sterols",
-    "products": [
-      "retinal-0-2-emulsion",
-      "soothing-barrier-support-serum"
-    ],
-    "tags": [],
-    "synonyms": []
+    "synonyms": [],
+    "category": "Botanicals",
+    "description": "Chamomile-derived compound with soothing properties"
   },
   "butylene-glycol": {
     "name": "Butylene Glycol",
@@ -489,7 +526,9 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [
       "key-ingredient"
     ],
-    "synonyms": []
+    "synonyms": [],
+    "category": "Caffeine",
+    "description": "The same stuff as in coffee, may improve circulation"
   },
   "caprylic-capric-triglyceride": {
     "name": "Caprylic/Capric Triglyceride",
@@ -540,15 +579,6 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [],
     "synonyms": []
   },
-  "carnitine": {
-    "name": "Carnitine",
-    "id": "carnitine",
-    "products": [
-      "balancing-clarifying-serum"
-    ],
-    "tags": [],
-    "synonyms": []
-  },
   "carrageenan": {
     "name": "Carrageenan",
     "id": "carrageenan",
@@ -567,36 +597,7 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [],
     "synonyms": []
   },
-  "centella-asiatica-phytotechnologies": {
-    "name": "Centella Asiatica Phytotechnologies",
-    "id": "centella-asiatica-phytotechnologies",
-    "products": [
-      "soothing-barrier-support-serum"
-    ],
-    "tags": [
-      "key-ingredient"
-    ],
-    "synonyms": [
-      "Asiaticoside",
-      "Asiatic Acid",
-      "Madecassic Acid"
-    ]
-  },
-  "ceramides": {
-    "name": "Ceramides",
-    "id": "ceramides",
-    "products": [
-      "hyaluronic-acid-2-b5-hydrating-serum",
-      "soothing-barrier-support-serum",
-      "natural-moisturizing-factors-beta-glucan"
-    ],
-    "tags": [
-      "key-ingredient"
-    ],
-    "synonyms": [
-      "Sphingolipids"
-    ]
-  },
+
   "ceteareth-12": {
     "name": "Ceteareth-12",
     "id": "ceteareth-12",
@@ -668,6 +669,18 @@ export const ingredients: { [key: string]: Ingredient } = {
       "granactive-retinoid-2-emulsion"
     ],
     "tags": [],
+    "synonyms": []
+  },
+  "cetylhydroxyproline-palmitamide": {
+    "name": "Cetylhydroxyproline Palmitamide",
+    "id": "cetylhydroxyproline-palmitamide",
+    "products": [
+      "retinal-0-2-emulsion",
+      "soothing-barrier-support-serum"
+    ],
+    "tags": [
+      "synthetic-oat-analogues"
+    ],
     "synonyms": []
   },
   "chlorphenesin": {
@@ -778,7 +791,9 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [
       "key-ingredient"
     ],
-    "synonyms": []
+    "synonyms": [],
+    "category": "Peptides",
+    "description": "Peptide with anti-inflammatory and anti-aging properties"
   },
   "cyanocobalamin": {
     "name": "Cyanocobalamin",
@@ -931,9 +946,9 @@ export const ingredients: { [key: string]: Ingredient } = {
     ],
     "synonyms": []
   },
-  "epigallocatechin-gallatyl-glucoside": {
-    "name": "Epigallocatechin Gallatyl Glucoside",
-    "id": "epigallocatechin-gallatyl-glucoside",
+  "epigallocatechin-gallate": {
+    "name": "Epigallocatechin Gallate",
+    "id": "epigallocatechin-gallate",
     "products": [
       "caffeine-solution-5-egcg",
       "multi-peptide-eye-serum",
@@ -942,7 +957,9 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [
       "key-ingredient"
     ],
-    "synonyms": []
+    "synonyms": [
+      "Epigallocatechin Gallatyl Glucoside"
+    ]
   },
   "ergothioneine": {
     "name": "Ergothioneine",
@@ -1113,6 +1130,20 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [],
     "synonyms": []
   },
+  "ginger-root-extract": {
+    "name": "Ginger Root Extract",
+    "id": "ginger-root-extract",
+    "products": [
+      "retinal-0-2-emulsion",
+      "soothing-barrier-support-serum"
+    ],
+    "tags": [
+      "key-ingredient"
+    ],
+    "synonyms": [
+      "Zingiber Officinale Root Extract"
+    ]
+  },
   "glucomannan": {
     "name": "Glucomannan",
     "id": "glucomannan",
@@ -1145,7 +1176,9 @@ export const ingredients: { [key: string]: Ingredient } = {
       "amino-acids-b5",
       "natural-moisturizing-factors-phytoceramides"
     ],
-    "tags": [],
+    "tags": [
+      "amino-acids"
+    ],
     "synonyms": []
   },
   "glycerin": {
@@ -1203,7 +1236,9 @@ export const ingredients: { [key: string]: Ingredient } = {
       "natural-moisturizing-factors-phytoceramides",
       "natural-moisturizing-factors-ha"
     ],
-    "tags": [],
+    "tags": [
+      "amino-acids"
+    ],
     "synonyms": []
   },
   "glycine-soja-soybean-seed-extract": {
@@ -1533,6 +1568,19 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [],
     "synonyms": []
   },
+  "l-carnitine": {
+    "name": "L-Carnitine",
+    "id": "l-carnitine",
+    "products": [
+      "balancing-clarifying-serum"
+    ],
+    "tags": [
+      "key-ingredient"
+    ],
+    "synonyms": [
+      "Carnitine"
+    ]
+  },
   "lactic-acid": {
     "name": "Lactic Acid",
     "id": "lactic-acid",
@@ -1588,7 +1636,9 @@ export const ingredients: { [key: string]: Ingredient } = {
       "natural-moisturizing-factors-phytoceramides",
       "natural-moisturizing-factors-ha"
     ],
-    "tags": [],
+    "tags": [
+      "fatty-acids"
+    ],
     "synonyms": []
   },
   "lysine-hcl": {
@@ -1602,13 +1652,26 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [],
     "synonyms": []
   },
+  "madecassic-acid": {
+    "name": "Madecassic Acid",
+    "id": "madecassic-acid",
+    "products": [
+      "soothing-barrier-support-serum"
+    ],
+    "tags": [
+      "centella-asiatica-phytotechnologies"
+    ],
+    "synonyms": []
+  },
   "magnesium-sulfate": {
     "name": "Magnesium Sulfate",
     "id": "magnesium-sulfate",
     "products": [
       "natural-moisturizing-factors-phytoceramides"
     ],
-    "tags": [],
+    "tags": [
+      "minerals"
+    ],
     "synonyms": []
   },
   "malic-acid": {
@@ -1707,6 +1770,20 @@ export const ingredients: { [key: string]: Ingredient } = {
     ],
     "synonyms": []
   },
+  "n-acetylglucosamine": {
+    "name": "N-Acetylglucosamine",
+    "id": "n-acetylglucosamine",
+    "products": [
+      "multi-peptide-eye-serum",
+      "balancing-clarifying-serum"
+    ],
+    "tags": [
+      "key-ingredient"
+    ],
+    "synonyms": [
+      "Acetyl Glucosamine"
+    ]
+  },
   "naringenin": {
     "name": "Naringenin",
     "id": "naringenin",
@@ -1765,7 +1842,9 @@ export const ingredients: { [key: string]: Ingredient } = {
       "natural-moisturizing-factors-phytoceramides",
       "natural-moisturizing-factors-ha"
     ],
-    "tags": [],
+    "tags": [
+      "fatty-acids"
+    ],
     "synonyms": []
   },
   "oleic-linoleic-linolenic-polyglycerides": {
@@ -1804,7 +1883,9 @@ export const ingredients: { [key: string]: Ingredient } = {
       "natural-moisturizing-factors-phytoceramides",
       "natural-moisturizing-factors-ha"
     ],
-    "tags": [],
+    "tags": [
+      "fatty-acids"
+    ],
     "synonyms": []
   },
   "palmitoyl-pentapeptide-4": {
@@ -2236,7 +2317,9 @@ export const ingredients: { [key: string]: Ingredient } = {
       "natural-moisturizing-factors-phytoceramides",
       "natural-moisturizing-factors-ha"
     ],
-    "tags": [],
+    "tags": [
+      "amino-acids"
+    ],
     "synonyms": []
   },
   "propanediol": {
@@ -2307,6 +2390,20 @@ export const ingredients: { [key: string]: Ingredient } = {
       "key-ingredient"
     ],
     "synonyms": []
+  },
+  "rapeseed-sterols": {
+    "name": "Rapeseed Sterols",
+    "id": "rapeseed-sterols",
+    "products": [
+      "retinal-0-2-emulsion",
+      "soothing-barrier-support-serum"
+    ],
+    "tags": [
+      "key-ingredient"
+    ],
+    "synonyms": [
+      "Brassica Campestris Sterols"
+    ]
   },
   "resveratrol": {
     "name": "Resveratrol",
@@ -2448,7 +2545,9 @@ export const ingredients: { [key: string]: Ingredient } = {
       "natural-moisturizing-factors-phytoceramides",
       "natural-moisturizing-factors-ha"
     ],
-    "tags": [],
+    "tags": [
+      "amino-acids"
+    ],
     "synonyms": []
   },
   "silanetriol": {
@@ -2531,7 +2630,9 @@ export const ingredients: { [key: string]: Ingredient } = {
       "natural-moisturizing-factors-ha",
       "multi-active-delivery-essence"
     ],
-    "tags": [],
+    "tags": [
+      "minerals"
+    ],
     "synonyms": []
   },
   "sodium-citrate": {
@@ -2588,7 +2689,8 @@ export const ingredients: { [key: string]: Ingredient } = {
       "natural-moisturizing-factors-ha"
     ],
     "tags": [
-      "key-ingredient"
+      "key-ingredient",
+      "lactates"
     ],
     "synonyms": []
   },
@@ -2651,6 +2753,19 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [],
     "synonyms": []
   },
+  "sphingolipids": {
+    "name": "Sphingolipids",
+    "id": "sphingolipids",
+    "products": [
+      "hyaluronic-acid-2-b5-hydrating-serum",
+      "soothing-barrier-support-serum",
+      "natural-moisturizing-factors-beta-glucan"
+    ],
+    "tags": [
+      "ceramides"
+    ],
+    "synonyms": []
+  },
   "sphingomonas-ferment-extract": {
     "name": "Sphingomonas Ferment Extract",
     "id": "sphingomonas-ferment-extract",
@@ -2689,7 +2804,9 @@ export const ingredients: { [key: string]: Ingredient } = {
       "natural-moisturizing-factors-phytoceramides",
       "natural-moisturizing-factors-ha"
     ],
-    "tags": [],
+    "tags": [
+      "fatty-acids"
+    ],
     "synonyms": []
   },
   "stearyl-alcohol": {
@@ -2796,7 +2913,9 @@ export const ingredients: { [key: string]: Ingredient } = {
       "natural-moisturizing-factors-phytoceramides",
       "natural-moisturizing-factors-ha"
     ],
-    "tags": [],
+    "tags": [
+      "amino-acids"
+    ],
     "synonyms": []
   },
   "tocopherol": {
@@ -2978,16 +3097,6 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [
       "key-ingredient"
     ],
-    "synonyms": []
-  },
-  "zingiber-officinale-root-extract": {
-    "name": "Zingiber Officinale Root Extract",
-    "id": "zingiber-officinale-root-extract",
-    "products": [
-      "retinal-0-2-emulsion",
-      "soothing-barrier-support-serum"
-    ],
-    "tags": [],
     "synonyms": []
   }
 };

@@ -109,7 +109,7 @@ export const products: { [key: string]: Product } = {
 		id: 'argireline-solution-10',
 		KeyIngredients: 'Acetyl Hexapeptide-8',
 		Ingredients:
-			' Aqua (Water), Propanediol, Acetyl Hexapeptide-8, Trisodium Ethylenediamine Disuccinate, Gellan Gum, Sodium Chloride, Isoceteth-20, Dimethyl Isosorbide, Potassium Sorbate, Phenoxyethanol, Chlorphenesin'
+			'Aqua (Water), Salicylic Acid, Propanediol, Acetyl Hexapeptide-8, Trisodium Ethylenediamine Disuccinate, Gellan Gum, Sodium Chloride, Isoceteth-20, Dimethyl Isosorbide, Potassium Sorbate, Phenoxyethanol, Chlorphenesin'
 	},
 	'salicylic-acid-2-solution': {
 		Name: 'Salicylic Acid 2% Solution',
@@ -330,7 +330,7 @@ export const products: { [key: string]: Product } = {
 		Tags: ['Resveratrol and Ferulic Acid', 'Strong Antioxidants'],
 		id: 'resveratrol-3-ferulic-acid-3',
 		KeyIngredients: 'Resveratrol, Ferulic Acid',
-		Ingredients: 'Propanediol, Resveratrol, Ferulic Acid. '
+		Ingredients: 'Propanediol, Resveratrol, Ferulic Acid'
 	},
 	'ascorbyl-glucoside-solution-12': {
 		Name: 'Ascorbyl Glucoside Solution 12%',
@@ -556,7 +556,7 @@ export const products: { [key: string]: Product } = {
 		Excludes: ['Copper Peptides', 'Direct Acids', 'Direct Vitamin C', 'Retinoids'],
 		Tags: ['Retinoids'],
 		id: 'retinol-0-5-in-squalane',
-		KeyIngredients: 'Hydroxypinacolone Retinoate, Retinol, Tasmannia Lanceolata Fruit/Leaf Extract',
+		KeyIngredients: 'Retinol, Squalane',
 		Ingredients:
 			'Squalane, Caprylic/Capric Triglyceride, Simmondsia Chinensis (Jojoba) Seed Oil, Retinol, Solanum Lycopersicum (Tomato) Fruit Extract, Rosmarinus Officinalis (Rosemary) Leaf Extract, Hydroxymethoxyphenyl Decanone, BHT. '
 	},
@@ -812,7 +812,7 @@ export const products: { [key: string]: Product } = {
 		Tags: [],
 		id: 'natural-moisturizing-factors-phytoceramides',
 		KeyIngredients:
-			'Glycosphingolipids, Glycolipids, Fatty Acids, PCA, Sodium Lactate, Urea, Sodium Hyaluronate, and Amino Acids',
+			'Glycosphingolipids, Glycolipids, Fatty Acids, PCA, Sodium Lactate, Urea, Sodium Hyaluronate, Amino Acids',
 		Ingredients:
 			'Aqua (Water), Caprylic/Capric Triglyceride, Cetyl Ethylhexanoate, Isodecyl Neopentanoate, Glycerin, Propanediol, Polyglyceryl-6 Polyricinoleate, Hydrogenated Vegetable Oil, Polyglyceryl-2 Isostearate, Isosorbide Dicaprylate, Disteardimonium Hectorite, Phytosteryl Canola Glycerides, Glycosphingolipids, Glycolipids, Linoleic Acid, Oleic Acid, Palmitic Acid, Stearic Acid, Arginine, Glycine, Alanine, Serine, Proline, Threonine, Glutamic Acid, Lysine HCl, Betaine, Xylitylglucoside, Anhydroxylitol, Xylitol, Glucose, Maltose, Fructose, Trehalose, Sodium PCA, PCA, Sodium Lactate, Urea, Allantoin, Sodium Hyaluronate, Lecithin, Triolein, Dimethyl Isosorbide, Pentylene Glycol, Tocopherol, Hydroxymethoxyphenyl Decanone, Citric Acid, Trisodium Ethylenediamine Disuccinate, Magnesium Sulfate, Sodium Chloride, Sodium Hydroxide, Phenoxyethanol, Chlorphenesin'
 	},
@@ -858,7 +858,7 @@ export const products: { [key: string]: Product } = {
 		Tags: [],
 		id: 'natural-moisturizing-factors-ha',
 		KeyIngredients:
-			'Sodium Hyaluronate, Arginine, Sodium PCA, PCA, Lactates, Lactic Acid, and Minerals',
+			'Sodium Hyaluronate, Arginine, Sodium PCA, PCA, Lactates, Lactic Acid, Minerals',
 		Ingredients:
 			'Aqua (Water), Caprylic/Capric Triglyceride, Cetyl Alcohol, Propanediol, Stearyl Alcohol, Glycerin, Sodium Hyaluronate, Arginine, Aspartic Acid, Glycine, Alanine, Serine, Valine, Isoleucine, Proline, Threonine, Histidine, Phenylalanine, Glucose, Maltose, Fructose, Trehalose, Sodium PCA, PCA, Sodium Lactate, Urea, Allantoin, Linoleic Acid, Oleic Acid, Phytosteryl Canola Glycerides, Palmitic Acid, Stearic Acid, Lecithin, Triolein, Tocopherol, Carbomer, Isoceteth-20, Polysorbate 60, Sodium Chloride, Citric Acid, Trisodium Ethylenediamine Disuccinate, Pentylene Glycol, Triethanolamine, Sodium Hydroxide, Phenoxyethanol, Chlorphenesin'
 	},

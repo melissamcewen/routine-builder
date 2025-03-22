@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { products } from '../src/lib/products.js';
-import { type Ingredient } from '../src/lib/ingredients.js';
+import type { Ingredient } from '../src/lib/types/ingredients.js';
 import {
 	generateIngredientId,
 	normalizeIngredientName,
@@ -11,7 +11,7 @@ import {
 describe('Ingredient Parsing', () => {
 	describe('generateIngredientId', () => {
 		it('should convert to lowercase and replace spaces with hyphens', () => {
-			expect(generateIngredientId('Acetyl Glucosamine')).toBe('acetyl-glucosamine');
+			expect(generateIngredientId('Multi Peptide')).toBe('multi-peptide');
 		});
 
 		it('should handle special characters', () => {
@@ -19,13 +19,13 @@ describe('Ingredient Parsing', () => {
 		});
 
 		it('should remove multiple hyphens and trailing hyphens', () => {
-			expect(generateIngredientId('Acetyl--Glucosamine!')).toBe('acetyl-glucosamine');
+			expect(generateIngredientId('Multi--Peptide!')).toBe('multi-peptide');
 		});
 	});
 
 	describe('normalizeIngredientName', () => {
 		it('should capitalize first letter of each word', () => {
-			expect(normalizeIngredientName('acetyl glucosamine')).toBe('Acetyl Glucosamine');
+			expect(normalizeIngredientName('multi peptide')).toBe('Multi Peptide');
 		});
 
 		it('should handle special characters correctly', () => {
@@ -33,13 +33,11 @@ describe('Ingredient Parsing', () => {
 		});
 
 		it('should preserve spaces', () => {
-			expect(normalizeIngredientName('sodium hyaluronate crosspolymer')).toBe(
-				'Sodium Hyaluronate Crosspolymer'
-			);
+			expect(normalizeIngredientName('multi peptide serum')).toBe('Multi Peptide Serum');
 		});
 
 		it('should trim whitespace', () => {
-			expect(normalizeIngredientName('  Water  ')).toBe('Water');
+			expect(normalizeIngredientName('  Multi Peptide  ')).toBe('Multi Peptide');
 		});
 	});
 
@@ -95,6 +93,58 @@ describe('Ingredient Parsing', () => {
 			});
 		});
 
+		it('should handle ingredient tags correctly', () => {
+			const testProducts = {
+				'test-product': {
+					id: 'test-product',
+					Ingredients: 'Arginine, Sodium Lactate',
+					KeyIngredients: 'Arginine'
+				}
+			};
+
+			const parsedIngredients = parseIngredients(testProducts);
+
+			// Check Arginine (should have both key-ingredient and amino-acids tags)
+			const arginine = parsedIngredients['arginine'];
+			expect(arginine).toBeDefined();
+			expect(arginine.tags || []).toContain('key-ingredient');
+			expect(arginine.tags || []).toContain('amino-acids');
+			expect(arginine.tags?.length).toBe(2);
+
+			// Check Sodium Lactate (should only have lactates tag)
+			const sodiumLactate = parsedIngredients['sodium-lactate'];
+			expect(sodiumLactate).toBeDefined();
+			expect(sodiumLactate.tags || []).not.toContain('key-ingredient');
+			expect(sodiumLactate.tags || []).toContain('lactates');
+			expect(sodiumLactate.tags?.length).toBe(1);
+		});
+
+		it('should preserve existing tags when updating ingredients', () => {
+			const existingIngredients: Record<string, Ingredient> = {
+				arginine: {
+					id: 'arginine',
+					name: 'Arginine',
+					tags: ['existing-tag']
+				}
+			};
+
+			const testProducts = {
+				'test-product': {
+					id: 'test-product',
+					Ingredients: 'Arginine',
+					KeyIngredients: 'Arginine'
+				}
+			};
+
+			const parsedIngredients = parseIngredients(testProducts, existingIngredients);
+			const arginine = parsedIngredients['arginine'];
+			expect(arginine).toBeDefined();
+			expect(arginine.tags || []).toContain('existing-tag');
+			expect(arginine.tags || []).toContain('key-ingredient');
+			expect(arginine.tags || []).toContain('amino-acids');
+			expect(arginine.tags?.length).toBe(3);
+		});
+
 		it('should parse all products and generate unique ingredients', () => {
 			const parsedIngredients = parseIngredients(products);
 
@@ -115,22 +165,62 @@ describe('Ingredient Parsing', () => {
 
 		it('should preserve existing ingredient data when merging', () => {
 			const existingIngredients: Record<string, Ingredient> = {
-				water: {
-					id: 'water',
-					name: 'Water',
-					category: 'Solvent',
-					description: 'Universal solvent',
+				glycerin: {
+					id: 'glycerin',
+					name: 'Glycerin',
+					category: 'Humectant',
+					description: 'Common humectant',
 					concerns: ['Hydration']
 				}
 			};
 
-			const parsedIngredients = parseIngredients(products, existingIngredients);
+			const testProducts = {
+				'test-product': {
+					id: 'test-product',
+					Ingredients: 'Glycerin, Niacinamide, Arginine'
+				}
+			};
 
-			// Should preserve existing data
-			expect(parsedIngredients['water']).toEqual(existingIngredients['water']);
+			const parsedIngredients = parseIngredients(testProducts, existingIngredients);
+
+			// Should preserve existing data and include new fields
+			expect(parsedIngredients['glycerin']).toEqual({
+				...existingIngredients['glycerin'],
+				products: ['test-product'],
+				tags: [],
+				synonyms: []
+			});
 
 			// Should also include new ingredients
-			expect(Object.keys(parsedIngredients).length).toBeGreaterThan(1);
+			expect(Object.keys(parsedIngredients).length).toBe(3);
+			expect(parsedIngredients['niacinamide']).toBeDefined();
+			expect(parsedIngredients['arginine']).toBeDefined();
+		});
+
+		it('should track and resolve missing key ingredients', () => {
+			const testProducts = {
+				'test-product': {
+					id: 'test-product',
+					Ingredients: 'Niacinamide',
+					KeyIngredients: 'Missing Ingredient'
+				}
+			};
+
+			// First parse should log the missing ingredient
+			parseIngredients(testProducts);
+
+			// Add the ingredient as a synonym
+			const updatedProducts = {
+				'test-product': {
+					id: 'test-product',
+					Ingredients: 'Niacinamide, New Ingredient',
+					KeyIngredients: 'New Ingredient'
+				}
+			};
+
+			// Second parse should resolve the warning
+			const parsedIngredients = parseIngredients(updatedProducts);
+			expect(parsedIngredients['new-ingredient']).toBeDefined();
 		});
 	});
 });

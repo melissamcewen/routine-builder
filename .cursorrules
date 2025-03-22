@@ -38,3 +38,5 @@
 
 
 Do not edit products.ts, if something needs to be changed, tell me how to do it
+
+Do not edit or directly read ingredients.ts, if something needs to be changed, tell me how to do it, and if you need to read it, write a script to get just the data you need.
