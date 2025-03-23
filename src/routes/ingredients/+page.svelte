@@ -11,6 +11,24 @@
 		.sort((a, b) => a.name.localeCompare(b.name));
 </script>
 
+<svelte:head>
+	<title>Ingredients in The Ordinary Products</title>
+	<meta
+		name="description"
+		content="Complete list of ingredients used in The Ordinary skincare products, including key active ingredients and their benefits."
+	/>
+	<meta property="og:title" content="Ingredients in The Ordinary Products" />
+	<meta
+		property="og:description"
+		content="Complete list of ingredients used in The Ordinary skincare products, including key active ingredients and their benefits."
+	/>
+	<meta name="twitter:title" content="Ingredients in The Ordinary Products" />
+	<meta
+		name="twitter:description"
+		content="Complete list of ingredients used in The Ordinary skincare products, including key active ingredients and their benefits."
+	/>
+</svelte:head>
+
 <div class="container mx-auto px-4 py-8">
 	<h1 class="text-4xl font-bold mb-8">Skincare Ingredients</h1>
 

@@ -2,9 +2,27 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
+
+	const { ingredient, relatedProducts } = data;
+	const description =
+		ingredient.description ||
+		`Learn about ${ingredient.name} and find The Ordinary products that contain this ingredient.`;
 </script>
 
+<svelte:head>
+	<title>The Ordinary Products that contain {ingredient.name}</title>
+	<meta name="description" content={description} />
+	<meta property="og:title" content="The Ordinary Products that contain {ingredient.name}" />
+	<meta property="og:description" content={description} />
+	<meta name="twitter:title" content="The Ordinary Products that contain {ingredient.name}" />
+	<meta name="twitter:description" content={description} />
+</svelte:head>
+
 <div class="container mx-auto px-4 py-8">
+	<div class="mb-4">
+		<a href="/ingredients" class="btn btn-ghost">← Back to Ingredients</a>
+	</div>
+
 	<div class="mb-8">
 		<h1 class="text-4xl font-bold mb-4">{data.ingredient.name}</h1>
 
@@ -37,7 +55,8 @@
 						<h3 class="card-title">{product.Name}</h3>
 						<p class="text-sm opacity-70">
 							{#if product.TOD !== ''}{product.TOD} •{/if}
-							{#if product.Step !== ''} {product.Step}{/if}
+							{#if product.Step !== ''}
+								{product.Step}{/if}
 						</p>
 						{#if product.Targets && product.Targets.length > 0}
 							<div class="mt-2">
@@ -46,9 +65,6 @@
 								{/each}
 							</div>
 						{/if}
-						<div class="card-actions justify-end mt-4">
-							<a href="/ordinary/{product.id}" class="btn btn-primary">View Product</a>
-						</div>
 					</div>
 				</div>
 			{/each}
