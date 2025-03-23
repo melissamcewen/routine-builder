@@ -559,7 +559,7 @@ export const ingredients: { [key: string]: Ingredient } = {
 		name: 'Cetylhydroxyproline Palmitamide',
 		id: 'cetylhydroxyproline-palmitamide',
 		products: ['retinal-0-2-emulsion', 'soothing-barrier-support-serum'],
-		tags: ['synthetic-oat-analogues'],
+		tags: ['synthetic-oat-analogues', 'key-ingredient'],
 		synonyms: []
 	},
 	chlorphenesin: {
@@ -1512,8 +1512,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 		],
 		tags: ['key-ingredient'],
 		synonyms: [],
-    category: 'Multifunctional',
-    description: 'Basically does everything? Fades brown spots, fights acne, reduces wrinkles, improves skin barrier function, and more'
+		category: 'Multifunctional',
+		description:
+			'Basically does everything? Fades brown spots, fights acne, reduces wrinkles, improves skin barrier function, and more'
 	},
 	'nicotiana-benthamiana-hexapeptide-40-sh-oligopeptide-1': {
 		name: 'Nicotiana Benthamiana Hexapeptide-40 Sh-Oligopeptide-1',
@@ -1581,8 +1582,8 @@ export const ingredients: { [key: string]: Ingredient } = {
 		products: ['aloe-2-nag-2-solution'],
 		tags: ['key-ingredient'],
 		synonyms: [],
-    category: 'Peptides',
-    description: 'A peptide that can reduce wrinkles and improve skin texture'
+		category: 'Peptides',
+		description: 'A peptide that can reduce wrinkles and improve skin texture'
 	},
 	'palmitoyl-tetrapeptide-7': {
 		name: 'Palmitoyl Tetrapeptide-7',
@@ -1590,8 +1591,8 @@ export const ingredients: { [key: string]: Ingredient } = {
 		products: ['multi-peptide-copper-peptides-1-serum', 'multi-peptide-ha-serum', 'matrixyl-10-ha'],
 		tags: ['key-ingredient'],
 		synonyms: [],
-    category: 'Peptides',
-    description: 'A peptide that can reduce inflammation and collagen degradation'
+		category: 'Peptides',
+		description: 'A peptide that can reduce inflammation and collagen degradation'
 	},
 	'palmitoyl-tripeptide-1': {
 		name: 'Palmitoyl Tripeptide-1',
@@ -1599,8 +1600,8 @@ export const ingredients: { [key: string]: Ingredient } = {
 		products: ['multi-peptide-copper-peptides-1-serum', 'multi-peptide-ha-serum', 'matrixyl-10-ha'],
 		tags: ['key-ingredient'],
 		synonyms: [],
-    category: 'Peptides',
-    description: 'A peptide that may reduce wrinkles by boosting collagen production'
+		category: 'Peptides',
+		description: 'A peptide that may reduce wrinkles by boosting collagen production'
 	},
 	'palmitoyl-tripeptide-38': {
 		name: 'Palmitoyl Tripeptide-38',
@@ -1613,8 +1614,8 @@ export const ingredients: { [key: string]: Ingredient } = {
 		],
 		tags: ['key-ingredient'],
 		synonyms: [],
-    category: 'Peptides',
-    description: 'A peptide that may boost collagen production'
+		category: 'Peptides',
+		description: 'A peptide that may boost collagen production'
 	},
 	'panax-ginseng-root-extract': {
 		name: 'Panax Ginseng Root Extract',
@@ -1622,8 +1623,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 		products: ['glycolic-acid-7-exfoliating-toner'],
 		tags: ['key-ingredient'],
 		synonyms: [],
-    category: 'Botanicals',
-    description: 'A traditional medicinal plant that acts as an antioxidant and may improve circulation'
+		category: 'Botanicals',
+		description:
+			'A traditional medicinal plant that acts as an antioxidant and may improve circulation'
 	},
 	'panthenyl-triacetate': {
 		name: 'Panthenyl Triacetate',
@@ -1646,7 +1648,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'natural-moisturizing-factors-ha'
 		],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Humectants',
+		description: 'Pyrrolidone Carboxylic Acid, a skin-identical humectant'
 	},
 	'peg-10-dimethicone': {
 		name: 'Peg-10 Dimethicone',
@@ -1667,7 +1671,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 		id: 'pentapeptide-18',
 		products: ['multi-peptide-copper-peptides-1-serum', 'multi-peptide-ha-serum'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Peptides',
+		description: 'A peptide that may fight dynamic wrinkles'
 	},
 	'pentylene-glycol': {
 		name: 'Pentylene Glycol',
@@ -1781,7 +1787,10 @@ export const ingredients: { [key: string]: Ingredient } = {
 		id: 'pinus-pinaster-bark-extract',
 		products: ['pycnogenol-5'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Botanicals',
+		description:
+			'A potent antioxidant derived from pine bark that may also improve skin hydration and elasticity, as well as fight sun damage'
 	},
 	'polyacrylate-crosspolymer-6': {
 		name: 'Polyacrylate Crosspolymer-6',
@@ -1844,7 +1853,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 		id: 'polylysine',
 		products: ['balancing-clarifying-serum'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Peptides',
+		description: 'A peptide with antimicrobial properties that may promote skin regeneration'
 	},
 	'polysilicone-11': {
 		name: 'Polysilicone-11',
@@ -1920,7 +1931,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'amino-acids-b5'
 		],
 		tags: ['key-ingredient'],
-		synonyms: ['Panthenol']
+		synonyms: ['Panthenol'],
+		category: 'Humectants',
+		description: 'A humectant with anti-inflammatory properties'
 	},
 	proline: {
 		name: 'Proline',
@@ -1970,7 +1983,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'multi-active-delivery-essence'
 		],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Humectants',
+		description: 'A natural humectant'
 	},
 	'propyl-gallate': {
 		name: 'Propyl Gallate',
@@ -1988,35 +2003,50 @@ export const ingredients: { [key: string]: Ingredient } = {
 		id: 'pseudoalteromonas-exopolysaccharides',
 		products: ['marine-hyaluronics'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Humectants',
+		description:
+			'A natural humectant that acts a bit like hyaluronic acid but may be more effective as it has film-forming properties'
 	},
 	'pseudoalteromonas-ferment-extract': {
 		name: 'Pseudoalteromonas Ferment Extract',
 		id: 'pseudoalteromonas-ferment-extract',
 		products: ['marine-hyaluronics'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Biologics',
+		description:
+			'Produced by fermenting a strain of marine bacteria, acts as film-forming humectant and may promote skin regeneration'
 	},
 	'rapeseed-sterols': {
 		name: 'Rapeseed Sterols',
 		id: 'rapeseed-sterols',
 		products: ['retinal-0-2-emulsion', 'soothing-barrier-support-serum'],
 		tags: ['key-ingredient'],
-		synonyms: ['Brassica Campestris Sterols']
+		synonyms: ['Brassica Campestris Sterols'],
+		category: 'Botanicals',
+		description:
+			'Derived from canola oil, it shows promise as an anti-inflammatory and may improve skin barrier function'
 	},
 	resveratrol: {
 		name: 'Resveratrol',
 		id: 'resveratrol',
 		products: ['resveratrol-3-ferulic-acid-3'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Botanicals',
+		description:
+			'A natural antioxidant derived from grapes, with anti-inflammatory and sun-protective properties'
 	},
 	retinaldehyde: {
 		name: 'Retinaldehyde',
 		id: 'retinaldehyde',
 		products: ['retinal-0-2-emulsion'],
 		tags: ['key-ingredient'],
-		synonyms: ['Retinal']
+		synonyms: ['Retinal'],
+		category: 'Retinoids',
+		description:
+			'The most potent non-prescription retinoid available, may improve skin texture and reduce wrinkles'
 	},
 	retinol: {
 		name: 'Retinol',
@@ -2028,14 +2058,19 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'retinol-0-2-in-squalane'
 		],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Retinoids',
+		description: 'A retinoid with anti-aging and acne-fighting properties'
 	},
 	'rosa-canina-seed-oil': {
 		name: 'Rosa Canina Seed Oil',
 		id: 'rosa-canina-seed-oil',
 		products: ['fermented-rose-hip-seed-oil', '100-organic-cold-pressed-rose-hip-seed-oil'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Oils',
+		description:
+			'Oil made from seeds of the rose plant, may have anti-inflammatory properties due to antioxidant content'
 	},
 	'rosa-damascena-flower-water': {
 		name: 'Rosa Damascena Flower Water',
@@ -2069,21 +2104,27 @@ export const ingredients: { [key: string]: Ingredient } = {
 		id: 'saccharomyces-ferment',
 		products: ['saccharomyces-ferment-30-milky-toner'],
 		tags: ['key-ingredient'],
-		synonyms: ['Yeast Extract']
+		synonyms: ['Yeast Extract'],
+		category: 'Biologics',
+		description: 'Fermented n-acetylglucosamine, may help reduce wrinkles and fade brown spots'
 	},
 	'salicylic-acid': {
 		name: 'Salicylic Acid',
 		id: 'salicylic-acid',
 		products: ['salicylic-acid-2-anhydrous-solution', 'marine-hyaluronics'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+    category: 'Acids',
+    description: 'A beta hydroxy acid that exfoliates and reduces inflammation, may help with acne'
 	},
 	sarcosine: {
 		name: 'Sarcosine',
 		id: 'sarcosine',
 		products: ['balancing-clarifying-serum'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+    category: 'Amino Acids',
+    description: 'An amino acid used to condition skin, which may prevent sun damage and enhance penetration of other ingredients'
 	},
 	'sclerotium-gum': {
 		name: 'Sclerotium Gum',
@@ -2161,7 +2202,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 		id: 'sodium-caproyl-prolinate',
 		products: ['multi-active-delivery-essence'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+    category: 'Humectants',
+    description: 'An amino-acid based humectant'
 	},
 	'sodium-chloride': {
 		name: 'Sodium Chloride',
@@ -2234,23 +2277,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'natural-moisturizing-factors-ha'
 		],
 		tags: ['key-ingredient', 'lactates'],
-		synonyms: []
-	},
-	'sodium-pca': {
-		name: 'Sodium Pca',
-		id: 'sodium-pca',
-		products: [
-			'glycolic-acid-7-exfoliating-toner',
-			'multi-peptide-copper-peptides-1-serum',
-			'multi-peptide-ha-serum',
-			'natural-moisturizing-factors-beta-glucan',
-			'marine-hyaluronics',
-			'amino-acids-b5',
-			'natural-moisturizing-factors-phytoceramides',
-			'natural-moisturizing-factors-ha'
-		],
-		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+    category: 'Humectants',
+    description: 'A sodium salt of lactic acid primarily used as a humectant and pH adjuster'
 	},
 	'sodium-phytate': {
 		name: 'Sodium Phytate',
@@ -2320,7 +2349,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'100-plant-derived-squalane'
 		],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+    category: 'Oils',
+    description: 'A skin-identical oil known to be non-comedogenic and safe for fungal skin issues'
 	},
 	'stearic-acid': {
 		name: 'Stearic Acid',
@@ -2353,21 +2384,18 @@ export const ingredients: { [key: string]: Ingredient } = {
 		id: 'sucrose-laurate',
 		products: ['granactive-retinoid-2-emulsion', 'squalane-cleanser'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+    category: 'Emollients',
+    description: 'Used to make gentle gel cleansers that don\'t strip the skin or as an emulsifier'
 	},
 	'sucrose-stearate': {
 		name: 'Sucrose Stearate',
 		id: 'sucrose-stearate',
 		products: ['squalane-cleanser'],
 		tags: ['key-ingredient'],
-		synonyms: []
-	},
-	'synthetic-oat-analogues': {
-		name: 'Synthetic Oat Analogues',
-		id: 'synthetic-oat-analogues',
-		products: ['retinal-0-2-emulsion', 'soothing-barrier-support-serum'],
-		tags: ['key-ingredient'],
-		synonyms: ['Cetylhydroxyproline Palmitamide']
+		synonyms: [],
+    category: 'Emollients',
+    description: 'A emulsifier and gentle cleansing agent'
 	},
 	'tamarindus-indica-seed-gum': {
 		name: 'Tamarindus Indica Seed Gum',

@@ -117,6 +117,7 @@ export const INGREDIENT_SYNONYMS: Record<string, string> = {
 	'Nicotiana Benthamiana Hexapeptide-40 sh-Oligopeptide-1': 'EGF',
 	'Nicotiana Benthamiana Hexapeptide-40 sh-Polypeptide-76': 'TGF',
 	Cyanocobalamin: 'Vitamin B12',
+	'Sodium PCA': 'PCA',
 	// Add reverse mappings for growth factors
 	IGF: 'Nicotiana Benthamiana Octapeptide-30 sh-Oligopeptide-2',
 	EGF: 'Nicotiana Benthamiana Hexapeptide-40 sh-Oligopeptide-1',
