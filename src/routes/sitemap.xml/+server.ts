@@ -1,9 +1,10 @@
 import type { RequestHandler } from '@sveltejs/kit';
+import { ingredients } from '$lib/ingredients';
 
 const website = 'https://myroutinebuilder.com';
 
 // Array of static routes
-const staticPages = ['', '/blog'];
+const staticPages = ['', '/blog', '/ingredients'];
 
 // Blog posts
 const posts = [
@@ -16,6 +17,9 @@ const posts = [
 		lastmod: '2024-01-09'
 	}
 ];
+
+// Get all ingredient IDs
+const ingredientIds = Object.keys(ingredients);
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8" ?>
 <urlset
@@ -45,6 +49,17 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8" ?>
       <lastmod>${post.lastmod}</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
+    </url>
+  `
+		)
+		.join('')}
+  ${ingredientIds
+		.map(
+			(id) => `
+    <url>
+      <loc>${website}/ingredients/${id}</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
     </url>
   `
 		)
