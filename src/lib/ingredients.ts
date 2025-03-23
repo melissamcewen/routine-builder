@@ -125,8 +125,10 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'natural-moisturizing-factors-phytoceramides',
 			'natural-moisturizing-factors-ha'
 		],
-		tags: ['amino-acids'],
-		synonyms: []
+		tags: ['amino-acids', 'key-ingredient'],
+		synonyms: [],
+		category: 'Amino Acids',
+		description: 'An amino acid that acts as a film-forming humectant'
 	},
 	'algae-extract': {
 		name: 'Algae Extract',
@@ -261,15 +263,19 @@ export const ingredients: { [key: string]: Ingredient } = {
 		name: 'Asiatic Acid',
 		id: 'asiatic-acid',
 		products: ['soothing-barrier-support-serum'],
-		tags: ['centella-asiatica-phytotechnologies'],
-		synonyms: []
+		tags: ['centella-asiatica-phytotechnologies', 'key-ingredient'],
+		synonyms: [],
+		category: 'Botanicals',
+		description: 'A compound found in Centella Asiatica that may stimulate collagen production'
 	},
 	asiaticoside: {
 		name: 'Asiaticoside',
 		id: 'asiaticoside',
 		products: ['soothing-barrier-support-serum'],
-		tags: ['centella-asiatica-phytotechnologies'],
-		synonyms: []
+		tags: ['centella-asiatica-phytotechnologies', 'key-ingredient'],
+		synonyms: [],
+		category: 'Botanicals',
+		description: 'A compound found in Centella Asiatica that may stimulate collagen production'
 	},
 	'aspartic-acid': {
 		name: 'Aspartic Acid',
@@ -995,8 +1001,10 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'amino-acids-b5',
 			'natural-moisturizing-factors-phytoceramides'
 		],
-		tags: ['amino-acids'],
-		synonyms: []
+		tags: ['amino-acids', 'key-ingredient'],
+		synonyms: [],
+		category: 'Amino Acids',
+		description: 'An amino acid that acts as a film-forming humectant'
 	},
 	glycerin: {
 		name: 'Glycerin',
@@ -1050,7 +1058,7 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'natural-moisturizing-factors-phytoceramides',
 			'natural-moisturizing-factors-ha'
 		],
-		tags: ['amino-acids'],
+		tags: ['amino-acids', 'key-ingredient'],
 		synonyms: []
 	},
 	'glycine-soja-soybean-seed-extract': {
@@ -1386,8 +1394,11 @@ export const ingredients: { [key: string]: Ingredient } = {
 		name: 'Linoleic Acid',
 		id: 'linoleic-acid',
 		products: ['natural-moisturizing-factors-phytoceramides', 'natural-moisturizing-factors-ha'],
-		tags: ['fatty-acids'],
-		synonyms: []
+		tags: ['fatty-acids', 'key-ingredient'],
+		synonyms: [],
+		category: 'Fatty Acids',
+		description:
+			'A fatty acid that may improve skin barrier function, help with acne, and fight hyperpigmentation'
 	},
 	'lysine-hcl': {
 		name: 'Lysine Hcl',
@@ -1397,22 +1408,29 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'amino-acids-b5',
 			'natural-moisturizing-factors-phytoceramides'
 		],
-		tags: [],
-		synonyms: []
+		tags: ['amino-acids', 'key-ingredient'],
+		synonyms: [],
+		category: 'Humectants',
+		description: 'An amino acid salt that acts as a humectant'
 	},
 	'madecassic-acid': {
 		name: 'Madecassic Acid',
 		id: 'madecassic-acid',
 		products: ['soothing-barrier-support-serum'],
-		tags: ['centella-asiatica-phytotechnologies'],
-		synonyms: []
+		tags: ['centella-asiatica-phytotechnologies', 'key-ingredient'],
+		synonyms: [],
+		category: 'Botanicals',
+		description:
+			'A compound found in Centella Asiatica that may act as an antioxidant, soothe irritation, and promote the production of hyaluronic acid within the skin'
 	},
 	'magnesium-sulfate': {
 		name: 'Magnesium Sulfate',
 		id: 'magnesium-sulfate',
 		products: ['natural-moisturizing-factors-phytoceramides'],
-		tags: ['minerals'],
-		synonyms: []
+		tags: ['minerals', 'key-ingredient'],
+		synonyms: [],
+		category: 'Minerals',
+		description: 'AKA Epsom Salt, it may help with inflammation and plump up skin'
 	},
 	'malic-acid': {
 		name: 'Malic Acid',
@@ -1541,8 +1559,10 @@ export const ingredients: { [key: string]: Ingredient } = {
 		name: 'Oleic Acid',
 		id: 'oleic-acid',
 		products: ['natural-moisturizing-factors-phytoceramides', 'natural-moisturizing-factors-ha'],
-		tags: ['fatty-acids'],
-		synonyms: []
+		tags: ['fatty-acids', 'key-ingredient'],
+		synonyms: [],
+		category: 'Fatty Acids',
+		description: 'A fatty acid that is very good at moisturizing, but also potentially comedogenic'
 	},
 	'oleic-linoleic-linolenic-polyglycerides': {
 		name: 'Oleic/Linoleic/Linolenic Polyglycerides',
@@ -1573,8 +1593,10 @@ export const ingredients: { [key: string]: Ingredient } = {
 		name: 'Palmitic Acid',
 		id: 'palmitic-acid',
 		products: ['natural-moisturizing-factors-phytoceramides', 'natural-moisturizing-factors-ha'],
-		tags: ['fatty-acids'],
-		synonyms: []
+		tags: ['fatty-acids', 'key-ingredient'],
+		synonyms: [],
+		category: 'Fatty Acids',
+		description: 'A fatty acid mostly used as an emollient or cleansing agent'
 	},
 	'palmitoyl-pentapeptide-4': {
 		name: 'Palmitoyl Pentapeptide-4',
@@ -1948,8 +1970,10 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'natural-moisturizing-factors-phytoceramides',
 			'natural-moisturizing-factors-ha'
 		],
-		tags: ['amino-acids'],
-		synonyms: []
+		tags: ['amino-acids', 'key-ingredient'],
+		synonyms: [],
+		category: 'Amino Acids',
+		description: 'An amino acid that acts as a film-forming humectant, may reduce wrinkles'
 	},
 	propanediol: {
 		name: 'Propanediol',
@@ -2014,7 +2038,7 @@ export const ingredients: { [key: string]: Ingredient } = {
 		products: ['marine-hyaluronics'],
 		tags: ['key-ingredient'],
 		synonyms: [],
-		category: 'Biologics',
+		category: 'Botanicals',
 		description:
 			'Produced by fermenting a strain of marine bacteria, acts as film-forming humectant and may promote skin regeneration'
 	},
@@ -2114,8 +2138,8 @@ export const ingredients: { [key: string]: Ingredient } = {
 		products: ['salicylic-acid-2-anhydrous-solution', 'marine-hyaluronics'],
 		tags: ['key-ingredient'],
 		synonyms: [],
-    category: 'Acids',
-    description: 'A beta hydroxy acid that exfoliates and reduces inflammation, may help with acne'
+		category: 'Acids',
+		description: 'A beta hydroxy acid that exfoliates and reduces inflammation, may help with acne'
 	},
 	sarcosine: {
 		name: 'Sarcosine',
@@ -2123,8 +2147,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 		products: ['balancing-clarifying-serum'],
 		tags: ['key-ingredient'],
 		synonyms: [],
-    category: 'Amino Acids',
-    description: 'An amino acid used to condition skin, which may prevent sun damage and enhance penetration of other ingredients'
+		category: 'Amino Acids',
+		description:
+			'An amino acid used to condition skin, which may prevent sun damage and enhance penetration of other ingredients'
 	},
 	'sclerotium-gum': {
 		name: 'Sclerotium Gum',
@@ -2146,8 +2171,10 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'natural-moisturizing-factors-phytoceramides',
 			'natural-moisturizing-factors-ha'
 		],
-		tags: ['amino-acids'],
-		synonyms: []
+		tags: ['amino-acids', 'key-ingredient'],
+		synonyms: [],
+		category: 'Amino Acids',
+		description: 'An amino acid that acts as a film-forming humectant'
 	},
 	silanetriol: {
 		name: 'Silanetriol',
@@ -2203,8 +2230,8 @@ export const ingredients: { [key: string]: Ingredient } = {
 		products: ['multi-active-delivery-essence'],
 		tags: ['key-ingredient'],
 		synonyms: [],
-    category: 'Humectants',
-    description: 'An amino-acid based humectant'
+		category: 'Humectants',
+		description: 'An amino-acid based humectant'
 	},
 	'sodium-chloride': {
 		name: 'Sodium Chloride',
@@ -2220,8 +2247,11 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'natural-moisturizing-factors-ha',
 			'multi-active-delivery-essence'
 		],
-		tags: ['minerals'],
-		synonyms: []
+		tags: ['minerals', 'key-ingredient'],
+		synonyms: [],
+		category: 'Minerals',
+		description:
+			'Common table salt, potentially a key ingredient as natural moisturizing factors says that minerals are a key ingredient, but not sure why'
 	},
 	'sodium-citrate': {
 		name: 'Sodium Citrate',
@@ -2278,8 +2308,8 @@ export const ingredients: { [key: string]: Ingredient } = {
 		],
 		tags: ['key-ingredient', 'lactates'],
 		synonyms: [],
-    category: 'Humectants',
-    description: 'A sodium salt of lactic acid primarily used as a humectant and pH adjuster'
+		category: 'Humectants',
+		description: 'A sodium salt of lactic acid primarily used as a humectant and pH adjuster'
 	},
 	'sodium-phytate': {
 		name: 'Sodium Phytate',
@@ -2323,8 +2353,11 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'soothing-barrier-support-serum',
 			'natural-moisturizing-factors-beta-glucan'
 		],
-		tags: ['ceramides'],
-		synonyms: []
+		tags: ['ceramides', 'key-ingredient'],
+		synonyms: [],
+		category: 'Ceramides',
+		description:
+			'Ceramides are Sphingolipids but not sure which one this refers to. Regardless it is a good skin conditioner.'
 	},
 	'sphingomonas-ferment-extract': {
 		name: 'Sphingomonas Ferment Extract',
@@ -2350,8 +2383,8 @@ export const ingredients: { [key: string]: Ingredient } = {
 		],
 		tags: ['key-ingredient'],
 		synonyms: [],
-    category: 'Oils',
-    description: 'A skin-identical oil known to be non-comedogenic and safe for fungal skin issues'
+		category: 'Oils',
+		description: 'A skin-identical oil known to be non-comedogenic and safe for fungal skin issues'
 	},
 	'stearic-acid': {
 		name: 'Stearic Acid',
@@ -2362,8 +2395,10 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'natural-moisturizing-factors-phytoceramides',
 			'natural-moisturizing-factors-ha'
 		],
-		tags: ['fatty-acids'],
-		synonyms: []
+		tags: ['fatty-acids', 'key-ingredient'],
+		synonyms: [],
+		category: 'Fatty Acids',
+		description: 'A fatty acid that is used as an emollient and emulsifier'
 	},
 	'stearyl-alcohol': {
 		name: 'Stearyl Alcohol',
@@ -2385,8 +2420,8 @@ export const ingredients: { [key: string]: Ingredient } = {
 		products: ['granactive-retinoid-2-emulsion', 'squalane-cleanser'],
 		tags: ['key-ingredient'],
 		synonyms: [],
-    category: 'Emollients',
-    description: 'Used to make gentle gel cleansers that don\'t strip the skin or as an emulsifier'
+		category: 'Emollients',
+		description: "Used to make gentle gel cleansers that don't strip the skin or as an emulsifier"
 	},
 	'sucrose-stearate': {
 		name: 'Sucrose Stearate',
@@ -2394,8 +2429,8 @@ export const ingredients: { [key: string]: Ingredient } = {
 		products: ['squalane-cleanser'],
 		tags: ['key-ingredient'],
 		synonyms: [],
-    category: 'Emollients',
-    description: 'A emulsifier and gentle cleansing agent'
+		category: 'Emollients',
+		description: 'A emulsifier and gentle cleansing agent'
 	},
 	'tamarindus-indica-seed-gum': {
 		name: 'Tamarindus Indica Seed Gum',
@@ -2415,14 +2450,18 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'granactive-retinoid-2-emulsion'
 		],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Botanicals',
+		description: 'Tasmanian Pepper extract, may act as an antioxidant, antimicrobial, and anti-inflammatory.'
 	},
 	'tetrahexyldecyl-ascorbate': {
 		name: 'Tetrahexyldecyl Ascorbate',
 		id: 'tetrahexyldecyl-ascorbate',
 		products: ['ascorbyl-tetraisopalmitate-solution-20-in-vitamin-f'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Vitamin C',
+		description: 'A stable form of Vitamin C that may improve skin barrier function and act as an antioxidant'
 	},
 	threonine: {
 		name: 'Threonine',
@@ -2437,8 +2476,10 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'natural-moisturizing-factors-phytoceramides',
 			'natural-moisturizing-factors-ha'
 		],
-		tags: ['amino-acids'],
-		synonyms: []
+		tags: ['amino-acids', 'key-ingredient'],
+		synonyms: [],
+		category: 'Amino Acids',
+		description: 'An amino acid that acts as a film-forming humectant'
 	},
 	tocopherol: {
 		name: 'Tocopherol',
@@ -2543,7 +2584,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'natural-moisturizing-factors-ha'
 		],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Humectants',
+		description: 'A humectant that may improve skin barrier function and plump up skin'
 	},
 	valine: {
 		name: 'Valine',
@@ -2608,6 +2651,8 @@ export const ingredients: { [key: string]: Ingredient } = {
 		id: 'zinc-pca',
 		products: ['niacinamide-10-zinc-1'],
 		tags: ['key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Minerals',
+		description: 'A mineral that can help reduce excessive sebum production and fight against acne-causing bacteria'
 	}
 };

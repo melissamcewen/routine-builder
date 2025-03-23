@@ -77,8 +77,7 @@ export const INGREDIENT_CATEGORIES: Record<string, string> = {
 	Proline: 'amino-acids',
 	Threonine: 'amino-acids',
 	'Glutamic Acid': 'amino-acids',
-	'Lysine HCl': 'amino-acids',
-	'Fatty Acid': 'fatty-acids',
+	'Lysine Hcl': 'amino-acids',
 	'Linoleic Acid': 'fatty-acids',
 	'Oleic Acid': 'fatty-acids',
 	'Palmitic Acid': 'fatty-acids',
@@ -296,6 +295,8 @@ export function parseIngredients(
 				const category = INGREDIENT_CATEGORIES[normalizedName];
 				if (category) {
 					tags.add(category);
+					// If ingredient has a category, it should also be marked as a key ingredient
+					tags.add('key-ingredient');
 				}
 
 				// Add any new synonyms
@@ -318,6 +319,8 @@ export function parseIngredients(
 			const category = INGREDIENT_CATEGORIES[normalizedName];
 			if (category) {
 				tags.push(category);
+				// If ingredient has a category, it should also be marked as a key ingredient
+				tags.push('key-ingredient');
 			}
 
 			ingredientMap.set(id, {
