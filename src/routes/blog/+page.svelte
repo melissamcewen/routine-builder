@@ -2,6 +2,22 @@
 	import { Book } from 'lucide-svelte';
 	import { formatDate } from '$lib/blog';
 
+	const posts = [
+		{
+			title: 'Why Lactic Acid is My Winter BFF',
+			slug: 'why-lactic-acid-is-my-winter-bff',
+			date: '2025-02-02',
+			description:
+				'Lactic acid is a humectant and exfoliant, and also works as an antioxidant/anti-aging/anti-acne!'
+		},
+		{
+			title: 'Welcome to The Ordinary Advanced Builder',
+			slug: 'welcome-to-the-ordinary-advanced-builder',
+			date: '2024-01-09',
+			description: 'Learn about how to use this tool to build your perfect skincare routine.'
+		}
+	];
+
 	const blogData = {
 		'@context': 'https://schema.org',
 		'@type': 'Blog',
@@ -26,22 +42,6 @@
 			}
 		}))
 	};
-
-	const posts = [
-		{
-			title: 'Why Lactic Acid is My Winter BFF',
-			slug: 'why-lactic-acid-is-my-winter-bff',
-			date: '2025-02-02',
-			description:
-				'Lactic acid is a humectant and exfoliant, and also works as an antioxidant/anti-aging/anti-acne!'
-		},
-		{
-			title: 'Welcome to The Ordinary Advanced Builder',
-			slug: 'welcome-to-the-ordinary-advanced-builder',
-			date: '2024-01-09',
-			description: 'Learn about how to use this tool to build your perfect skincare routine.'
-		}
-	];
 </script>
 
 <svelte:head>

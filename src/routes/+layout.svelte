@@ -25,10 +25,10 @@
 	}
 </script>
 
-<div class="min-h-screen">
+<div class="min-h-screen flex flex-col">
 	<Navbar {theme} on:click={toggleTheme} />
 
-	<main class="pt-16">
+	<main class="flex-grow pt-16">
 		<slot />
 	</main>
 

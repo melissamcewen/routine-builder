@@ -30,7 +30,7 @@
 </svelte:head>
 
 <div class="container mx-auto px-4 py-8">
-	<h1 class="text-4xl font-bold mb-8">Skincare Ingredients</h1>
+	<h1 class="text-4xl font-bold mb-8">The Ordinary Ingredients Dictionary</h1>
 
 	<section class="mb-12">
 		<h2 class="text-2xl font-semibold mb-6">Key Ingredients</h2>

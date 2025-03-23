@@ -70,4 +70,12 @@
 			{/each}
 		</div>
 	</div>
+
+	<div class="mt-12 text-center">
+		<h2 class="text-2xl font-semibold mb-6">Ready to create your routine?</h2>
+		<div class="flex flex-col sm:flex-row gap-4 justify-center">
+			<a href="/routine-generator" class="btn btn-primary">Build a routine using these products</a>
+			<a href="/routine-builder" class="btn btn-secondary">Build a routine from scratch</a>
+		</div>
+	</div>
 </div>

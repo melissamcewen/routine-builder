@@ -114,6 +114,9 @@
 								routines that incorporate ALL of your products efficiently, taking into account
 								product phases and compatibility.
 							</p>
+
+							<p>If you want to build from scratch head to the <a href="/ordinary" class="link">routine builder</a></p>
+
 						</div>
 					</div>
 					<div class="card card-sm shadow-sm glass h-full">

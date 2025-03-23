@@ -278,6 +278,8 @@
 								awhile, and might have 2-4 different routines, this is for you.
 							</p>
 
+							<p>If you have a list of products you want to use already, head to the <a href="ordinary/scheduler" class="link">routine generator</a></p>
+
 							<a
 								href="/ordinary/routine?tod=night&products=argireline-solution-10%2Cmatrixyl-10-ha%2Calpha-arbutin-2-ha&name=My+Night+Routine"
 								class="btn btn-primary gap-2"
