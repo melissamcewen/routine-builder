@@ -62,10 +62,7 @@
 	<h1 class="text-3xl font-bold mb-6">Compare Products</h1>
 
 	{#if data.comparisonNote}
-		<div class="alert alert-info mb-6 shadow-lg">
-			<Info size={20} />
-			<span>{data.comparisonNote}</span>
-		</div>
+		<p class="mb-6 text-lg">{data.comparisonNote}</p>
 	{/if}
 
 	<ProductComparison products={data.products} keyIngredients={data.keyIngredients} />

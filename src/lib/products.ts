@@ -133,7 +133,7 @@ export const products: { [key: string]: Product } = {
 		id: 'salicylic-acid-2-solution',
 		KeyIngredients: 'Salicylic Acid',
 		Ingredients:
-			'Cocamidopropyl Dimethylamine, Chlorphenesin, Citric Acid, Hydroxyethylcellulose, Phenoxyethanol, Polysorbate 20, Saccharide Isomerate, Sodium Citrate, Sodium Hydroxide, Water'
+			'Salicylic Acid, Cocamidopropyl Dimethylamine, Chlorphenesin, Citric Acid, Hydroxyethylcellulose, Phenoxyethanol, Polysorbate 20, Saccharide Isomerate, Sodium Citrate, Sodium Hydroxide, Water'
 	},
 
 	'azelaic-acid-suspension-10': {
