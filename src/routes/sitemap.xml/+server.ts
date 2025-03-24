@@ -1,10 +1,11 @@
 import type { RequestHandler } from '@sveltejs/kit';
 import { ingredients } from '$lib/ingredients';
+import { popularComparisons } from '$lib/popularComparisons';
 
 const website = 'https://myroutinebuilder.com';
 
 // Array of static routes
-const staticPages = ['', '/blog', '/ingredients'];
+const staticPages = ['', '/blog', '/ingredients', '/ordinary/compare'];
 
 // Blog posts
 const posts = [
@@ -58,6 +59,17 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8" ?>
 			(id) => `
     <url>
       <loc>${website}/ingredients/${id}</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+    </url>
+  `
+		)
+		.join('')}
+  ${popularComparisons
+		.map(
+			(comparison) => `
+    <url>
+      <loc>${website}/ordinary/compare/${comparison.ids.join(',')}</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
