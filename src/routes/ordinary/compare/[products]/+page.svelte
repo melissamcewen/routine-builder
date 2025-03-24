@@ -1,14 +1,20 @@
 <script lang="ts">
 	import type { Product } from '$lib/products';
+	import type { Ingredient } from '$lib/types/ingredients';
 	import ProductComparison from '$lib/components/product/ProductComparison.svelte';
 	import { Info } from 'lucide-svelte';
 
-	export let data: { products: Product[]; comparisonNote: string | null };
+	export let data: {
+		products: Product[];
+		comparisonNote: string | null;
+		keyIngredients: Record<string, Ingredient[]>;
+	};
 
 	// Generate SEO-friendly title and description
 	$: productNames = data.products.map((p: Product) => p.Name);
 	$: pageTitle = `Compare ${productNames.join(' vs ')} | The Ordinary Products Comparison`;
-	$: metaDescription = `Compare ${productNames.join(' vs ')} from The Ordinary. See differences in ingredients, usage, and benefits. ${data.comparisonNote || ''}`.trim();
+	$: metaDescription =
+		`Compare ${productNames.join(' vs ')} from The Ordinary. See differences in ingredients, usage, and benefits. ${data.comparisonNote || ''}`.trim();
 
 	// Generate structured data for SEO
 	$: structuredData = {
@@ -62,5 +68,5 @@
 		</div>
 	{/if}
 
-	<ProductComparison products={data.products} />
+	<ProductComparison products={data.products} keyIngredients={data.keyIngredients} />
 </div>

@@ -1059,7 +1059,9 @@ export const ingredients: { [key: string]: Ingredient } = {
 			'natural-moisturizing-factors-ha'
 		],
 		tags: ['amino-acids', 'key-ingredient'],
-		synonyms: []
+		synonyms: [],
+		category: 'Amino Acids',
+		description: 'An amino acid that acts as a film-forming humectant'
 	},
 	'glycine-soja-soybean-seed-extract': {
 		name: 'Glycine Soja (Soybean) Seed Extract',

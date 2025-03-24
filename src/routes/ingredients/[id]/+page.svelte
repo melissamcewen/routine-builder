@@ -24,7 +24,7 @@
 	</div>
 
 	<div class="mb-8">
-		<h1 class="text-4xl font-bold mb-4">{data.ingredient.name}</h1>
+		<h1 class="text-4xl font-bold mb-4">The Ordinary Products that contain {data.ingredient.name}</h1>
 
 		{#if data.ingredient.category}
 			<p class="text-lg opacity-70 mb-4">{data.ingredient.category}</p>

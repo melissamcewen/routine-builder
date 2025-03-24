@@ -3,7 +3,7 @@ import { products } from '$lib/products';
 import { popularComparisons } from '$lib/popularComparisons';
 import type { PageLoad } from './$types';
 
-export const load: PageLoad = ({ params }) => {
+export const load: PageLoad = async ({ params, fetch }) => {
 	const productIds = params.products.split(',');
 	const productsToCompare = productIds.map((id) => {
 		const product = products[id];
@@ -18,13 +18,17 @@ export const load: PageLoad = ({ params }) => {
 		const comparisonIds = new Set(comparison.ids);
 		const currentIds = new Set(productIds);
 		return (
-			comparisonIds.size === currentIds.size &&
-			[...comparisonIds].every((id) => currentIds.has(id))
+			comparisonIds.size === currentIds.size && [...comparisonIds].every((id) => currentIds.has(id))
 		);
 	});
 
+	// Fetch key ingredients data
+	const keyIngredientsResponse = await fetch(`/api/key-ingredients/${params.products}`);
+	const keyIngredients = await keyIngredientsResponse.json();
+
 	return {
 		products: productsToCompare,
-		comparisonNote: popularComparison?.note || null
+		comparisonNote: popularComparison?.note || null,
+		keyIngredients
 	};
 };
