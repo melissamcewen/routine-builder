@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { products } from '$lib/products';
 	import type { Product } from '$lib/products';
+	import { popularComparisons } from '$lib/popularComparisons';
 	import { goto } from '$app/navigation';
-	import { Search, Filter } from 'lucide-svelte';
+	import { Search, Filter, ArrowRight } from 'lucide-svelte';
 
 	let selectedProducts: string[] = [];
 	let searchQuery = '';
@@ -51,6 +52,10 @@
 			selectedProducts = [...selectedProducts, productId];
 		}
 	}
+
+	function comparePopular(ids: string[]) {
+		goto(`/ordinary/compare/${ids.join(',')}`);
+	}
 </script>
 
 <svelte:head>
@@ -60,6 +65,36 @@
 
 <div class="container mx-auto px-4 py-8">
 	<h1 class="text-3xl font-bold mb-6">Compare The Ordinary Products</h1>
+
+	<!-- Popular Comparisons -->
+	<div class="mb-8">
+		<h2 class="text-xl font-semibold mb-4">Popular Comparisons</h2>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+			{#each popularComparisons as comparison}
+				<div class="card bg-base-100 shadow hover:shadow-lg transition-shadow">
+					<div class="card-body">
+						<h3 class="card-title text-lg">{comparison.title}</h3>
+						<div class="flex items-center gap-2 text-sm my-2">
+							<span class="font-medium">{products[comparison.ids[0]].Name}</span>
+							<ArrowRight size={16} class="text-base-content/50" />
+							<span class="font-medium">{products[comparison.ids[1]].Name}</span>
+						</div>
+						<p class="text-sm text-base-content/70">{comparison.note}</p>
+						<div class="card-actions justify-end mt-2">
+							<button
+								class="btn btn-primary btn-sm"
+								on:click={() => comparePopular(comparison.ids)}
+							>
+								Compare
+							</button>
+						</div>
+					</div>
+				</div>
+			{/each}
+		</div>
+	</div>
+
+	<div class="divider">Or Create Your Own Comparison</div>
 
 	<div class="mb-6">
 		<p class="text-lg mb-4">Select 2-4 products to compare:</p>
@@ -81,14 +116,14 @@
 	<div class="flex flex-col md:flex-row gap-4 mb-6">
 		<!-- Search -->
 		<div class="form-control flex-1">
-			<div class="input-group items-center">
-				<span class="flex items-center justify-center px-4 bg-base-200 border border-base-300">
+			<div class="join w-full">
+				<div class="join-item flex items-center px-4 bg-base-200 border border-base-300">
 					<Search size={18} class="text-base-content/70" />
-				</span>
+				</div>
 				<input
 					type="text"
 					placeholder="Search products..."
-					class="input input-bordered w-full"
+					class="input join-item input-bordered flex-1"
 					bind:value={searchQuery}
 				/>
 			</div>
