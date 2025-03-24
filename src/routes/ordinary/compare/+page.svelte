@@ -71,24 +71,18 @@
 		<h2 class="text-xl font-semibold mb-4">Popular Comparisons</h2>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 			{#each popularComparisons as comparison}
-				<div class="card bg-base-100 shadow hover:shadow-lg transition-shadow">
-					<div class="card-body">
-						<h3 class="card-title text-lg">{comparison.title}</h3>
-						<div class="flex items-center gap-2 text-sm my-2">
-							<span class="font-medium">{products[comparison.ids[0]].Name}</span>
-							<ArrowRight size={16} class="text-base-content/50" />
-							<span class="font-medium">{products[comparison.ids[1]].Name}</span>
-						</div>
-						<p class="text-sm text-base-content/70">{comparison.note}</p>
-						<div class="card-actions justify-end mt-2">
-							<button
-								class="btn btn-primary btn-sm"
-								on:click={() => comparePopular(comparison.ids)}
-							>
-								Compare
-							</button>
-						</div>
+				<div class="flex items-center justify-between p-3 bg-base-100 shadow rounded-lg">
+					<div class="flex items-center gap-2">
+						<span class="text-sm">{products[comparison.ids[0]].Name}</span>
+						<span class="text-base-content/50">vs</span>
+						<span class="text-sm">{products[comparison.ids[1]].Name}</span>
 					</div>
+					<button
+						class="btn btn-primary btn-sm"
+						on:click={() => comparePopular(comparison.ids)}
+					>
+						Compare
+					</button>
 				</div>
 			{/each}
 		</div>
