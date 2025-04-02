@@ -7,14 +7,20 @@
 	export let data: {
 		products: Product[];
 		comparisonNote: string | null;
+		comparisonTitle: string | null;
 		keyIngredients: Record<string, Ingredient[]>;
 	};
 
 	// Generate SEO-friendly title and description
 	$: productNames = data.products.map((p: Product) => p.Name);
-	$: pageTitle = `Compare ${productNames.join(' vs ')} | The Ordinary Products Comparison`;
-	$: metaDescription =
-		`Compare ${productNames.join(' vs ')} from The Ordinary. See differences in ingredients, usage, and benefits. ${data.comparisonNote || ''}`.trim();
+	$: pageTitle = data.comparisonTitle
+		? `${data.comparisonTitle} | The Ordinary Products Comparison`
+		: `Compare ${productNames.join(' vs ')} | The Ordinary Products Comparison`;
+	$: metaDescription = (
+		data.comparisonTitle
+			? `${data.comparisonTitle} from The Ordinary. See differences in ingredients, usage, and benefits. ${data.comparisonNote || ''}`
+			: `Compare ${productNames.join(' vs ')} from The Ordinary. See differences in ingredients, usage, and benefits. ${data.comparisonNote || ''}`
+	).trim();
 
 	// Generate structured data for SEO
 	$: structuredData = {
@@ -59,7 +65,13 @@
 </svelte:head>
 
 <div class="container mx-auto px-4 py-8">
-	<h1 class="text-3xl font-bold mb-6">Compare Products</h1>
+	<h1 class="text-3xl font-bold mb-6">
+		{#if data.comparisonTitle}
+			{data.comparisonTitle}
+		{:else}
+			Compare {productNames.join(' vs ')}
+		{/if}
+	</h1>
 
 	{#if data.comparisonNote}
 		<p class="mb-6 text-lg">{data.comparisonNote}</p>

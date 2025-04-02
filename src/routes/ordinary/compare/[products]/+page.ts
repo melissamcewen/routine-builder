@@ -29,6 +29,7 @@ export const load: PageLoad = async ({ params, fetch }) => {
 	return {
 		products: productsToCompare,
 		comparisonNote: popularComparison?.note || null,
+		comparisonTitle: popularComparison?.title || null,
 		keyIngredients
 	};
 };

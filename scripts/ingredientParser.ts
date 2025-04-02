@@ -120,7 +120,9 @@ export const INGREDIENT_SYNONYMS: Record<string, string> = {
 	// Add reverse mappings for growth factors
 	IGF: 'Nicotiana Benthamiana Octapeptide-30 sh-Oligopeptide-2',
 	EGF: 'Nicotiana Benthamiana Hexapeptide-40 sh-Oligopeptide-1',
-	TGF: 'Nicotiana Benthamiana Hexapeptide-40 sh-Polypeptide-76'
+	TGF: 'Nicotiana Benthamiana Hexapeptide-40 sh-Polypeptide-76',
+	EGCG: 'Epigallocatechin Gallate',
+	'Ginseng Extract': 'Panax Ginseng Root Extract'
 };
 
 /*

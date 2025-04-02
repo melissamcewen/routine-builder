@@ -48,7 +48,7 @@
 	function toggleProduct(productId: string) {
 		if (selectedProducts.includes(productId)) {
 			selectedProducts = selectedProducts.filter((id) => id !== productId);
-		} else if (selectedProducts.length < 4) {
+		} else if (selectedProducts.length < 6) {
 			selectedProducts = [...selectedProducts, productId];
 		}
 	}
@@ -72,15 +72,25 @@
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 			{#each popularComparisons as comparison}
 				<div class="flex items-center justify-between p-3 bg-base-100 shadow rounded-lg">
-					<div class="flex items-center gap-2">
-						<span class="text-sm">{products[comparison.ids[0]].Name}</span>
-						<span class="text-base-content/50">vs</span>
-						<span class="text-sm">{products[comparison.ids[1]].Name}</span>
+					<div class="flex-1">
+						{#if comparison.title}
+							<p class="font-medium">{comparison.title}</p>
+							<div class="text-sm text-base-content/70 mt-1">
+								{#if comparison.ids.length > 2}
+									{comparison.ids.length} products
+								{:else}
+									{products[comparison.ids[0]].Name}, {products[comparison.ids[1]].Name}
+								{/if}
+							</div>
+						{:else}
+							<div class="flex items-center gap-2">
+								<span class="text-sm">{products[comparison.ids[0]].Name}</span>
+								<span class="text-base-content/50">vs</span>
+								<span class="text-sm">{products[comparison.ids[1]].Name}</span>
+							</div>
+						{/if}
 					</div>
-					<button
-						class="btn btn-primary btn-sm"
-						on:click={() => comparePopular(comparison.ids)}
-					>
+					<button class="btn btn-primary btn-sm" on:click={() => comparePopular(comparison.ids)}>
 						Compare
 					</button>
 				</div>
@@ -91,7 +101,7 @@
 	<div class="divider">Or Create Your Own Comparison</div>
 
 	<div class="mb-6">
-		<p class="text-lg mb-4">Select 2-4 products to compare:</p>
+		<p class="text-lg mb-4">Select 2-6 products to compare:</p>
 		<div class="flex flex-wrap gap-2">
 			{#each selectedProducts as productId}
 				<div class="badge badge-primary gap-2">

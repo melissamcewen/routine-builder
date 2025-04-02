@@ -516,7 +516,9 @@ export const products: { [key: string]: Product } = {
 		id: 'retinal-0-2-emulsion',
 		KeyIngredients: 'Retinaldehyde, synthetic oat analogues',
 		Ingredients:
-			'Aqua (Water), Coco-Caprylate/Caprate, Propanediol, Pentylene Glycol, Hydroxyapatite, Retinal, Cetylhydroxyproline Palmitamide, 4-t-Butylcyclohexanol, Hydroxyphenyl Propamidobenzoic Acid, Ergothioneine, Biosaccharide Gum-1, Bisabolol, Brassica Campestris Sterols, Zingiber Officinale Root Extract, Butylene Glycol, Isohexadecane, Hexyldecanol, Maltodextrin, Caesalpinia Spinosa Gum, Polyacrylate Crosspolymer-6, Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer, Stearic Acid, Isoceteth-20, Polysorbate 60, Ascorbyl Palmitate, Tocopherol, Lactic Acid, Sodium Lactate, Sodium Hydroxide, Ethylhexylglycerin, Phenoxyethanol, Chlorphenesin. '
+			'Aqua (Water), Coco-Caprylate/Caprate, Propanediol, Pentylene Glycol, Hydroxyapatite, Retinal, Cetylhydroxyproline Palmitamide, 4-t-Butylcyclohexanol, Hydroxyphenyl Propamidobenzoic Acid, Ergothioneine, Biosaccharide Gum-1, Bisabolol, Brassica Campestris Sterols, Zingiber Officinale Root Extract, Butylene Glycol, Isohexadecane, Hexyldecanol, Maltodextrin, Caesalpinia Spinosa Gum, Polyacrylate Crosspolymer-6, Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer, Stearic Acid, Isoceteth-20, Polysorbate 60, Ascorbyl Palmitate, Tocopherol, Lactic Acid, Sodium Lactate, Sodium Hydroxide, Ethylhexylglycerin, Phenoxyethanol, Chlorphenesin',
+		Notes:
+			"This is The Ordinary's highest strength retinoid, closest to the active form of Vitamin A, and meant for expert retinoid users. It contains synthetic oat analogues which help mitigate dryness and irritation."
 	},
 	'retinol-1-in-squalane': {
 		Name: 'Retinol 1% in Squalane',
@@ -537,7 +539,9 @@ export const products: { [key: string]: Product } = {
 		id: 'retinol-1-in-squalane',
 		KeyIngredients: 'Retinol, Squalane',
 		Ingredients:
-			'Squalane, Caprylic/Capric Triglyceride, Simmondsia Chinensis (Jojoba) Seed Oil, Retinol, Solanum Lycopersicum (Tomato) Fruit Extract, Rosmarinus Officinalis (Rosemary) Leaf Extract, Hydroxymethoxyphenyl Decanone, BHT'
+			'Squalane, Caprylic/Capric Triglyceride, Simmondsia Chinensis (Jojoba) Seed Oil, Retinol, Solanum Lycopersicum (Tomato) Fruit Extract, Rosmarinus Officinalis (Rosemary) Leaf Extract, Hydroxymethoxyphenyl Decanone, BHT',
+		Notes:
+			"This is a high-strength retinoid that's meant for people already used to retinoids. It has squalane which helps with dryness."
 	},
 	'retinol-0-5-in-squalane': {
 		Name: 'Retinol 0.5% in Squalane',
@@ -558,7 +562,9 @@ export const products: { [key: string]: Product } = {
 		id: 'retinol-0-5-in-squalane',
 		KeyIngredients: 'Retinol, Squalane',
 		Ingredients:
-			'Squalane, Caprylic/Capric Triglyceride, Simmondsia Chinensis (Jojoba) Seed Oil, Retinol, Solanum Lycopersicum (Tomato) Fruit Extract, Rosmarinus Officinalis (Rosemary) Leaf Extract, Hydroxymethoxyphenyl Decanone, BHT. '
+			'Squalane, Caprylic/Capric Triglyceride, Simmondsia Chinensis (Jojoba) Seed Oil, Retinol, Solanum Lycopersicum (Tomato) Fruit Extract, Rosmarinus Officinalis (Rosemary) Leaf Extract, Hydroxymethoxyphenyl Decanone, BHT',
+		Notes:
+			"If you've been using the Retinol 0.2% in Squalane and want to try a stronger retinol, this is a good option. It has a higher concentration of retinol and is more potent, but otherwise the same."
 	},
 	'granactive-retinoid-2-emulsion': {
 		Name: 'Granactive Retinoid 2% Emulsion',
@@ -578,7 +584,9 @@ export const products: { [key: string]: Product } = {
 		id: 'granactive-retinoid-2-emulsion',
 		KeyIngredients: 'Hydroxypinacolone Retinoate, Retinol, Tasmannia Lanceolata Fruit/Leaf Extract',
 		Ingredients:
-			' Aqua (Water), Glycerin, Caprylic/Capric Triglyceride, Ethyl Linoleate, Propanediol, Dimethyl Isosorbide, Cetearyl Isononanoate, Bisabolol, Hydroxypinacolone Retinoate, Retinol, Tasmannia Lanceolata Fruit/Leaf Extract, Inulin Lauryl Carbamate, Glyceryl Stearate, Ceteareth-12, Ceteareth-20, Cetearyl Alcohol, Carrageenan, Xanthan Gum, Acacia Senegal Gum, Cetyl Palmitate, Sucrose Laurate, Polysorbate 20, Isoceteth-20, Rosmarinus Officinalis (Rosemary) Leaf Extract, Hydroxymethoxyphenyl Decanone, Behentrimonium Chloride, Trisodium Ethylenediamine Disuccinate, Disodium Edta, Dehydroacetic Acid, Benzoic Acid, Ethylhexylglycerin, Phenoxyethanol, Chlorphenesin'
+			' Aqua (Water), Glycerin, Caprylic/Capric Triglyceride, Ethyl Linoleate, Propanediol, Dimethyl Isosorbide, Cetearyl Isononanoate, Bisabolol, Hydroxypinacolone Retinoate, Retinol, Tasmannia Lanceolata Fruit/Leaf Extract, Inulin Lauryl Carbamate, Glyceryl Stearate, Ceteareth-12, Ceteareth-20, Cetearyl Alcohol, Carrageenan, Xanthan Gum, Acacia Senegal Gum, Cetyl Palmitate, Sucrose Laurate, Polysorbate 20, Isoceteth-20, Rosmarinus Officinalis (Rosemary) Leaf Extract, Hydroxymethoxyphenyl Decanone, Behentrimonium Chloride, Trisodium Ethylenediamine Disuccinate, Disodium Edta, Dehydroacetic Acid, Benzoic Acid, Ethylhexylglycerin, Phenoxyethanol, Chlorphenesin',
+		Notes:
+			"This is a retinoid that's milder but less gentle than the Retinol 0.2% in Squalane. It has soothing botanticals derived from chamomile and Tasmanian pepper. "
 	},
 	'retinol-0-2-in-squalane': {
 		Name: 'Retinol 0.2% in Squalane',
@@ -599,7 +607,9 @@ export const products: { [key: string]: Product } = {
 		id: 'retinol-0-2-in-squalane',
 		KeyIngredients: 'Retinol, Squalane',
 		Ingredients:
-			'Squalane, Caprylic/Capric Triglyceride, Simmondsia Chinensis (Jojoba) Seed Oil, Retinol, Solanum Lycopersicum (Tomato) Fruit Extract, Rosmarinus Officinalis (Rosemary) Leaf Extract, Hydroxymethoxyphenyl Decanone, BHT'
+			'Squalane, Caprylic/Capric Triglyceride, Simmondsia Chinensis (Jojoba) Seed Oil, Retinol, Solanum Lycopersicum (Tomato) Fruit Extract, Rosmarinus Officinalis (Rosemary) Leaf Extract, Hydroxymethoxyphenyl Decanone, BHT',
+		Notes:
+			"This is The Ordinary's gentlest retinol product. It is a good choice for sensitive skin or those who are new to retinoids. Being squalane-based, it also helps with dryness."
 	},
 	'granactive-retinoid-5-in-squalane': {
 		Name: 'Granactive Retinoid 5% in Squalane',
@@ -619,7 +629,9 @@ export const products: { [key: string]: Product } = {
 		id: 'granactive-retinoid-5-in-squalane',
 		KeyIngredients: 'Hydroxypinacolone Retinoate, Retinol, Tasmannia Lanceolata Fruit/Leaf Extract',
 		Ingredients:
-			'Squalane, C12-15 Alkyl Benzoate, Bisabolol, Dimethyl Isosorbide, Caprylic/Capric Triglyceride, Simmondsia Chinensis (Jojoba) Seed Oil, Hydroxypinacolone Retinoate, Solanum Lycopersicum (Tomato) Fruit Extract, Rosmarinus Officinalis (Rosemary) Leaf Extract, Hydroxymethoxyphenyl Decanone'
+			'Squalane, C12-15 Alkyl Benzoate, Bisabolol, Dimethyl Isosorbide, Caprylic/Capric Triglyceride, Simmondsia Chinensis (Jojoba) Seed Oil, Hydroxypinacolone Retinoate, Solanum Lycopersicum (Tomato) Fruit Extract, Rosmarinus Officinalis (Rosemary) Leaf Extract, Hydroxymethoxyphenyl Decanone',
+		Notes:
+			"This is a high-strength retinoid that's meant for people already used to retinoids. It has squalane which helps with dryness, and soothing camomile."
 	},
 	'saccharomyces-ferment-30-milky-toner': {
 		Name: 'Saccharomyces Ferment 30% Milky Toner',
@@ -973,5 +985,22 @@ export const products: { [key: string]: Product } = {
 		Tags: [],
 		Ingredients: 'Rosa Canina Seed Oil',
 		KeyIngredients: 'Rosa Canina Seed Oil'
+	},
+	//Multi-Antioxidant Radiance Serum
+	'multi-antioxidant-radiance-serum': {
+		Name: 'Multi-Antioxidant Radiance Serum',
+		id: 'multi-antioxidant-radiance-serum',
+		TOD: 'both',
+		Step: 'Treat',
+		Targets: ['Dullness', 'Antioxidant Support'],
+		'Skin Types': '',
+		Phase: 'Water',
+		Format: 'Serum',
+		Excludes: [],
+		Tags: [],
+		Ingredients:
+			'aqua water eau, propanediol, ascorbyl glucoside, ergothioneine, epigallocatechin gallatyl glucoside, acetyl tetrapeptide-2, heptapeptide-6, tocotrienols, tremella fuciformis sporocarp extract, sphingomonas ferment extract, panax ginseng root extract, bixa orellana seed extract, glycerin, isoceteth-20, citric acid, sodium citrate, sodium hydroxide, caprylyl glycol, ethylhexylglycerin, phenoxyethanol, chlorphenesin',
+		KeyIngredients:
+			'Ascorbyl Glucoside, Ginseng Extract, EGCG, Acetyl Tetrapeptide-2, Heptapeptide-6, Ergothioneine, Tocotrienols, Tremella Fuciformis Sporocarp Extract'
 	}
 };
