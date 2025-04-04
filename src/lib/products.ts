@@ -996,7 +996,7 @@ export const products: { [key: string]: Product } = {
 		'Skin Types': '',
 		Phase: 'Water',
 		Format: 'Serum',
-		Excludes: [],
+		Excludes: ['Copper Peptides'],
 		Tags: [],
 		Ingredients:
 			'aqua water eau, propanediol, ascorbyl glucoside, ergothioneine, epigallocatechin gallatyl glucoside, acetyl tetrapeptide-2, heptapeptide-6, tocotrienols, tremella fuciformis sporocarp extract, sphingomonas ferment extract, panax ginseng root extract, bixa orellana seed extract, glycerin, isoceteth-20, citric acid, sodium citrate, sodium hydroxide, caprylyl glycol, ethylhexylglycerin, phenoxyethanol, chlorphenesin',
