@@ -29,6 +29,14 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [],
     "synonyms": []
   },
+  "6-naphthalate": {
+    "name": "6-Naphthalate",
+    "id": "6-naphthalate",
+    "products": [
+      "uv-filters-spf-45-serum"
+    ],
+    "tags": []
+  },
   "acacia-senegal-gum": {
     "name": "Acacia Senegal Gum",
     "id": "acacia-senegal-gum",
@@ -257,6 +265,14 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [],
     "synonyms": []
   },
+  "aqua": {
+    "name": "Aqua",
+    "id": "aqua",
+    "products": [
+      "uv-filters-spf-45-serum"
+    ],
+    "tags": []
+  },
   "aqua-water-eau": {
     "name": "Aqua Water Eau",
     "id": "aqua-water-eau",
@@ -403,6 +419,14 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [],
     "synonyms": []
   },
+  "behenyl-acrylate-polymer": {
+    "name": "Behenyl Acrylate Polymer",
+    "id": "behenyl-acrylate-polymer",
+    "products": [
+      "uv-filters-spf-45-serum"
+    ],
+    "tags": []
+  },
   "behenyl-alcohol": {
     "name": "Behenyl Alcohol",
     "id": "behenyl-alcohol",
@@ -487,7 +511,8 @@ export const ingredients: { [key: string]: Ingredient } = {
     "name": "Biosaccharide Gum-2",
     "id": "biosaccharide-gum-2",
     "products": [
-      "aloe-2-nag-2-solution"
+      "aloe-2-nag-2-solution",
+      "uv-filters-spf-45-serum"
     ],
     "tags": [],
     "synonyms": []
@@ -539,6 +564,14 @@ export const ingredients: { [key: string]: Ingredient } = {
     ],
     "tags": [],
     "synonyms": []
+  },
+  "butyloctyl-salicylate": {
+    "name": "Butyloctyl Salicylate",
+    "id": "butyloctyl-salicylate",
+    "products": [
+      "uv-filters-spf-45-serum"
+    ],
+    "tags": []
   },
   "c12-15-alkyl-benzoate": {
     "name": "C12-15 Alkyl Benzoate",
@@ -757,7 +790,8 @@ export const ingredients: { [key: string]: Ingredient } = {
       "natural-moisturizing-factors-ha",
       "squalane-cleanser",
       "multi-active-delivery-essence",
-      "multi-antioxidant-radiance-serum"
+      "multi-antioxidant-radiance-serum",
+      "uv-filters-spf-45-serum"
     ],
     "tags": [],
     "synonyms": []
@@ -885,6 +919,14 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [],
     "synonyms": []
   },
+  "diethylhexyl-2": {
+    "name": "Diethylhexyl 2",
+    "id": "diethylhexyl-2",
+    "products": [
+      "uv-filters-spf-45-serum"
+    ],
+    "tags": []
+  },
   "dimethicone": {
     "name": "Dimethicone",
     "id": "dimethicone",
@@ -903,6 +945,14 @@ export const ingredients: { [key: string]: Ingredient } = {
     ],
     "tags": [],
     "synonyms": []
+  },
+  "dimethicone-vinyl-dimethicone-crosspolymer-soft-particle": {
+    "name": "Dimethicone/Vinyl Dimethicone Crosspolymer (Soft Particle)",
+    "id": "dimethicone-vinyl-dimethicone-crosspolymer-soft-particle",
+    "products": [
+      "uv-filters-spf-45-serum"
+    ],
+    "tags": []
   },
   "dimethyl-isosorbide": {
     "name": "Dimethyl Isosorbide",
@@ -1289,7 +1339,8 @@ export const ingredients: { [key: string]: Ingredient } = {
       "natural-moisturizing-factors-ha",
       "squalane-cleanser",
       "multi-active-delivery-essence",
-      "multi-antioxidant-radiance-serum"
+      "multi-antioxidant-radiance-serum",
+      "uv-filters-spf-45-serum"
     ],
     "tags": [
       "key-ingredient"
@@ -1629,6 +1680,14 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [],
     "synonyms": []
   },
+  "isododecane": {
+    "name": "Isododecane",
+    "id": "isododecane",
+    "products": [
+      "uv-filters-spf-45-serum"
+    ],
+    "tags": []
+  },
   "isohexadecane": {
     "name": "Isohexadecane",
     "id": "isohexadecane",
@@ -1787,7 +1846,8 @@ export const ingredients: { [key: string]: Ingredient } = {
     "name": "Magnesium Sulfate",
     "id": "magnesium-sulfate",
     "products": [
-      "natural-moisturizing-factors-phytoceramides"
+      "natural-moisturizing-factors-phytoceramides",
+      "uv-filters-spf-45-serum"
     ],
     "tags": [
       "minerals",
@@ -1909,6 +1969,14 @@ export const ingredients: { [key: string]: Ingredient } = {
     "category": "Biologics",
     "description": "Moisturizing ingredient that may reduce wrinkles and brown spots"
   },
+  "n-acetylcarnosine": {
+    "name": "N-Acetylcarnosine",
+    "id": "n-acetylcarnosine",
+    "products": [
+      "uv-filters-spf-45-serum"
+    ],
+    "tags": []
+  },
   "naringenin": {
     "name": "Naringenin",
     "id": "naringenin",
@@ -2001,7 +2069,8 @@ export const ingredients: { [key: string]: Ingredient } = {
     "products": [
       "hyaluronic-acid-2-b5-hydrating-serum",
       "soothing-barrier-support-serum",
-      "natural-moisturizing-factors-beta-glucan"
+      "natural-moisturizing-factors-beta-glucan",
+      "uv-filters-spf-45-serum"
     ],
     "tags": [],
     "synonyms": []
@@ -2182,7 +2251,8 @@ export const ingredients: { [key: string]: Ingredient } = {
       "balancing-clarifying-serum",
       "natural-moisturizing-factors-phytoceramides",
       "glycolipid-cream-cleanser",
-      "natural-moisturizing-factors-ha"
+      "natural-moisturizing-factors-ha",
+      "uv-filters-spf-45-serum"
     ],
     "tags": [],
     "synonyms": []
@@ -2218,7 +2288,8 @@ export const ingredients: { [key: string]: Ingredient } = {
       "glycolipid-cream-cleanser",
       "natural-moisturizing-factors-ha",
       "multi-active-delivery-essence",
-      "multi-antioxidant-radiance-serum"
+      "multi-antioxidant-radiance-serum",
+      "uv-filters-spf-45-serum"
     ],
     "tags": [],
     "synonyms": []
@@ -2512,7 +2583,8 @@ export const ingredients: { [key: string]: Ingredient } = {
       "natural-moisturizing-factors-phytoceramides",
       "natural-moisturizing-factors-ha",
       "multi-active-delivery-essence",
-      "multi-antioxidant-radiance-serum"
+      "multi-antioxidant-radiance-serum",
+      "uv-filters-spf-45-serum"
     ],
     "tags": [
       "key-ingredient"
@@ -2841,7 +2913,8 @@ export const ingredients: { [key: string]: Ingredient } = {
       "niacinamide-5-face-and-body-emulsion",
       "balancing-clarifying-serum",
       "gf-15-solution",
-      "multi-antioxidant-radiance-serum"
+      "multi-antioxidant-radiance-serum",
+      "uv-filters-spf-45-serum"
     ],
     "tags": [],
     "synonyms": []
@@ -2950,13 +3023,22 @@ export const ingredients: { [key: string]: Ingredient } = {
     "tags": [],
     "synonyms": []
   },
+  "soy-phospholipids": {
+    "name": "Soy Phospholipids",
+    "id": "soy-phospholipids",
+    "products": [
+      "uv-filters-spf-45-serum"
+    ],
+    "tags": []
+  },
   "sphingolipids": {
     "name": "Sphingolipids",
     "id": "sphingolipids",
     "products": [
       "hyaluronic-acid-2-b5-hydrating-serum",
       "soothing-barrier-support-serum",
-      "natural-moisturizing-factors-beta-glucan"
+      "natural-moisturizing-factors-beta-glucan",
+      "uv-filters-spf-45-serum"
     ],
     "tags": [
       "ceramides",
@@ -3135,7 +3217,8 @@ export const ingredients: { [key: string]: Ingredient } = {
       "the-ordinary-glucoside-foaming-cleanser",
       "natural-moisturizing-factors-ha",
       "squalane-cleanser",
-      "glucoside-foaming-cleanser"
+      "glucoside-foaming-cleanser",
+      "uv-filters-spf-45-serum"
     ],
     "tags": [],
     "synonyms": []
@@ -3174,6 +3257,14 @@ export const ingredients: { [key: string]: Ingredient } = {
       "key-ingredient"
     ],
     "synonyms": []
+  },
+  "tri-polyglyceryl-3-lauryl-hydrogenated-trilinoleate": {
+    "name": "Tri(Polyglyceryl-3/Lauryl) Hydrogenated Trilinoleate",
+    "id": "tri-polyglyceryl-3-lauryl-hydrogenated-trilinoleate",
+    "products": [
+      "uv-filters-spf-45-serum"
+    ],
+    "tags": []
   },
   "triethanolamine": {
     "name": "Triethanolamine",
@@ -3234,7 +3325,8 @@ export const ingredients: { [key: string]: Ingredient } = {
       "glycolipid-cream-cleanser",
       "natural-moisturizing-factors-ha",
       "squalane-cleanser",
-      "multi-active-delivery-essence"
+      "multi-active-delivery-essence",
+      "uv-filters-spf-45-serum"
     ],
     "tags": [],
     "synonyms": []

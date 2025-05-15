@@ -14,12 +14,12 @@
 		<h3 class="text-md font-semibold">Updates</h3>
 		<ul class="space-y-2 list-disc ml-4">
 			<li>
+				5/15: Added new product: UV Filters SPF 45 Serum
+			</li>
+			<li>
 				4/4: Added new product: Multi-Antioxidant Radiance Serum
 			<li>
 				3/23: Added an <a href="/ingredients" class="link">ingredients dictionary</a> to help you understand the ingredients in The Ordinary products
-			</li>
-			<li>
-				2/26: Added Multi-Active Delivery Essence to the product list
 			</li>
 
 		</ul>

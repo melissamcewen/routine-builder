@@ -45,7 +45,8 @@ function createRoutine(
 	timeOfDay: 'day' | 'night',
 	startingProduct: string,
 	compatibleProducts: string[],
-	routineId: number
+	routineId: number,
+	sunscreenReplacement: string | null
 ): Routine {
 	const routine: Routine = {
 		id: routineId,
@@ -79,7 +80,11 @@ function createRoutine(
 
 	// Add sunscreen to day routines
 	if (timeOfDay === 'day') {
-		routine.products.push('sunscreen');
+		if (sunscreenReplacement) {
+			routine.products.push(sunscreenReplacement);
+		} else {
+			routine.products.push('sunscreen');
+		}
 	}
 
 	// Update serum usage counts
@@ -151,8 +156,14 @@ export function generateRoutines(productIds: string[]): Routine[] {
 		(id) => products[id].TOD === 'night' || products[id].TOD === 'both'
 	);
 
-	// Track all unused products in one set
-	const unusedProducts = new Set(productIds);
+	// Track all unused products in one set, excluding sunscreen
+	const unusedProducts = new Set(
+		productIds.filter((id) => id !== 'sunscreen' && id !== 'uv-filters-spf-45-serum')
+	);
+
+	// Check for The Ordinary sunscreen
+	const hasOrdinarySunscreen = productIds.includes('uv-filters-spf-45-serum');
+	const sunscreenReplacement = hasOrdinarySunscreen ? 'uv-filters-spf-45-serum' : null;
 
 	// Keep track of whether we can still create day routines
 	let canCreateDayRoutine = dayProducts.length > 0;
@@ -165,7 +176,13 @@ export function generateRoutines(productIds: string[]): Routine[] {
 			// Try to create a day routine
 			const startingProduct = findNextStartingProduct(unusedProducts, 'day', productIds);
 			if (startingProduct) {
-				routine = createRoutine('day', startingProduct, dayProducts, routineId++);
+				routine = createRoutine(
+					'day',
+					startingProduct,
+					dayProducts,
+					routineId++,
+					sunscreenReplacement
+				);
 			} else {
 				canCreateDayRoutine = false;
 			}
@@ -175,7 +192,7 @@ export function generateRoutines(productIds: string[]): Routine[] {
 			// Try to create a night routine
 			const startingProduct = findNextStartingProduct(unusedProducts, 'night', productIds);
 			if (startingProduct) {
-				routine = createRoutine('night', startingProduct, nightProducts, routineId++);
+				routine = createRoutine('night', startingProduct, nightProducts, routineId++, null);
 			} else if (!canCreateDayRoutine) {
 				// If we can't create either type of routine, we're done
 				break;
@@ -185,9 +202,7 @@ export function generateRoutines(productIds: string[]): Routine[] {
 		if (routine) {
 			// Remove used products from the unused set
 			routine.products.forEach((id) => {
-				if (id !== 'sunscreen') {
-					unusedProducts.delete(id);
-				}
+				unusedProducts.delete(id);
 			});
 			routines.push(routine);
 		}
@@ -201,17 +216,19 @@ export function generateRoutines(productIds: string[]): Routine[] {
 	const nightRoutines = routines.filter((r) => r.timeOfDay === 'night');
 
 	if (dayRoutines.length === 0) {
-		// Create a minimal day routine with just sunscreen
+		// Create a minimal day routine with just sunscreen or replacement
 		routines.push({
 			id: routineId++,
 			timeOfDay: 'day',
-			products: ['sunscreen']
+			products: [sunscreenReplacement ? sunscreenReplacement : 'sunscreen']
 		});
 	}
 
 	if (nightRoutines.length === 0 && dayRoutines.length > 0) {
-		// Copy the first day routine to night, but remove sunscreen
-		const dayProducts = dayRoutines[0].products.filter((p) => p !== 'sunscreen');
+		// Copy the first day routine to night, but remove sunscreen or replacement
+		const dayProducts = dayRoutines[0].products.filter(
+			(p) => p !== 'sunscreen' && p !== 'uv-filters-spf-45-serum'
+		);
 		if (dayProducts.length > 0) {
 			routines.push({
 				id: routineId++,

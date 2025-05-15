@@ -312,5 +312,16 @@ describe('Routine Generator Utils', () => {
 			// Log the usage counts for debugging
 			console.log('Serum usage counts:', Object.fromEntries(serumUsageCounts));
 		});
+
+		it('should use uv-filters-spf-45-serum instead of generic sunscreen in day routines when selected', () => {
+			const testProducts = ['uv-filters-spf-45-serum'];
+			const routines = generateRoutines(testProducts);
+			const dayRoutines = routines.filter((r) => r.timeOfDay === 'day');
+			expect(dayRoutines.length).toBeGreaterThan(0);
+			for (const routine of dayRoutines) {
+				expect(routine.products).toContain('uv-filters-spf-45-serum');
+				expect(routine.products).not.toContain('sunscreen');
+			}
+		});
 	});
 });

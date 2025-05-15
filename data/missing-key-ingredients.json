@@ -15,7 +15,8 @@
   "Ceramides": [
     "hyaluronic-acid-2-b5-hydrating-serum",
     "soothing-barrier-support-serum",
-    "natural-moisturizing-factors-beta-glucan"
+    "natural-moisturizing-factors-beta-glucan",
+    "uv-filters-spf-45-serum"
   ],
   "Synthetic Oat Analogues": [
     "retinal-0-2-emulsion"
@@ -34,5 +35,17 @@
   ],
   "Egcg": [
     "multi-antioxidant-radiance-serum"
+  ],
+  "Homosalate": [
+    "uv-filters-spf-45-serum"
+  ],
+  "Octisalate": [
+    "uv-filters-spf-45-serum"
+  ],
+  "Octocrylene": [
+    "uv-filters-spf-45-serum"
+  ],
+  "Avobenzone": [
+    "uv-filters-spf-45-serum"
   ]
 }

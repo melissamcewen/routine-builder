@@ -853,7 +853,7 @@ export const products: { [key: string]: Product } = {
 		Format: 'Cleanser',
 		Excludes: [],
 		Tags: [],
-		id: 'the-ordinary-glucoside-foaming-cleanser',
+		id: 'glucoside-foaming-cleanser',
 		KeyIngredients: 'Decyl Glucoside, Coco-Glucoside',
 		Ingredients:
 			'Aqua (Water), Decyl Glucoside, Coco Glucoside, Xanthan Gum, Tocopherol, Phytic Acid, Benzyl Alcohol, Ethylhexylglycerin'
@@ -1002,5 +1002,19 @@ export const products: { [key: string]: Product } = {
 			'aqua water eau, propanediol, ascorbyl glucoside, ergothioneine, epigallocatechin gallatyl glucoside, acetyl tetrapeptide-2, heptapeptide-6, tocotrienols, tremella fuciformis sporocarp extract, sphingomonas ferment extract, panax ginseng root extract, bixa orellana seed extract, glycerin, isoceteth-20, citric acid, sodium citrate, sodium hydroxide, caprylyl glycol, ethylhexylglycerin, phenoxyethanol, chlorphenesin',
 		KeyIngredients:
 			'Ascorbyl Glucoside, Ginseng Extract, EGCG, Acetyl Tetrapeptide-2, Heptapeptide-6, Ergothioneine, Tocotrienols, Tremella Fuciformis Sporocarp Extract'
+	},
+	'uv-filters-spf-45-serum': {
+		Name: 'The Ordinary UV Filters SPF 45 Serum',
+		id: 'uv-filters-spf-45-serum',
+		TOD: 'both',
+		Step: 'Seal',
+		Targets: ['UV Protection'],
+		'Skin Types': '',
+		Phase: 'Emulsion',
+		Format: 'Serum',
+		Excludes: [],
+		Tags: [],
+		KeyIngredients: 'Homosalate, Octisalate, Octocrylene, Avobenzone, Ceramides',
+		Ingredients: 'Aqua, Behenyl Acrylate Polymer, Biosaccharide Gum-2, Butyloctyl Salicylate, Chlorphenesin, Diethylhexyl 2,6-Naphthalate, Dimethicone/Vinyl Dimethicone Crosspolymer (Soft Particle), Glycerin, Isododecane, Magnesium Sulfate, N-Acetylcarnosine, p-Anisic Acid, Pentylene Glycol, Phenoxyethanol, Propanediol, Sodium Citrate, Soy Phospholipids, Sphingolipids, Tocopherol, Tri(Polyglyceryl-3/Lauryl) Hydrogenated Trilinoleate, Trisodium Ethylenediamine Disuccinate'
 	}
 };

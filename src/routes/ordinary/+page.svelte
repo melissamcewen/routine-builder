@@ -25,6 +25,7 @@
 	} from 'lucide-svelte';
 	import { sortProductsByPhase } from '$lib/utils';
 	import UpdateCard from '$lib/components/UpdateCard.svelte';
+	import { handleSunscreenSelection, canRemoveSunscreen } from '$lib/sunscreenManager';
 
 	// Get initial state from URL params if they exist
 	let timeOfDay: 'day' | 'night' = ($page.url.searchParams.get('tod') as 'day' | 'night') || 'day';
@@ -44,11 +45,7 @@
 	// Update URL and handle sunscreen when routine changes
 	$: if (browser) {
 		// Handle sunscreen based on time of day
-		if (timeOfDay === 'day' && !selectedProducts.includes('sunscreen')) {
-			selectedProducts = [...selectedProducts, 'sunscreen'];
-		} else if (timeOfDay === 'night' && selectedProducts.includes('sunscreen')) {
-			selectedProducts = selectedProducts.filter((id) => id !== 'sunscreen');
-		}
+		selectedProducts = handleSunscreenSelection(selectedProducts, timeOfDay);
 
 		// Update URL
 		const url = new URL(window.location.href);
@@ -158,8 +155,8 @@
 	}
 
 	function toggleProduct(productId: string) {
-		// Prevent removing sunscreen during day routine
-		if (productId === 'sunscreen' && timeOfDay === 'day') {
+		// Prevent removing sunscreen during day routine unless replacing with The Ordinary's
+		if (productId === 'sunscreen' && !canRemoveSunscreen(selectedProducts, timeOfDay)) {
 			return;
 		}
 
@@ -278,7 +275,12 @@
 								awhile, and might have 2-4 different routines, this is for you.
 							</p>
 
-							<p>If you have a list of products you want to use already, head to the <a href="ordinary/scheduler" class="link">routine generator</a></p>
+							<p>
+								If you have a list of products you want to use already, head to the <a
+									href="ordinary/scheduler"
+									class="link">routine generator</a
+								>
+							</p>
 
 							<a
 								href="/ordinary/routine?tod=night&products=argireline-solution-10%2Cmatrixyl-10-ha%2Calpha-arbutin-2-ha&name=My+Night+Routine"
@@ -581,5 +583,3 @@
 		</div>
 	</div>
 </div>
-
-
