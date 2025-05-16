@@ -1,5 +1,14 @@
 <script lang="ts">
-	import { TestTubeDiagonal, FlaskConical, Book, Sun, Moon, Menu, Clock, TableProperties } from 'lucide-svelte';
+	import {
+		TestTubeDiagonal,
+		FlaskConical,
+		Book,
+		Sun,
+		Moon,
+		Menu,
+		Clock,
+		TableProperties
+	} from 'lucide-svelte';
 	import { browser } from '$app/environment';
 
 	export let theme: 'shimmer' | 'synthwave';
@@ -21,7 +30,12 @@
 		{ href: '/ordinary', text: 'Build a routine from scratch', icon: TestTubeDiagonal },
 		{ href: '/ingredients', text: 'Ingredients Dictionary', icon: FlaskConical },
 		{ href: '/ordinary/compare', text: 'Compare products', icon: TableProperties }
-		];
+	];
+
+	let detailsRef: HTMLDetailsElement | null = null;
+	function closeDesktopDropdown() {
+		if (detailsRef) detailsRef.open = false;
+	}
 </script>
 
 <nav class="navbar bg-base-100/50 backdrop-blur-sm fixed top-0 z-50">
@@ -37,9 +51,7 @@
 			<button tabindex="0" class="btn btn-ghost">
 				<Menu class="h-5 w-5" />
 			</button>
-			<ul
-				class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-			>
+			<ul class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
 				<li>
 					<span class="gap-2">
 						<FlaskConical size={20} />
@@ -69,7 +81,7 @@
 
 		<ul class="menu menu-horizontal px-1 hidden lg:flex">
 			<li>
-				<details>
+				<details bind:this={detailsRef}>
 					<summary class="gap-2">
 						<FlaskConical size={20} />
 						The Ordinary
@@ -77,7 +89,7 @@
 					<ul class="p-2 bg-base-100 rounded-t-none w-72">
 						{#each dropdownItems as item}
 							<li>
-								<a href={item.href} class="gap-2">
+								<a href={item.href} class="gap-2" on:click={closeDesktopDropdown}>
 									<svelte:component this={item.icon} size={20} />
 									{item.text}
 								</a>

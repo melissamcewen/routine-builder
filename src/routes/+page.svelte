@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { FlaskConical, Sparkles, Clock } from 'lucide-svelte';
 
 	// Structured data for SEO
@@ -12,13 +11,6 @@
 		applicationCategory: 'Skincare',
 		operatingSystem: 'Web'
 	};
-
-	onMount(() => {
-		const script = document.createElement('script');
-		script.type = 'application/ld+json';
-		script.text = JSON.stringify(structuredData);
-		document.head.appendChild(script);
-	});
 </script>
 
 <svelte:head>
@@ -27,6 +19,9 @@
 		name="description"
 		content="Create and share personalized skincare routines with The Ordinary products. Features product compatibility checks and proper ordering."
 	/>
+	<script type="application/ld+json">
+		{JSON.stringify(structuredData)}
+	</script>
 </svelte:head>
 
 <div class="hero min-h-screen">

@@ -2,7 +2,7 @@ import type { RequestHandler } from '@sveltejs/kit';
 import { ingredients } from '$lib/ingredients';
 import { popularComparisons } from '$lib/popularComparisons';
 
-const website = 'https://myroutinebuilder.com';
+const website = 'https://www.myroutinebuilder.com';
 
 // Array of static routes
 const staticPages = ['', '/blog', '/ingredients', '/ordinary/compare'];

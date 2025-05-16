@@ -1,7 +1,16 @@
 <script lang="ts">
 	import { products } from '$lib/products';
 	import { page } from '$app/stores';
-	import { Sun, Moon, FlaskConical, Beaker, Share2, ArrowLeftRight, Tag, Sparkles } from 'lucide-svelte';
+	import {
+		Sun,
+		Moon,
+		FlaskConical,
+		Beaker,
+		Share2,
+		ArrowLeftRight,
+		Tag,
+		Sparkles
+	} from 'lucide-svelte';
 	import { sortProductsByPhase } from '$lib/utils';
 
 	let timeOfDay: 'day' | 'night' = ($page.url.searchParams.get('tod') as 'day' | 'night') || 'day';
@@ -63,14 +72,14 @@
 			</div>
 
 			{#if routineName}
-				<div class="divider" />
+				<div class="divider"></div>
 				<h2 class="text-3xl font-semibold mb-4 text-center flex items-center justify-center gap-2">
 					<Share2 class="w-6 h-6" />
 					{routineName}
 				</h2>
 			{/if}
 
-			<div class="divider" />
+			<div class="divider"></div>
 
 			<div class="text-center mb-8">
 				<h2 class="text-2xl font-semibold mb-2 flex items-center justify-center gap-2">
@@ -117,15 +126,14 @@
 					{/each}
 				</ul>
 			{/if}
-			<div class="divider mt-8" />
+			<div class="divider mt-8"></div>
 			<div class="text-center text-sm opacity-70">
-
 				<p>Created with myroutinebuilder.com</p>
-					<a href="/ordinary" class="btn  btn-primary m-4
-					"
-									><Sparkles class="w-4 h-4 flex-shrink-0" /> Create Your Own Routine</a
-								>
-
+				<a
+					href="/ordinary"
+					class="btn btn-primary m-4
+					"><Sparkles class="w-4 h-4 flex-shrink-0" /> Create Your Own Routine</a
+				>
 			</div>
 		</div>
 	</div>

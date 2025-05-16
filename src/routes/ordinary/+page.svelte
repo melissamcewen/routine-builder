@@ -217,28 +217,6 @@
 			text: `Apply ${products[productId].Name} (${products[productId].Phase} phase)`
 		}))
 	};
-
-	onMount(() => {
-		const script = document.createElement('script');
-		script.type = 'application/ld+json';
-		script.text = JSON.stringify(structuredData);
-		document.head.appendChild(script);
-	});
-
-	const updates = [
-		{
-			date: '2/2',
-			content: 'Fixed bug with ordering in share page, new blog post ',
-			link: {
-				url: '/blog/posts/why-lactic-acid-is-my-winter-bff',
-				text: 'Why Lactic Acid is My Winter BFF'
-			}
-		},
-		{
-			date: '1/8',
-			content: 'Added new GF 15% solution, added tret (non-Ordinary product)'
-		}
-	];
 </script>
 
 <svelte:head>
@@ -247,6 +225,9 @@
 		Advanced Builder</title
 	>
 	<meta name="description" content={metaDescription} />
+	<script type="application/ld+json">
+		{JSON.stringify(structuredData)}
+	</script>
 </svelte:head>
 
 <div class="min-h-screen">
