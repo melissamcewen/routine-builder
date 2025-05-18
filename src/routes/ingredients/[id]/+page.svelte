@@ -2,20 +2,18 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-
-	const { ingredient, relatedProducts } = data;
-	const description =
-		ingredient.description ||
-		`Learn about ${ingredient.name} and find The Ordinary products that contain this ingredient.`;
 </script>
 
 <svelte:head>
-	<title>The Ordinary Products that contain {ingredient.name}</title>
-	<meta name="description" content={description} />
-	<meta property="og:title" content="The Ordinary Products that contain {ingredient.name}" />
-	<meta property="og:description" content={description} />
-	<meta name="twitter:title" content="The Ordinary Products that contain {ingredient.name}" />
-	<meta name="twitter:description" content={description} />
+	<title>{data.pageTitle}</title>
+	<meta name="description" content={data.description} />
+	<meta property="og:title" content={data.pageTitle} />
+	<meta property="og:description" content={data.description} />
+	<meta name="twitter:title" content={data.pageTitle} />
+	<meta name="twitter:description" content={data.description} />
+	<script type="application/ld+json">
+		{JSON.stringify(data.structuredData)}
+	</script>
 </svelte:head>
 
 <div class="container mx-auto px-4 py-8">
@@ -24,7 +22,7 @@
 	</div>
 
 	<div class="mb-8">
-		<h1 class="text-4xl font-bold mb-4">The Ordinary Products that contain {data.ingredient.name}</h1>
+		<h1 class="text-4xl font-bold mb-4">{data.pageTitle}</h1>
 
 		{#if data.ingredient.category}
 			<p class="text-lg opacity-70 mb-4">{data.ingredient.category}</p>
@@ -46,30 +44,24 @@
 		{/if}
 	</div>
 
-	<div>
-		<h2 class="text-2xl font-bold mb-4">Products containing {data.ingredient.name}</h2>
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-			{#each data.relatedProducts as product}
-				<div class="card bg-base-100 shadow-xl">
-					<div class="card-body">
-						<h3 class="card-title">{product.Name}</h3>
-						<p class="text-sm opacity-70">
-							{#if product.TOD !== ''}{product.TOD} •{/if}
-							{#if product.Step !== ''}
-								{product.Step}{/if}
-						</p>
-						{#if product.Targets && product.Targets.length > 0}
-							<div class="mt-2">
-								{#each product.Targets as target}
-									<span class="badge badge-secondary mr-1 mb-1">{target}</span>
-								{/each}
-							</div>
-						{/if}
-					</div>
-				</div>
-			{/each}
+	{#if data.relatedProducts.length > 0}
+		<div>
+			<h2 class="text-2xl font-semibold mb-4">Products containing {data.ingredient.name}</h2>
+			<div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+				{#each data.relatedProducts as product}
+					<a
+						href="/ordinary/compare/{product.id}"
+						class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow"
+					>
+						<div class="card-body">
+							<h3 class="card-title">{product.Name}</h3>
+							<p class="text-sm opacity-70">{product.Targets.join(', ')}</p>
+						</div>
+					</a>
+				{/each}
+			</div>
 		</div>
-	</div>
+	{/if}
 
 	<div class="mt-12 text-center">
 		<h2 class="text-2xl font-semibold mb-6">Ready to create your routine?</h2>

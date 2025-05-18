@@ -13,13 +13,30 @@
 	} from 'lucide-svelte';
 	import { sortProductsByPhase } from '$lib/utils';
 
-	let timeOfDay: 'day' | 'night' = ($page.url.searchParams.get('tod') as 'day' | 'night') || 'day';
-	let selectedProducts: string[] =
-		$page.url.searchParams
-			.get('products')
-			?.split(',')
-			.filter((id) => products[id]) || [];
-	let routineName = $page.url.searchParams.get('name') || '';
+	interface PageData {
+		timeOfDay: 'day' | 'night';
+		selectedProducts: string[];
+		routineName: string;
+		metaDescription: string;
+		structuredData: {
+			'@context': string;
+			'@type': string;
+			name: string;
+			description: string;
+			step: Array<{
+				'@type': string;
+				position: number;
+				name: string;
+				text: string;
+			}>;
+		};
+	}
+
+	export let data: PageData;
+
+	let timeOfDay = data.timeOfDay;
+	let selectedProducts = data.selectedProducts;
+	let routineName = data.routineName;
 
 	$: sortedSelectedProducts = sortProductsByPhase(selectedProducts, products);
 
@@ -49,15 +66,15 @@
 		>{routineName ? `${routineName} - ` : ''}{timeOfDay === 'day' ? 'Day' : 'Night'} Routine - The Ordinary
 		Routine Builder</title
 	>
-	<meta name="description" content={metaDescription} />
+	<meta name="description" content={data.metaDescription} />
 	<meta
 		name="keywords"
 		content="The Ordinary, skincare routine, {timeOfDay} routine, {selectedProducts
-			.map((id) => products[id].Name.toLowerCase())
+			.map((id: string) => products[id].Name.toLowerCase())
 			.join(', ')}"
 	/>
 	<script type="application/ld+json">
-		{JSON.stringify(structuredData)}
+		{JSON.stringify(data.structuredData)}
 	</script>
 </svelte:head>
 

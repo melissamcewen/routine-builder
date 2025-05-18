@@ -1,47 +1,9 @@
-<script>
+<script lang="ts">
 	import { Book } from 'lucide-svelte';
 	import { formatDate } from '$lib/blog';
+	import type { PageData } from './$types';
 
-	const posts = [
-		{
-			title: 'Why Lactic Acid is My Winter BFF',
-			slug: 'why-lactic-acid-is-my-winter-bff',
-			date: '2025-02-02',
-			description:
-				'Lactic acid is a humectant and exfoliant, and also works as an antioxidant/anti-aging/anti-acne!'
-		},
-		{
-			title: 'Welcome to The Ordinary Advanced Builder',
-			slug: 'welcome-to-the-ordinary-advanced-builder',
-			date: '2024-01-09',
-			description: 'Learn about how to use this tool to build your perfect skincare routine.'
-		}
-	];
-
-	const blogData = {
-		'@context': 'https://schema.org',
-		'@type': 'Blog',
-		name: 'Routine Builder Blog',
-		description:
-			'Tips, guides, and updates about using The Ordinary skincare products and building effective routines.',
-		url: 'https://myroutinebuilder.com/blog',
-		publisher: {
-			'@type': 'Organization',
-			name: 'My Routine Builder',
-			url: 'https://myroutinebuilder.com'
-		},
-		blogPost: posts.map((post) => ({
-			'@type': 'BlogPosting',
-			headline: post.title,
-			description: post.description,
-			datePublished: post.date,
-			url: `https://myroutinebuilder.com/blog/posts/${post.slug}`,
-			author: {
-				'@type': 'Person',
-				name: 'Melissa McEwen'
-			}
-		}))
-	};
+	export let data: PageData;
 </script>
 
 <svelte:head>
@@ -55,30 +17,29 @@
 		content="The Ordinary, skincare blog, routine guides, skincare tips, product compatibility"
 	/>
 	<script type="application/ld+json">
-		{JSON.stringify(blogData)}
+		{JSON.stringify(data.structuredData)}
 	</script>
 </svelte:head>
 
-<div class="container mx-auto p-4">
+<div class="container mx-auto px-4 py-8">
 	<h1 class="text-4xl font-bold mb-8 flex items-center gap-2">
 		<Book class="w-8 h-8" /> Blog
 	</h1>
-	<div class="flex flex-col gap-4">
-		{#each posts as post}
-			<a
-				href="/blog/posts/{post.slug}"
-				class="card glass hover:shadow-lg transition-all no-underline"
-			>
+
+	<div class="grid gap-8">
+		{#each data.posts as post}
+			<article class="card bg-base-100 shadow-xl">
 				<div class="card-body">
-					<h2 class="card-title">{post.title}</h2>
-					<p class="text-sm opacity-70">
-						{post.description}
-					</p>
-					<div class="card-actions justify-end">
-						<span class="text-xs opacity-50">{formatDate(post.date)}</span>
+					<h2 class="card-title">
+						<a href="/blog/posts/{post.slug}" class="hover:link">{post.title}</a>
+					</h2>
+					<p class="text-sm opacity-70">Published on {formatDate(post.date)}</p>
+					<p class="mt-4">{post.description}</p>
+					<div class="card-actions justify-end mt-4">
+						<a href="/blog/posts/{post.slug}" class="btn btn-primary">Read More</a>
 					</div>
 				</div>
-			</a>
+			</article>
 		{/each}
 	</div>
 </div>

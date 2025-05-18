@@ -1,15 +1,11 @@
 <script lang="ts">
+	import type { PageData } from './$types';
 	import type { Product } from '$lib/products';
 	import type { Ingredient } from '$lib/types/ingredients';
 	import ProductComparison from '$lib/components/product/ProductComparison.svelte';
 	import { Info } from 'lucide-svelte';
 
-	export let data: {
-		products: Product[];
-		comparisonNote: string | null;
-		comparisonTitle: string | null;
-		keyIngredients: Record<string, Ingredient[]>;
-	};
+	export let data: PageData;
 
 	// Generate SEO-friendly title and description
 	$: productNames = data.products.map((p: Product) => p.Name);
@@ -45,22 +41,22 @@
 </script>
 
 <svelte:head>
-	<title>{pageTitle}</title>
-	<meta name="description" content={metaDescription} />
+	<title>{data.pageTitle}</title>
+	<meta name="description" content={data.metaDescription} />
 
 	<!-- Open Graph tags -->
-	<meta property="og:title" content={pageTitle} />
-	<meta property="og:description" content={metaDescription} />
+	<meta property="og:title" content={data.pageTitle} />
+	<meta property="og:description" content={data.metaDescription} />
 	<meta property="og:type" content="website" />
 
 	<!-- Twitter Card tags -->
 	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content={pageTitle} />
-	<meta name="twitter:description" content={metaDescription} />
+	<meta name="twitter:title" content={data.pageTitle} />
+	<meta name="twitter:description" content={data.metaDescription} />
 
 	<!-- Structured Data -->
 	<script type="application/ld+json">
-		{JSON.stringify(structuredData)}
+		{JSON.stringify(data.structuredData)}
 	</script>
 </svelte:head>
 
@@ -69,7 +65,7 @@
 		{#if data.comparisonTitle}
 			{data.comparisonTitle}
 		{:else}
-			Compare {productNames.join(' vs ')}
+			Compare {data.products.map((p: Product) => p.Name).join(' vs ')}
 		{/if}
 	</h1>
 
