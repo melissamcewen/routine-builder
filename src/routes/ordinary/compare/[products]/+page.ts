@@ -1,6 +1,7 @@
 import type { ServerLoad } from '@sveltejs/kit';
 import { error } from '@sveltejs/kit';
 import { products } from '$lib/products';
+import { popularComparisons } from '$lib/popularComparisons';
 import type { Product } from '$lib/products';
 import type { Ingredient } from '$lib/types/ingredients';
 
@@ -12,10 +13,23 @@ export const load = (async ({ params, fetch }) => {
 		throw error(404, 'No valid products found');
 	}
 
+	// Find if this is a popular comparison
+	const popularComparison = popularComparisons.find((comparison) => {
+		const comparisonIds = new Set(comparison.ids);
+		const currentIds = new Set(productIds);
+		return (
+			comparisonIds.size === currentIds.size && [...comparisonIds].every((id) => currentIds.has(id))
+		);
+	});
+
 	// Generate SEO-friendly title and description
 	const productNames = productList.map((p: Product) => p.Name);
-	const pageTitle = `Compare ${productNames.join(' vs ')} | The Ordinary Products Comparison`;
-	const metaDescription = `Compare ${productNames.join(' vs ')} from The Ordinary. See differences in ingredients, usage, and benefits.`;
+	const pageTitle =
+		popularComparison?.title ||
+		`Compare ${productNames.join(' vs ')} | The Ordinary Products Comparison`;
+	const metaDescription = popularComparison?.note
+		? `${popularComparison.title || productNames.join(' vs ')} from The Ordinary. ${popularComparison.note}`
+		: `Compare ${productNames.join(' vs ')} from The Ordinary. See differences in ingredients, usage, and benefits.`;
 
 	// Generate structured data for SEO
 	const structuredData = {
@@ -58,8 +72,8 @@ export const load = (async ({ params, fetch }) => {
 
 	return {
 		products: productList,
-		comparisonTitle: null,
-		comparisonNote: null,
+		comparisonTitle: popularComparison?.title || null,
+		comparisonNote: popularComparison?.note || null,
 		keyIngredients,
 		pageTitle,
 		metaDescription,
