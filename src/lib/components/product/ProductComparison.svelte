@@ -103,7 +103,7 @@
 										{@const isUnique = isUniqueIngredient(ingredient, product.id)}
 										<li
 											class="border-l-4 {isUnique
-												? 'border-secondary-content'
+												? 'border-primary-content'
 												: 'border-primary'} pl-4"
 										>
 											<a

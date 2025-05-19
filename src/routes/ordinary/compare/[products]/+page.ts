@@ -4,7 +4,7 @@ import { products } from '$lib/products';
 import type { Product } from '$lib/products';
 import type { Ingredient } from '$lib/types/ingredients';
 
-export const load = (async ({ params }) => {
+export const load = (async ({ params, fetch }) => {
 	const productIds = params.products.split(',');
 	const productList = productIds.map((id) => products[id]).filter(Boolean);
 
@@ -49,14 +49,12 @@ export const load = (async ({ params }) => {
 		}
 	};
 
-	// Get key ingredients for each product
-	const keyIngredients: Record<string, Ingredient[]> = {};
-	for (const product of productList) {
-		const response = await fetch(`/api/key-ingredients/${product.id}`);
-		if (response.ok) {
-			keyIngredients[product.id] = await response.json();
-		}
+	// Get key ingredients for all products at once
+	const keyIngredientsResponse = await fetch(`/api/key-ingredients/${params.products}`);
+	if (!keyIngredientsResponse.ok) {
+		throw error(500, 'Failed to fetch key ingredients');
 	}
+	const keyIngredients = await keyIngredientsResponse.json();
 
 	return {
 		products: productList,
