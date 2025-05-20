@@ -7,7 +7,8 @@
 		Moon,
 		Menu,
 		Clock,
-		TableProperties
+		TableProperties,
+		CheckCircle2
 	} from 'lucide-svelte';
 	import { browser } from '$app/environment';
 
@@ -29,7 +30,8 @@
 		},
 		{ href: '/ordinary', text: 'Build a routine from scratch', icon: TestTubeDiagonal },
 		{ href: '/ingredients', text: 'Ingredients Dictionary', icon: FlaskConical },
-		{ href: '/ordinary/compare', text: 'Compare products', icon: TableProperties }
+		{ href: '/ordinary/compare', text: 'Compare products', icon: TableProperties },
+		{ href: '/ordinary/compatibility', text: 'Product Compatibility', icon: CheckCircle2 }
 	];
 
 	let detailsRef: HTMLDetailsElement | null = null;

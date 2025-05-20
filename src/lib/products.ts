@@ -289,8 +289,7 @@ export const products: { [key: string]: Product } = {
 			'EUK',
 			'Niacinamide',
 			'Peptides',
-			'Retinoids',
-			''
+			'Retinoids'
 		],
 		Tags: ['Direct Vitamin C'],
 		id: '100-l-ascorbic-acid-powder',
