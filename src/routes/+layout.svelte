@@ -65,21 +65,14 @@
 		title="Blog RSS Feed"
 		href="https://www.myroutinebuilder.com/rss.xml"
 	/>
-	<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "WebApplication",
-			"name": "The Ordinary Advanced Routine Builder",
-			"description": "Advanced routine builder for The Ordinary skincare products",
-			"applicationCategory": "LifestyleApplication",
-			"operatingSystem": "Web",
-			"offers": {
-				"@type": "Offer",
-				"price": "0",
-				"priceCurrency": "USD"
-			}
-		}
-	</script>
+	{@html `<script type="application/ld+json">${JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'WebApplication',
+		name: 'The Ordinary Advanced Routine Builder',
+		description: 'Advanced routine builder for The Ordinary skincare products',
+		applicationCategory: 'LifestyleApplication',
+		operatingSystem: 'Web',
+	})}</script>`}
 </svelte:head>
 
 <div class="min-h-screen flex flex-col">

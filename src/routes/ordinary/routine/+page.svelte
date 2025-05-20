@@ -73,9 +73,7 @@
 			.map((id: string) => products[id].Name.toLowerCase())
 			.join(', ')}"
 	/>
-	<script type="application/ld+json">
-		{JSON.stringify(data.structuredData)}
-	</script>
+	{@html `<script type="application/ld+json">${JSON.stringify(data.structuredData)}</script>`}
 </svelte:head>
 
 <div class="min-h-screen">

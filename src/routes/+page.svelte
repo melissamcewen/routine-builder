@@ -19,9 +19,7 @@
 		name="description"
 		content="Create and share personalized skincare routines with The Ordinary products. Features product compatibility checks and proper ordering."
 	/>
-	<script type="application/ld+json">
-		{JSON.stringify(structuredData)}
-	</script>
+	{@html `<script type="application/ld+json">${JSON.stringify(structuredData)}</script>`}
 </svelte:head>
 
 <div class="hero min-h-screen">

@@ -16,9 +16,7 @@
 		name="keywords"
 		content="The Ordinary, skincare blog, routine guides, skincare tips, product compatibility"
 	/>
-	<script type="application/ld+json">
-		{JSON.stringify(data.structuredData)}
-	</script>
+	{@html `<script type="application/ld+json">${JSON.stringify(data.structuredData)}</script>`}
 </svelte:head>
 
 <div class="container mx-auto px-4 py-8">

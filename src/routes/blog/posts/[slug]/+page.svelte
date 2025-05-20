@@ -9,9 +9,7 @@
 	<title>{data.post.title} - My Routine Builder</title>
 	<meta name="description" content={data.post.description} />
 	<meta name="keywords" content={data.post.keywords} />
-	<script type="application/ld+json">
-		{JSON.stringify(data.structuredData)}
-	</script>
+	{@html `<script type="application/ld+json">${JSON.stringify(data.structuredData)}</script>`}
 </svelte:head>
 
 <div class="container mx-auto px-4 py-8">

@@ -11,9 +11,7 @@
 	<meta property="og:description" content={data.description} />
 	<meta name="twitter:title" content={data.pageTitle} />
 	<meta name="twitter:description" content={data.description} />
-	<script type="application/ld+json">
-		{JSON.stringify(data.structuredData)}
-	</script>
+	{@html `<script type="application/ld+json">${JSON.stringify(data.structuredData)}</script>`}
 </svelte:head>
 
 <div class="container mx-auto px-4 py-8">
