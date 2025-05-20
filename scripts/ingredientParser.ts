@@ -117,12 +117,15 @@ export const INGREDIENT_SYNONYMS: Record<string, string> = {
 	'Nicotiana Benthamiana Hexapeptide-40 sh-Polypeptide-76': 'TGF',
 	Cyanocobalamin: 'Vitamin B12',
 	'Sodium PCA': 'PCA',
-	// Add reverse mappings for growth factors
-	IGF: 'Nicotiana Benthamiana Octapeptide-30 sh-Oligopeptide-2',
-	EGF: 'Nicotiana Benthamiana Hexapeptide-40 sh-Oligopeptide-1',
-	TGF: 'Nicotiana Benthamiana Hexapeptide-40 sh-Polypeptide-76',
 	EGCG: 'Epigallocatechin Gallate',
 	'Ginseng Extract': 'Panax Ginseng Root Extract'
+};
+
+// Map of growth factors to their full names
+export const GROWTH_FACTORS: Record<string, string> = {
+	IGF: 'Nicotiana Benthamiana Octapeptide-30 sh-Oligopeptide-2',
+	EGF: 'Nicotiana Benthamiana Hexapeptide-40 sh-Oligopeptide-1',
+	TGF: 'Nicotiana Benthamiana Hexapeptide-40 sh-Polypeptide-76'
 };
 
 /*
@@ -150,6 +153,14 @@ export const INGREDIENT_SYNONYMS: Record<string, string> = {
 */
 
 export function generateIngredientId(name: string): string {
+	// For growth factors, use the full name for the ID
+	if (GROWTH_FACTORS[name]) {
+		return GROWTH_FACTORS[name]
+			.toLowerCase()
+			.replace(/[^a-z0-9]+/g, '-') // Replace non-alphanumeric chars with hyphens
+			.replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
+	}
+
 	// For synonyms, use the primary ingredient name to generate the ID
 	const primaryName = INGREDIENT_SYNONYMS[name] || name;
 	return primaryName
@@ -164,7 +175,10 @@ export function normalizeIngredientName(name: string): string {
 		'euk 134': 'EUK 134',
 		igf: 'IGF',
 		egf: 'EGF',
-		tgf: 'TGF'
+		tgf: 'TGF',
+		'nicotiana benthamiana octapeptide-30 sh-oligopeptide-2': 'IGF',
+		'nicotiana benthamiana hexapeptide-40 sh-oligopeptide-1': 'EGF',
+		'nicotiana benthamiana hexapeptide-40 sh-polypeptide-76': 'TGF'
 	};
 
 	// Keep original spacing and special characters, just normalize case
@@ -325,12 +339,16 @@ export function parseIngredients(
 				tags.push('key-ingredient');
 			}
 
+			// For growth factors, add the full name as a synonym
+			const fullName = GROWTH_FACTORS[normalizedName];
+			const allSynonyms = fullName ? [...synonyms, fullName] : synonyms;
+
 			ingredientMap.set(id, {
 				name: normalizedName,
 				id,
 				products: [productId],
 				tags,
-				...(synonyms.length > 0 && { synonyms })
+				...(allSynonyms.length > 0 && { synonyms: allSynonyms })
 			});
 		});
 

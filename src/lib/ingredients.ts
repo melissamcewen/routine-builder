@@ -35,7 +35,8 @@ export const ingredients: { [key: string]: Ingredient } = {
     "products": [
       "uv-filters-spf-45-serum"
     ],
-    "tags": []
+    "tags": [],
+    "synonyms": []
   },
   "acacia-senegal-gum": {
     "name": "Acacia Senegal Gum",
@@ -271,7 +272,8 @@ export const ingredients: { [key: string]: Ingredient } = {
     "products": [
       "uv-filters-spf-45-serum"
     ],
-    "tags": []
+    "tags": [],
+    "synonyms": []
   },
   "aqua-water-eau": {
     "name": "Aqua Water Eau",
@@ -425,7 +427,8 @@ export const ingredients: { [key: string]: Ingredient } = {
     "products": [
       "uv-filters-spf-45-serum"
     ],
-    "tags": []
+    "tags": [],
+    "synonyms": []
   },
   "behenyl-alcohol": {
     "name": "Behenyl Alcohol",
@@ -571,7 +574,8 @@ export const ingredients: { [key: string]: Ingredient } = {
     "products": [
       "uv-filters-spf-45-serum"
     ],
-    "tags": []
+    "tags": [],
+    "synonyms": []
   },
   "c12-15-alkyl-benzoate": {
     "name": "C12-15 Alkyl Benzoate",
@@ -925,7 +929,8 @@ export const ingredients: { [key: string]: Ingredient } = {
     "products": [
       "uv-filters-spf-45-serum"
     ],
-    "tags": []
+    "tags": [],
+    "synonyms": []
   },
   "dimethicone": {
     "name": "Dimethicone",
@@ -952,7 +957,8 @@ export const ingredients: { [key: string]: Ingredient } = {
     "products": [
       "uv-filters-spf-45-serum"
     ],
-    "tags": []
+    "tags": [],
+    "synonyms": []
   },
   "dimethyl-isosorbide": {
     "name": "Dimethyl Isosorbide",
@@ -1686,7 +1692,8 @@ export const ingredients: { [key: string]: Ingredient } = {
     "products": [
       "uv-filters-spf-45-serum"
     ],
-    "tags": []
+    "tags": [],
+    "synonyms": []
   },
   "isohexadecane": {
     "name": "Isohexadecane",
@@ -1975,7 +1982,8 @@ export const ingredients: { [key: string]: Ingredient } = {
     "products": [
       "uv-filters-spf-45-serum"
     ],
-    "tags": []
+    "tags": [],
+    "synonyms": []
   },
   "naringenin": {
     "name": "Naringenin",
@@ -2009,8 +2017,12 @@ export const ingredients: { [key: string]: Ingredient } = {
     "products": [
       "gf-15-solution"
     ],
-    "tags": [],
-    "synonyms": []
+    "tags": [
+      "key-ingredient"
+    ],
+    "synonyms": [
+      "Nicotiana Benthamiana Hexapeptide-40 sh-Oligopeptide-1"
+    ]
   },
   "nicotiana-benthamiana-hexapeptide-40-sh-polypeptide-76": {
     "name": "Nicotiana Benthamiana Hexapeptide-40 Sh-Polypeptide-76",
@@ -2018,8 +2030,12 @@ export const ingredients: { [key: string]: Ingredient } = {
     "products": [
       "gf-15-solution"
     ],
-    "tags": [],
-    "synonyms": []
+    "tags": [
+      "key-ingredient"
+    ],
+    "synonyms": [
+      "Nicotiana Benthamiana Hexapeptide-40 sh-Polypeptide-76"
+    ]
   },
   "nicotiana-benthamiana-octapeptide-30-sh-oligopeptide-2": {
     "name": "Nicotiana Benthamiana Octapeptide-30 Sh-Oligopeptide-2",
@@ -2027,8 +2043,14 @@ export const ingredients: { [key: string]: Ingredient } = {
     "products": [
       "gf-15-solution"
     ],
-    "tags": [],
-    "synonyms": []
+    "tags": [
+      "key-ingredient"
+    ],
+    "synonyms": [
+      "IGF",
+      "Nicotiana Benthamiana Octapeptide-30 sh-Oligopeptide-2"
+    ],
+    "description": "AKA IGF, a peptide that may improve skin cell turnover and promote collagen/elastin production"
   },
   "oleic-acid": {
     "name": "Oleic Acid",
@@ -3029,7 +3051,8 @@ export const ingredients: { [key: string]: Ingredient } = {
     "products": [
       "uv-filters-spf-45-serum"
     ],
-    "tags": []
+    "tags": [],
+    "synonyms": []
   },
   "sphingolipids": {
     "name": "Sphingolipids",
@@ -3264,7 +3287,8 @@ export const ingredients: { [key: string]: Ingredient } = {
     "products": [
       "uv-filters-spf-45-serum"
     ],
-    "tags": []
+    "tags": [],
+    "synonyms": []
   },
   "triethanolamine": {
     "name": "Triethanolamine",
