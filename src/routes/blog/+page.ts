@@ -1,4 +1,5 @@
 import type { ServerLoad } from '@sveltejs/kit';
+import type { MetaTagsProps } from 'svelte-meta-tags';
 
 interface Post {
 	title: string;
@@ -26,14 +27,42 @@ const posts: Post[] = [
 	}
 ];
 
-export const load = (async () => {
-	const blogData = {
+export const load = (async ({ url }) => {
+	const pageUrl = new URL(url.pathname, url.origin).href;
+
+	// Page-specific meta tags
+	const pageMetaTags = Object.freeze({
+		title: 'Blog',
+		description:
+			'Tips, guides, and updates about using The Ordinary skincare products and building effective routines.',
+		openGraph: {
+			type: 'website',
+			url: pageUrl,
+			title: 'Blog - Routine Builder',
+			description:
+				'Tips, guides, and updates about using The Ordinary skincare products and building effective routines.'
+		},
+		twitter: {
+			title: 'Blog - Routine Builder',
+			description:
+				'Tips, guides, and updates about using The Ordinary skincare products and building effective routines.'
+		},
+		additionalMetaTags: [
+			{
+				name: 'keywords',
+				content: 'The Ordinary, skincare blog, routine guides, skincare tips, product compatibility'
+			}
+		]
+	}) satisfies MetaTagsProps;
+
+	// Blog structured data
+	const pageStructuredData = {
 		'@context': 'https://schema.org',
 		'@type': 'Blog',
 		name: 'Routine Builder Blog',
 		description:
 			'Tips, guides, and updates about using The Ordinary skincare products and building effective routines.',
-		url: 'https://myroutinebuilder.com/blog',
+		url: pageUrl,
 		publisher: {
 			'@type': 'Organization',
 			name: 'My Routine Builder',
@@ -54,6 +83,7 @@ export const load = (async () => {
 
 	return {
 		posts,
-		structuredData: blogData
+		pageMetaTags,
+		pageStructuredData
 	};
 }) satisfies ServerLoad;

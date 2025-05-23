@@ -10,30 +10,12 @@ author: 'Melissa McEwen'
 <script>
   import { FlaskConical } from 'lucide-svelte';
   import { formatDate } from '$lib/blog';
-
-  // Add structured data for the article
-  const articleData = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    'headline': 'Welcome to The Ordinary Advanced Builder',
-    'datePublished': '2024-01-09',
-    'author': {
-      '@type': 'Person',
-      'name': 'Melissa McEwen'
-    },
-    'description': 'Learn how to use The Ordinary Advanced Builder to create perfect skincare routines with real-time compatibility checking and proper product ordering.'
-  };
+  import { MetaTags, JsonLd } from 'svelte-meta-tags';
+  import { page } from '$app/stores';
 </script>
 
-<svelte:head>
-
-  <title>Welcome to The Ordinary Advanced Builder - My Routine Builder</title>
-  <meta name="description" content="Learn how to use The Ordinary Advanced Builder to create perfect skincare routines with real-time compatibility checking and proper product ordering." />
-  <meta name="keywords" content="The Ordinary, skincare routine, product compatibility, skincare guide, routine builder" />
-  <script type="application/ld+json">
-    {JSON.stringify(articleData)}
-  </script>
-</svelte:head>
+<MetaTags {...$page.data.pageMetaTags} />
+<JsonLd schema={$page.data.pageStructuredData} />
 
 # <FlaskConical class="inline w-8 h-8 mr-2" /> Welcome to The Ordinary Advanced Builder
 
@@ -86,7 +68,7 @@ There are some exceptions like Natural Moisturizing Factors + HA is technically 
 
 One thing we haven't coded in is that The Ordinary recommends within the layers to put on the product targeting your most important concern first.
 
->  Ultimately they can be layered in any order, but we recommend focusing on the primary concern first. For instance, if you’re looking to target signs of aging as your primary concern and have both Multi-Peptide + HA Serum and Hyaluronic Acid 2% + B5, we’d recommend applying Multi-Peptide + HA Serum first because it targets signs of aging while Hyaluronic Acid 2% + B5 targets dryness.
+> Ultimately they can be layered in any order, but we recommend focusing on the primary concern first. For instance, if you're looking to target signs of aging as your primary concern and have both Multi-Peptide + HA Serum and Hyaluronic Acid 2% + B5, we'd recommend applying Multi-Peptide + HA Serum first because it targets signs of aging while Hyaluronic Acid 2% + B5 targets dryness.
 
 I'm considering different ways to code this in and may add it in the future.
 

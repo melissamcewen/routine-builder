@@ -12,25 +12,9 @@
 		Sparkles
 	} from 'lucide-svelte';
 	import { sortProductsByPhase } from '$lib/utils';
-
-	interface PageData {
-		timeOfDay: 'day' | 'night';
-		selectedProducts: string[];
-		routineName: string;
-		metaDescription: string;
-		structuredData: {
-			'@context': string;
-			'@type': string;
-			name: string;
-			description: string;
-			step: Array<{
-				'@type': string;
-				position: number;
-				name: string;
-				text: string;
-			}>;
-		};
-	}
+	import { MetaTags } from 'svelte-meta-tags';
+	import { JsonLd } from 'svelte-meta-tags';
+	import type { PageData } from './$types';
 
 	export let data: PageData;
 
@@ -39,42 +23,10 @@
 	let routineName = data.routineName;
 
 	$: sortedSelectedProducts = sortProductsByPhase(selectedProducts, products);
-
-	// Generate dynamic meta description based on selected products
-	$: metaDescription =
-		selectedProducts.length > 0
-			? `${routineName ? `${routineName}: ` : ''}${timeOfDay} skincare routine with The Ordinary products: ${selectedProducts.map((id) => products[id].Name).join(', ')}`
-			: 'Create and share your personalized skincare routine with The Ordinary products. Features compatibility checks and proper product ordering.';
-
-	// Generate structured data for the routine
-	$: structuredData = {
-		'@context': 'https://schema.org',
-		'@type': 'HowTo',
-		name: routineName || `${timeOfDay} Skincare Routine`,
-		description: metaDescription,
-		step: sortedSelectedProducts.map((productId, index) => ({
-			'@type': 'HowToStep',
-			position: index + 1,
-			name: products[productId].Name,
-			text: `Apply ${products[productId].Name} (${products[productId].Phase} phase)`
-		}))
-	};
 </script>
 
-<svelte:head>
-	<title
-		>{routineName ? `${routineName} - ` : ''}{timeOfDay === 'day' ? 'Day' : 'Night'} Routine - The Ordinary
-		Routine Builder</title
-	>
-	<meta name="description" content={data.metaDescription} />
-	<meta
-		name="keywords"
-		content="The Ordinary, skincare routine, {timeOfDay} routine, {selectedProducts
-			.map((id: string) => products[id].Name.toLowerCase())
-			.join(', ')}"
-	/>
-	{@html `<script type="application/ld+json">${JSON.stringify(data.structuredData)}</script>`}
-</svelte:head>
+<MetaTags {...data.pageMetaTags} />
+<JsonLd schema={data.pageStructuredData} />
 
 <div class="min-h-screen">
 	<div class="container mx-auto p-4">

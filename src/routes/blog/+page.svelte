@@ -6,19 +6,6 @@
 	export let data: PageData;
 </script>
 
-<svelte:head>
-	<title>Blog - Routine Builder</title>
-	<meta
-		name="description"
-		content="Tips, guides, and updates about using The Ordinary skincare products and building effective routines."
-	/>
-	<meta
-		name="keywords"
-		content="The Ordinary, skincare blog, routine guides, skincare tips, product compatibility"
-	/>
-	{@html `<script type="application/ld+json">${JSON.stringify(data.structuredData)}</script>`}
-</svelte:head>
-
 <div class="container mx-auto px-4 py-8">
 	<h1 class="text-4xl font-bold mb-8 flex items-center gap-2">
 		<Book class="w-8 h-8" /> Blog

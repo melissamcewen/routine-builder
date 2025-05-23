@@ -5,9 +5,13 @@
 	import { FlaskConical, ArrowLeft, Sun, Moon, Info } from 'lucide-svelte';
 	import { sortProductsByPhase } from '$lib/utils';
 	import { generateRoutines, type Routine } from '$lib/routineGenerator';
+	import { MetaTags } from 'svelte-meta-tags';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
 
 	// Get products from URL params and memoize the result
-	let selectedProducts: string[] = [];
+	let selectedProducts: string[] = data.selectedProducts;
 	let generatedRoutines: Routine[] = [];
 	let dayRoutines: Routine[] = [];
 	let nightRoutines: Routine[] = [];
@@ -63,12 +67,10 @@
 	}
 </script>
 
+<MetaTags {...data.pageMetaTags} />
+
 <svelte:head>
-	<title>Generated Routines - The Ordinary Routine Scheduler</title>
-	<meta
-		name="description"
-		content="View your generated skincare routines that incorporate all selected The Ordinary products."
-	/>
+	{@html `<script type="application/ld+json">${JSON.stringify(data.pageStructuredData)}</script>`}
 </svelte:head>
 
 <div class="min-h-screen">

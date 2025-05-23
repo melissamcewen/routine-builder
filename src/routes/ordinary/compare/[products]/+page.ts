@@ -4,8 +4,13 @@ import { products } from '$lib/products';
 import { popularComparisons } from '$lib/popularComparisons';
 import type { Product } from '$lib/products';
 import type { Ingredient } from '$lib/types/ingredients';
+import type { MetaTagsProps } from 'svelte-meta-tags';
 
-export const load = (async ({ params, fetch }) => {
+export const load = (async ({ params, fetch, url }) => {
+	if (!params.products) {
+		throw error(404, 'No products specified');
+	}
+
 	const productIds = params.products.split(',');
 	const productList = productIds.map((id) => products[id]).filter(Boolean);
 
@@ -31,35 +36,39 @@ export const load = (async ({ params, fetch }) => {
 		? `${popularComparison.title || productNames.join(' vs ')} from The Ordinary. ${popularComparison.note}`
 		: `Compare ${productNames.join(' vs ')} from The Ordinary. See differences in ingredients, usage, and benefits.`;
 
-	// Generate structured data for SEO
-	const structuredData = {
-		'@context': 'https://schema.org',
-		'@type': 'WebPage',
-		name: pageTitle,
+	const pageUrl = new URL(url.pathname, url.origin).href;
+
+	// Meta tags for svelte-meta-tags
+	const pageMetaTags: Partial<MetaTagsProps> = {
+		title: pageTitle,
 		description: metaDescription,
-		mainEntity: {
-			'@type': 'ItemList',
-			itemListElement: productList.map((product, index) => ({
-				'@type': 'ListItem',
-				position: index + 1,
-				item: {
-					'@type': 'Product',
-					name: product.Name,
-					description: `${product.Name} - ${product.Targets.join(', ')}`,
-					category: product.Format || 'Skincare',
-					url: `https://myroutinebuilder.com/ordinary/compare/${product.id}`,
-					offers: {
-						'@type': 'Offer',
-						availability: 'https://schema.org/InStock',
-						priceCurrency: 'USD',
-						price: '0',
-						seller: {
-							'@type': 'Organization',
-							name: 'The Ordinary'
-						}
-					}
-				}
-			}))
+		openGraph: {
+			title: pageTitle,
+			description: metaDescription,
+			type: 'website',
+			url: pageUrl
+		},
+		twitter: {
+			title: pageTitle,
+			description: metaDescription,
+			cardType: 'summary' as const
+		}
+	};
+
+	// Generate structured data for SEO
+	const pageStructuredData = {
+		'@context': 'https://schema.org',
+		'@type': 'Article' as const,
+		headline: pageTitle,
+		description: metaDescription,
+		author: {
+			'@type': 'Organization' as const,
+			name: 'My Routine Builder'
+		},
+		publisher: {
+			'@type': 'Organization' as const,
+			name: 'My Routine Builder',
+			url: 'https://www.myroutinebuilder.com'
 		}
 	};
 
@@ -75,8 +84,7 @@ export const load = (async ({ params, fetch }) => {
 		comparisonTitle: popularComparison?.title || null,
 		comparisonNote: popularComparison?.note || null,
 		keyIngredients,
-		pageTitle,
-		metaDescription,
-		structuredData
+		pageMetaTags,
+		pageStructuredData
 	};
 }) satisfies ServerLoad;

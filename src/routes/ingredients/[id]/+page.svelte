@@ -4,16 +4,6 @@
 	export let data: PageData;
 </script>
 
-<svelte:head>
-	<title>{data.pageTitle}</title>
-	<meta name="description" content={data.description} />
-	<meta property="og:title" content={data.pageTitle} />
-	<meta property="og:description" content={data.description} />
-	<meta name="twitter:title" content={data.pageTitle} />
-	<meta name="twitter:description" content={data.description} />
-	{@html `<script type="application/ld+json">${JSON.stringify(data.structuredData)}</script>`}
-</svelte:head>
-
 <div class="container mx-auto px-4 py-8">
 	<div class="mb-4">
 		<a href="/ingredients" class="btn btn-ghost">← Back to Ingredients</a>

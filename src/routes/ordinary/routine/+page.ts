@@ -1,27 +1,9 @@
 import { products } from '$lib/products';
 import { sortProductsByPhase } from '$lib/utils';
-import type { ServerLoad } from '@sveltejs/kit';
+import type { PageLoad } from './$types';
+import type { MetaTagsProps } from 'svelte-meta-tags';
 
-interface PageData {
-	timeOfDay: 'day' | 'night';
-	selectedProducts: string[];
-	routineName: string;
-	metaDescription: string;
-	structuredData: {
-		'@context': string;
-		'@type': string;
-		name: string;
-		description: string;
-		step: Array<{
-			'@type': string;
-			position: number;
-			name: string;
-			text: string;
-		}>;
-	};
-}
-
-export const load = (async ({ url }: { url: URL }): Promise<PageData> => {
+export const load: PageLoad = async ({ url }) => {
 	const timeOfDay = (url.searchParams.get('tod') as 'day' | 'night') || 'day';
 	const selectedProducts =
 		url.searchParams
@@ -38,25 +20,54 @@ export const load = (async ({ url }: { url: URL }): Promise<PageData> => {
 			? `${routineName ? `${routineName}: ` : ''}${timeOfDay} skincare routine with The Ordinary products: ${selectedProducts.map((id: string) => products[id].Name).join(', ')}`
 			: 'Create and share your personalized skincare routine with The Ordinary products. Features compatibility checks and proper product ordering.';
 
+	// Generate dynamic title
+	const title = `${routineName ? `${routineName} - ` : ''}${timeOfDay === 'day' ? 'Day' : 'Night'} Routine`;
+
+	// Generate keywords
+	const keywords = [
+		'The Ordinary',
+		'skincare routine',
+		`${timeOfDay} routine`,
+		...selectedProducts.map((id: string) => products[id].Name.toLowerCase())
+	];
+
 	// Generate structured data for the routine
-	const structuredData = {
+	const pageStructuredData = {
 		'@context': 'https://schema.org',
-		'@type': 'HowTo',
-		name: routineName || `${timeOfDay} Skincare Routine`,
+		'@type': 'Article' as const,
+		headline: routineName || `${timeOfDay} Skincare Routine`,
 		description: metaDescription,
-		step: sortedSelectedProducts.map((productId: string, index: number) => ({
-			'@type': 'HowToStep',
-			position: index + 1,
-			name: products[productId].Name,
-			text: `Apply ${products[productId].Name} (${products[productId].Phase} phase)`
-		}))
+		author: {
+			'@type': 'Organization' as const,
+			name: 'My Routine Builder'
+		},
+		publisher: {
+			'@type': 'Organization' as const,
+			name: 'My Routine Builder',
+			url: 'https://www.myroutinebuilder.com'
+		}
+	};
+
+	const pageMetaTags: Partial<MetaTagsProps> = {
+		title,
+		description: metaDescription,
+		keywords,
+		openGraph: {
+			title,
+			description: metaDescription,
+			type: 'website'
+		},
+		twitter: {
+			title,
+			description: metaDescription
+		}
 	};
 
 	return {
 		timeOfDay,
 		selectedProducts,
 		routineName,
-		metaDescription,
-		structuredData
+		pageMetaTags,
+		pageStructuredData
 	};
-}) satisfies ServerLoad;
+};

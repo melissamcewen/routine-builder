@@ -9,19 +9,8 @@ author: 'Melissa McEwen'
 
 <script>
   import { InlineReference, References } from '$lib/components';
-
-  // Add structured data for the article
-  const articleData = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    'headline': 'Why Lactic Acid is My Winter BFF',
-    'datePublished': '2025-02-02',
-    'author': {
-      '@type': 'Person',
-      'name': 'Melissa McEwen'
-    },
-    'description': 'Lactic acid is a humectant and exfoliant, and also works as an antioxidant/anti-aging/anti-acne!'
-  };
+  import { MetaTags, JsonLd } from 'svelte-meta-tags';
+  import { page } from '$app/stores';
 
   const references = [
     {
@@ -62,15 +51,8 @@ author: 'Melissa McEwen'
   ];
 </script>
 
-<svelte:head>
-
-  <title>Why Lactic Acid is My Winter BFF - My Routine Builder</title>
-  <meta name="description" content="Lactic acid is a humectant and exfoliant, and also works as an antioxidant/anti-aging/anti-acne!" />
-  <meta name="keywords" content="lactic acid, winter, dry skin, humectant, exfoliant, antioxidant, anti-aging, anti-acne" />
-  <script type="application/ld+json">
-    {JSON.stringify(articleData)}
-  </script>
-</svelte:head>
+<MetaTags {...$page.data.pageMetaTags} />
+<JsonLd schema={$page.data.pageStructuredData} />
 
 # Why Lactic Acid is My Winter BFF
 

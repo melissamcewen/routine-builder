@@ -4,59 +4,14 @@
 	import type { Ingredient } from '$lib/types/ingredients';
 	import ProductComparison from '$lib/components/product/ProductComparison.svelte';
 	import { Info } from 'lucide-svelte';
+	import { MetaTags } from 'svelte-meta-tags';
+	import { JsonLd } from 'svelte-meta-tags';
 
 	export let data: PageData;
-
-	// Generate SEO-friendly title and description
-	$: productNames = data.products.map((p: Product) => p.Name);
-	$: pageTitle = data.comparisonTitle
-		? `${data.comparisonTitle} | The Ordinary Products Comparison`
-		: `Compare ${productNames.join(' vs ')} | The Ordinary Products Comparison`;
-	$: metaDescription = (
-		data.comparisonTitle
-			? `${data.comparisonTitle} from The Ordinary. See differences in ingredients, usage, and benefits. ${data.comparisonNote || ''}`
-			: `Compare ${productNames.join(' vs ')} from The Ordinary. See differences in ingredients, usage, and benefits. ${data.comparisonNote || ''}`
-	).trim();
-
-	// Generate structured data for SEO
-	$: structuredData = {
-		'@context': 'https://schema.org',
-		'@type': 'WebPage',
-		name: pageTitle,
-		description: metaDescription,
-		mainEntity: {
-			'@type': 'ItemList',
-			itemListElement: data.products.map((product, index) => ({
-				'@type': 'ListItem',
-				position: index + 1,
-				item: {
-					'@type': 'Product',
-					name: product.Name,
-					description: `${product.Name} - ${product.Targets.join(', ')}`,
-					category: product.Format || 'Skincare'
-				}
-			}))
-		}
-	};
 </script>
 
-<svelte:head>
-	<title>{data.pageTitle}</title>
-	<meta name="description" content={data.metaDescription} />
-
-	<!-- Open Graph tags -->
-	<meta property="og:title" content={data.pageTitle} />
-	<meta property="og:description" content={data.metaDescription} />
-	<meta property="og:type" content="website" />
-
-	<!-- Twitter Card tags -->
-	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content={data.pageTitle} />
-	<meta name="twitter:description" content={data.metaDescription} />
-
-	<!-- Structured Data -->
-	{@html `<script type="application/ld+json">${JSON.stringify(data.structuredData)}</script>`}
-</svelte:head>
+<MetaTags {...data.pageMetaTags} />
+<JsonLd schema={data.pageStructuredData} />
 
 <div class="container mx-auto px-4 py-8">
 	<h1 class="text-3xl font-bold mb-6">

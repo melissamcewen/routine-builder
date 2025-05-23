@@ -4,6 +4,8 @@
 	import { goto } from '$app/navigation';
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
+	import { MetaTags } from 'svelte-meta-tags';
+	import type { PageData } from './$types';
 	import {
 		Sun,
 		Moon,
@@ -27,6 +29,8 @@
 	import UpdateCard from '$lib/components/UpdateCard.svelte';
 	import { handleSunscreenSelection, canRemoveSunscreen } from '$lib/sunscreenManager';
 
+	export let data: PageData;
+
 	// Get initial state from URL params if they exist
 	let timeOfDay: 'day' | 'night' = ($page.url.searchParams.get('tod') as 'day' | 'night') || 'day';
 	let selectedProducts: string[] =
@@ -41,6 +45,34 @@
 	let currentPage = 1;
 	const productsPerPage = 10;
 	let showIncompatible = false;
+
+	// Dynamic meta tags based on selected products
+	$: dynamicTitle = routineName
+		? `${routineName} - ${timeOfDay === 'day' ? 'Day' : 'Night'} Routine - The Ordinary Advanced Builder`
+		: selectedProducts.length > 0
+			? `${timeOfDay === 'day' ? 'Day' : 'Night'} Routine - The Ordinary Advanced Builder`
+			: 'The Ordinary Advanced Routine Builder';
+
+	$: dynamicDescription =
+		selectedProducts.length > 0
+			? `My ${timeOfDay} skincare routine with The Ordinary: ${selectedProducts.map((id) => products[id].Name).join(', ')}`
+			: 'Create your personalized skincare routine with The Ordinary products. Features compatibility checks and proper product ordering.';
+
+	$: dynamicMetaTags = {
+		...data.pageMetaTags,
+		title: dynamicTitle,
+		description: dynamicDescription,
+		openGraph: {
+			...data.pageMetaTags.openGraph,
+			title: dynamicTitle,
+			description: dynamicDescription
+		},
+		twitter: {
+			...data.pageMetaTags.twitter,
+			title: dynamicTitle,
+			description: dynamicDescription
+		}
+	};
 
 	// Update URL and handle sunscreen when routine changes
 	$: if (browser) {
@@ -198,18 +230,12 @@
 		form.submit();
 	}
 
-	// Generate dynamic meta description based on selected products
-	$: metaDescription =
-		selectedProducts.length > 0
-			? `My ${timeOfDay} skincare routine with The Ordinary: ${selectedProducts.map((id) => products[id].Name).join(', ')}`
-			: 'Create your personalized skincare routine with The Ordinary products. Features compatibility checks and proper product ordering.';
-
 	// Generate structured data for the routine
 	$: structuredData = {
 		'@context': 'https://schema.org',
 		'@type': 'HowTo',
 		name: routineName || `My ${timeOfDay} Skincare Routine`,
-		description: metaDescription,
+		description: dynamicDescription,
 		step: sortedSelectedProducts.map((productId, index) => ({
 			'@type': 'HowToStep',
 			position: index + 1,
@@ -219,15 +245,10 @@
 	};
 </script>
 
+<MetaTags {...dynamicMetaTags} />
+
 <svelte:head>
-	<title
-		>{routineName ? `${routineName} - ` : ''}{timeOfDay === 'day' ? 'Day' : 'Night'} Routine - The Ordinary
-		Advanced Builder</title
-	>
-	<meta name="description" content={metaDescription} />
-	<script type="application/ld+json">
-		{JSON.stringify(structuredData)}
-	</script>
+	{@html `<script type="application/ld+json">${JSON.stringify(structuredData)}</script>`}
 </svelte:head>
 
 <div class="min-h-screen">

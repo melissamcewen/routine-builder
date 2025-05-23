@@ -1,4 +1,5 @@
 import type { ServerLoad } from '@sveltejs/kit';
+import type { MetaTagsProps } from 'svelte-meta-tags';
 import { error } from '@sveltejs/kit';
 
 interface Post {
@@ -33,27 +34,59 @@ const posts: Post[] = [
 	}
 ];
 
-export const load = (async ({ params }) => {
+export const load = (async ({ params, url }) => {
 	const post = posts.find((p) => p.slug === params.slug);
 
 	if (!post) {
 		throw error(404, 'Post not found');
 	}
 
-	const articleData = {
+	const postUrl = new URL(url.pathname, url.origin).href;
+
+	// Page-specific meta tags that will override base meta tags
+	const pageMetaTags = Object.freeze({
+		title: post.title,
+		description: post.description,
+		openGraph: {
+			type: 'article',
+			url: postUrl,
+			title: post.title,
+			description: post.description,
+			article: {
+				publishedTime: post.date,
+				authors: [
+					`https://www.myroutinebuilder.com/authors/${post.author.toLowerCase().replace(' ', '-')}`
+				],
+				tags: post.keywords.split(', ')
+			}
+		},
+		twitter: {
+			title: post.title,
+			description: post.description
+		},
+		additionalMetaTags: [
+			{
+				name: 'keywords',
+				content: post.keywords
+			}
+		]
+	}) satisfies MetaTagsProps;
+
+	// Article structured data
+	const pageStructuredData = {
 		'@context': 'https://schema.org',
-		'@type': 'Article',
+		'@type': 'Article' as const,
 		headline: post.title,
 		datePublished: post.date,
 		author: {
-			'@type': 'Person',
+			'@type': 'Person' as const,
 			name: post.author
 		},
 		description: post.description,
 		keywords: post.keywords,
-		url: `https://myroutinebuilder.com/blog/posts/${post.slug}`,
+		url: postUrl,
 		publisher: {
-			'@type': 'Organization',
+			'@type': 'Organization' as const,
 			name: 'My Routine Builder',
 			url: 'https://myroutinebuilder.com'
 		}
@@ -61,6 +94,7 @@ export const load = (async ({ params }) => {
 
 	return {
 		post,
-		structuredData: articleData
+		pageMetaTags,
+		pageStructuredData
 	};
 }) satisfies ServerLoad;

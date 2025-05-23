@@ -1,16 +1,13 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { formatDate } from '$lib/blog';
+	import { MetaTags, JsonLd } from 'svelte-meta-tags';
 
 	export let data: PageData;
 </script>
 
-<svelte:head>
-	<title>{data.post.title} - My Routine Builder</title>
-	<meta name="description" content={data.post.description} />
-	<meta name="keywords" content={data.post.keywords} />
-	{@html `<script type="application/ld+json">${JSON.stringify(data.structuredData)}</script>`}
-</svelte:head>
+<MetaTags {...data.pageMetaTags} />
+<JsonLd schema={data.pageStructuredData} />
 
 <div class="container mx-auto px-4 py-8">
 	<article class="prose prose-lg mx-auto">

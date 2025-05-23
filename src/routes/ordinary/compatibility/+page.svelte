@@ -3,6 +3,8 @@
 	import type { ProductCompatibility } from '$lib/types/compatibility';
 	import { products } from '$lib/products';
 	import type { PageData } from './$types';
+	import { MetaTags } from 'svelte-meta-tags';
+	import { JsonLd } from 'svelte-meta-tags';
 
 	export let data: PageData;
 
@@ -124,27 +126,8 @@
 	});
 </script>
 
-<svelte:head>
-	<title>{data.pageTitle}</title>
-	<meta name="description" content={data.metaDescription} />
-	<meta
-		name="keywords"
-		content="The Ordinary, product compatibility, skincare compatibility, ingredient conflicts, skincare routine"
-	/>
-
-	<!-- Open Graph tags -->
-	<meta property="og:title" content={data.pageTitle} />
-	<meta property="og:description" content={data.metaDescription} />
-	<meta property="og:type" content="website" />
-
-	<!-- Twitter Card tags -->
-	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content={data.pageTitle} />
-	<meta name="twitter:description" content={data.metaDescription} />
-
-	<!-- Structured Data -->
-	{@html `<script type="application/ld+json">${JSON.stringify(data.structuredData)}</script>`}
-</svelte:head>
+<MetaTags {...data.pageMetaTags} />
+<JsonLd schema={data.pageStructuredData} />
 
 <div class="container mx-auto p-4">
 	<h1 class="text-3xl font-bold mb-6">Product Compatibility Matrix</h1>

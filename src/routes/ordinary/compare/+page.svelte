@@ -58,11 +58,6 @@
 	}
 </script>
 
-<svelte:head>
-	<title>Compare The Ordinary Products</title>
-	<meta name="description" content="Compare different products from The Ordinary side by side" />
-</svelte:head>
-
 <div class="container mx-auto px-4 py-8">
 	<h1 class="text-3xl font-bold mb-6">Compare The Ordinary Products</h1>
 

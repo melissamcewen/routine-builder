@@ -1,26 +1,6 @@
 <script lang="ts">
 	import { FlaskConical, Sparkles, Clock } from 'lucide-svelte';
-
-	// Structured data for SEO
-	const structuredData = {
-		'@context': 'https://schema.org',
-		'@type': 'WebApplication',
-		name: 'The Ordinary Advanced Routine Builder',
-		description:
-			'Create and share personalized skincare routines with The Ordinary products. Features product compatibility checks and proper ordering.',
-		applicationCategory: 'Skincare',
-		operatingSystem: 'Web'
-	};
 </script>
-
-<svelte:head>
-	<title>The Ordinary Advanced Routine Builder - Create Your Perfect Skincare Routine</title>
-	<meta
-		name="description"
-		content="Create and share personalized skincare routines with The Ordinary products. Features product compatibility checks and proper ordering."
-	/>
-	{@html `<script type="application/ld+json">${JSON.stringify(structuredData)}</script>`}
-</svelte:head>
 
 <div class="hero min-h-screen">
 	<div class="hero-content text-center">

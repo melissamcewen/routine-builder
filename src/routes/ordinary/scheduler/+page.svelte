@@ -82,16 +82,7 @@
 		selectedFormat;
 		currentPage = 1;
 	}
-
-	// Generate meta description
-	$: metaDescription =
-		'Generate multiple skincare routines that incorporate all your The Ordinary products efficiently.';
 </script>
-
-<svelte:head>
-	<title>The Ordinary Routine Scheduler - Generate Multiple Routines</title>
-	<meta name="description" content={metaDescription} />
-</svelte:head>
 
 <div class="min-h-screen">
 	<div class="container mx-auto p-4">
@@ -115,8 +106,11 @@
 								product phases and compatibility.
 							</p>
 
-							<p>If you want to build from scratch head to the <a href="/ordinary" class="link">routine builder</a></p>
-
+							<p>
+								If you want to build from scratch head to the <a href="/ordinary" class="link"
+									>routine builder</a
+								>
+							</p>
 						</div>
 					</div>
 					<div class="card card-sm shadow-sm glass h-full">
@@ -141,8 +135,9 @@
 									<ListOrdered class="w-4 h-4 mt-1 flex-shrink-0" />
 									<span>
 										Need help? I made this short instructional video:
-										<a href="https://www.youtube.com/watch?v=Y71gOJ1Job0&feature=youtu.be" target="_blank"
-											>Watch it here</a
+										<a
+											href="https://www.youtube.com/watch?v=Y71gOJ1Job0&feature=youtu.be"
+											target="_blank">Watch it here</a
 										>
 									</span>
 								</li>
