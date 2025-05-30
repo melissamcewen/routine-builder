@@ -8,6 +8,12 @@ vi.mock('$app/stores', () => ({
 		get: () => ({
 			url: new URL('http://localhost/ordinary/scheduler/results')
 		})
+	},
+	navigating: {
+		subscribe: vi.fn()
+	},
+	updated: {
+		subscribe: vi.fn()
 	}
 }));
 
@@ -16,12 +22,5 @@ vi.mock('$app/navigation', () => ({
 	goto: vi.fn()
 }));
 
-// Mock SvelteKit's stores
-vi.mock('$app/stores', () => ({
-	navigating: {
-		subscribe: vi.fn()
-	},
-	updated: {
-		subscribe: vi.fn()
-	}
-}));
+// No mocking of products or routineGenerator - use real data!
+// This gives us better test coverage and catches real compatibility issues
