@@ -18,19 +18,10 @@
 
 	// Memoize routine generation to prevent unnecessary recalculations
 	$: {
-		const urlProducts =
-			$page.url.searchParams
-				.get('products')
-				?.split(',')
-				.filter((id) => products[id]) ?? [];
-
 		// Only regenerate if products have changed
-		if (JSON.stringify(urlProducts) !== JSON.stringify(selectedProducts)) {
-			selectedProducts = urlProducts;
-			generatedRoutines = generateRoutines(selectedProducts);
-			dayRoutines = generatedRoutines.filter((r) => r.timeOfDay === 'day');
-			nightRoutines = generatedRoutines.filter((r) => r.timeOfDay === 'night');
-		}
+		generatedRoutines = generateRoutines(selectedProducts);
+		dayRoutines = generatedRoutines.filter((r) => r.timeOfDay === 'day');
+		nightRoutines = generatedRoutines.filter((r) => r.timeOfDay === 'night');
 	}
 
 	// Pre-calculate product phases for each routine to avoid recalculation during render

@@ -1,23 +1,27 @@
 import '@testing-library/jest-dom';
 import { vi } from 'vitest';
 
-// Mock SvelteKit's navigation functions
+// Mock SvelteKit's page store
+vi.mock('$app/stores', () => ({
+	page: {
+		subscribe: vi.fn(),
+		get: () => ({
+			url: new URL('http://localhost/ordinary/scheduler/results')
+		})
+	}
+}));
+
+// Mock SvelteKit's navigation
 vi.mock('$app/navigation', () => ({
-    goto: vi.fn(),
-    invalidate: vi.fn(),
-    prefetch: vi.fn(),
-    prefetchRoutes: vi.fn()
+	goto: vi.fn()
 }));
 
 // Mock SvelteKit's stores
 vi.mock('$app/stores', () => ({
-    page: {
-        subscribe: vi.fn()
-    },
-    navigating: {
-        subscribe: vi.fn()
-    },
-    updated: {
-        subscribe: vi.fn()
-    }
+	navigating: {
+		subscribe: vi.fn()
+	},
+	updated: {
+		subscribe: vi.fn()
+	}
 }));
