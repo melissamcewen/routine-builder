@@ -265,12 +265,12 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Routine'
-                    description: Filtered list of day routines only
+                    description: Filtered list of day routines only (IDs renumbered starting from 1)
                   nightRoutines:
                     type: array
                     items:
                       $ref: '#/components/schemas/Routine'
-                    description: Filtered list of night routines only
+                    description: Filtered list of night routines only (IDs renumbered starting from 1)
                   summary:
                     $ref: '#/components/schemas/RoutineSummary'
                   message:
@@ -322,7 +322,7 @@ components:
       properties:
         id:
           type: integer
-          description: Routine identifier
+          description: Routine identifier within its category (day/night), starts from 1
           example: 1
         timeOfDay:
           type: string
@@ -331,7 +331,7 @@ components:
           example: 'day'
         routineNumber:
           type: integer
-          description: Sequential routine number for user reference
+          description: Sequential routine number for user reference across all routines
           example: 1
         products:
           type: array

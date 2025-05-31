@@ -20,20 +20,26 @@ export const POST: RequestHandler = async ({ request }) => {
 			// Handle array format: ["product1", "product2", "product3"]
 			productIds = body.products;
 		} else {
-			return json({
-				success: false,
-				error: 'Products must be provided as a comma-separated string or array of product IDs'
-			}, { status: 400 });
+			return json(
+				{
+					success: false,
+					error: 'Products must be provided as a comma-separated string or array of product IDs'
+				},
+				{ status: 400 }
+			);
 		}
 
 		// Validate that all product IDs exist
-		const invalidIds = productIds.filter(id => !products[id]);
+		const invalidIds = productIds.filter((id) => !products[id]);
 		if (invalidIds.length > 0) {
-			return json({
-				success: false,
-				error: `Invalid product IDs: ${invalidIds.join(', ')}`,
-				invalidIds
-			}, { status: 400 });
+			return json(
+				{
+					success: false,
+					error: `Invalid product IDs: ${invalidIds.join(', ')}`,
+					invalidIds
+				},
+				{ status: 400 }
+			);
 		}
 
 		// Generate routines using the same logic as the scheduler page
@@ -44,7 +50,7 @@ export const POST: RequestHandler = async ({ request }) => {
 			id: routine.id,
 			timeOfDay: routine.timeOfDay,
 			routineNumber: index + 1,
-			products: routine.products.map(productId => ({
+			products: routine.products.map((productId) => ({
 				id: productId,
 				name: products[productId]?.Name || productId,
 				step: products[productId]?.Step || '',
@@ -54,8 +60,20 @@ export const POST: RequestHandler = async ({ request }) => {
 			productCount: routine.products.length
 		}));
 
-		const dayRoutines = formattedRoutines.filter(r => r.timeOfDay === 'day');
-		const nightRoutines = formattedRoutines.filter(r => r.timeOfDay === 'night');
+		// Create filtered routines with renumbered IDs starting from 1 for each category
+		const dayRoutines = formattedRoutines
+			.filter((r) => r.timeOfDay === 'day')
+			.map((routine, index) => ({
+				...routine,
+				id: index + 1
+			}));
+
+		const nightRoutines = formattedRoutines
+			.filter((r) => r.timeOfDay === 'night')
+			.map((routine, index) => ({
+				...routine,
+				id: index + 1
+			}));
 
 		return json({
 			success: true,
@@ -68,16 +86,19 @@ export const POST: RequestHandler = async ({ request }) => {
 				nightRoutines: nightRoutines.length,
 				inputProducts: productIds.length
 			},
-			message: routines.length > 1
-				? "Multiple routines generated. Users should rotate between them (e.g., Routine 1 one day, Routine 2 the next)."
-				: "Single routine generated for the selected products."
+			message:
+				routines.length > 1
+					? 'Multiple routines generated. Users should rotate between them (e.g., Routine 1 one day, Routine 2 the next).'
+					: 'Single routine generated for the selected products.'
 		});
-
 	} catch (error) {
 		console.error('Error generating routine:', error);
-		return json({
-			success: false,
-			error: 'Failed to generate routine'
-		}, { status: 500 });
+		return json(
+			{
+				success: false,
+				error: 'Failed to generate routine'
+			},
+			{ status: 500 }
+		);
 	}
 };
