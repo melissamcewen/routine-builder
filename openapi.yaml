@@ -1,0 +1,461 @@
+openapi: 3.1.0
+info:
+  title: The Ordinary Routine Builder API
+  description: |
+    API for building skincare routines using The Ordinary products. This API handles complex compatibility rules between skincare ingredients and generates optimized routines that avoid harmful ingredient interactions.
+
+    **Workflow for LLMs:**
+    1. Use GET /api/products to fetch current product list (lightweight, names + IDs only)
+    2. Match user-provided product names to product IDs
+    3. Optional: Use GET /api/products/{id} or POST /api/products/details for detailed product info
+    4. Use POST /api/generate-routine with matched IDs to generate routines
+    5. If multiple routines are returned, users should rotate between them
+  version: 1.0.0
+  contact:
+    name: The Ordinary Routine Builder
+    url: https://www.myroutinebuilder.com
+
+servers:
+  - url: https://www.myroutinebuilder.com
+    description: Production server
+
+paths:
+  /api/products:
+    get:
+      summary: Get all The Ordinary products
+      description: |
+        Returns the complete list of current The Ordinary products with their IDs, names, and compatibility information.
+        Use this endpoint to match user-provided product names to product IDs before generating routines.
+      operationId: getProducts
+      responses:
+        '200':
+          description: Successfully retrieved product list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  products:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Product'
+                  count:
+                    type: integer
+                    description: Total number of products
+                    example: 56
+                  message:
+                    type: string
+                    example: 'Current The Ordinary product list retrieved successfully'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/products/{id}:
+    get:
+      summary: Get detailed information about a specific product
+      description: |
+        Returns comprehensive details about a single The Ordinary product by its ID.
+        Use this when you need full product information including compatibility rules, targets, etc.
+      operationId: getProductDetails
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The product ID
+          schema:
+            type: string
+            example: 'glycolic-acid-7-exfoliating-toner'
+      responses:
+        '200':
+          description: Successfully retrieved product details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  product:
+                    $ref: '#/components/schemas/DetailedProduct'
+                  message:
+                    type: string
+                    example: "Product details for 'Glycolic Acid 7% Exfoliating Toner' retrieved successfully"
+        '400':
+          description: Product ID is required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Product not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/products/details:
+    post:
+      summary: Get detailed information about multiple products
+      description: |
+        Returns comprehensive details about multiple The Ordinary products by their IDs.
+        Useful for getting full information about several products at once.
+      operationId: getMultipleProductDetails
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                products:
+                  oneOf:
+                    - type: string
+                      description: Comma-separated list of product IDs
+                      example: 'glycolic-acid-7-exfoliating-toner,niacinamide-10-zinc-1'
+                    - type: array
+                      items:
+                        type: string
+                      description: Array of product IDs
+                      example: ['glycolic-acid-7-exfoliating-toner', 'niacinamide-10-zinc-1']
+              required:
+                - products
+            examples:
+              string_format:
+                summary: Comma-separated string format
+                value:
+                  products: 'glycolic-acid-7-exfoliating-toner,niacinamide-10-zinc-1'
+              array_format:
+                summary: Array format
+                value:
+                  products: ['glycolic-acid-7-exfoliating-toner', 'niacinamide-10-zinc-1']
+      responses:
+        '200':
+          description: Successfully retrieved product details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  products:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DetailedProduct'
+                  count:
+                    type: integer
+                    description: Number of products returned
+                    example: 2
+                  message:
+                    type: string
+                    example: 'Details for 2 product(s) retrieved successfully'
+        '400':
+          description: Invalid request format
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Some or all products not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  error:
+                    type: string
+                    example: 'Product IDs not found: invalid-id-1, invalid-id-2'
+                  notFoundIds:
+                    type: array
+                    items:
+                      type: string
+                    description: List of product IDs that were not found
+                    example: ['invalid-id-1', 'invalid-id-2']
+                  foundProducts:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DetailedProduct'
+                    description: Products that were found (if any)
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/generate-routine:
+    post:
+      summary: Generate skincare routines
+      description: |
+        Generates optimized skincare routines from selected The Ordinary products.
+        Handles ingredient compatibility automatically and may return multiple routines if products conflict.
+        Users should rotate between multiple routines (e.g., Routine 1 one day, Routine 2 the next).
+      operationId: generateRoutine
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                products:
+                  oneOf:
+                    - type: string
+                      description: Comma-separated list of product IDs
+                      example: 'glycolic-acid-7-exfoliating-toner,niacinamide-10-zinc-1,hyaluronic-acid-2-b5-hydrating-serum'
+                    - type: array
+                      items:
+                        type: string
+                      description: Array of product IDs
+                      example:
+                        [
+                          'glycolic-acid-7-exfoliating-toner',
+                          'niacinamide-10-zinc-1',
+                          'hyaluronic-acid-2-b5-hydrating-serum'
+                        ]
+              required:
+                - products
+            examples:
+              string_format:
+                summary: Comma-separated string format
+                value:
+                  products: 'glycolic-acid-7-exfoliating-toner,niacinamide-10-zinc-1,hyaluronic-acid-2-b5-hydrating-serum'
+              array_format:
+                summary: Array format
+                value:
+                  products:
+                    [
+                      'glycolic-acid-7-exfoliating-toner',
+                      'niacinamide-10-zinc-1',
+                      'hyaluronic-acid-2-b5-hydrating-serum'
+                    ]
+      responses:
+        '200':
+          description: Successfully generated routines
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  routines:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Routine'
+                  dayRoutines:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Routine'
+                    description: Filtered list of day routines only
+                  nightRoutines:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Routine'
+                    description: Filtered list of night routines only
+                  summary:
+                    $ref: '#/components/schemas/RoutineSummary'
+                  message:
+                    type: string
+                    description: Instructions for the user about routine usage
+                    example: 'Multiple routines generated. Users should rotate between them (e.g., Routine 1 one day, Routine 2 the next).'
+        '400':
+          description: Invalid request - bad product IDs or format
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  error:
+                    type: string
+                    example: 'Invalid product IDs: invalid-product-1, invalid-product-2'
+                  invalidIds:
+                    type: array
+                    items:
+                      type: string
+                    description: List of invalid product IDs (when applicable)
+                    example: ['invalid-product-1', 'invalid-product-2']
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique product identifier
+          example: 'glycolic-acid-7-exfoliating-toner'
+        name:
+          type: string
+          description: Full product name
+          example: 'Glycolic Acid 7% Exfoliating Toner'
+
+    Routine:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Routine identifier
+          example: 1
+        timeOfDay:
+          type: string
+          enum: ['day', 'night']
+          description: When to use this routine
+          example: 'day'
+        routineNumber:
+          type: integer
+          description: Sequential routine number for user reference
+          example: 1
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoutineProduct'
+          description: Products in this routine in order of application
+        productCount:
+          type: integer
+          description: Number of products in this routine
+          example: 3
+
+    RoutineProduct:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Product ID
+          example: 'niacinamide-10-zinc-1'
+        name:
+          type: string
+          description: Product name
+          example: 'Niacinamide 10% + Zinc 1%'
+        step:
+          type: string
+          description: Routine step
+          example: 'Treat'
+        format:
+          type: string
+          description: Product format
+          example: 'Serum'
+        phase:
+          type: string
+          description: Product phase/texture
+          example: 'Water'
+
+    RoutineSummary:
+      type: object
+      properties:
+        totalRoutines:
+          type: integer
+          description: Total number of routines generated
+          example: 2
+        dayRoutines:
+          type: integer
+          description: Number of day routines
+          example: 1
+        nightRoutines:
+          type: integer
+          description: Number of night routines
+          example: 1
+        inputProducts:
+          type: integer
+          description: Number of products provided as input
+          example: 3
+
+    Error:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        error:
+          type: string
+          description: Error message
+          example: 'Failed to retrieve products'
+
+    DetailedProduct:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique product identifier
+          example: 'glycolic-acid-7-exfoliating-toner'
+        name:
+          type: string
+          description: Full product name
+          example: 'Glycolic Acid 7% Exfoliating Toner'
+        timeOfDay:
+          type: string
+          enum: ['day', 'night', 'both', '']
+          description: When the product should be used
+          example: 'night'
+        step:
+          type: string
+          enum: ['Prep', 'Treat', 'Seal', '']
+          description: Step in skincare routine
+          example: 'Prep'
+        targets:
+          type: array
+          items:
+            type: string
+          description: Skin concerns this product targets
+          example: ['Textural Irregularities', 'Dullness', 'Uneven Skin Tone']
+        format:
+          type: string
+          description: Product format/texture
+          example: 'Toner'
+        excludes:
+          type: array
+          items:
+            type: string
+          description: Ingredients/products this cannot be used with
+          example: ['Copper Peptides', 'Direct Vitamin C', 'Peptides', 'Retinoids']
+        tags:
+          type: array
+          items:
+            type: string
+          description: Product category tags
+          example: ['Direct Acids']
+        skinTypes:
+          type: string
+          description: Suitable skin types
+          example: 'All'
+        phase:
+          type: string
+          description: Product phase/consistency
+          example: 'Water'
+        conflicts:
+          type: array
+          items:
+            type: string
+          description: Product conflicts
+          example: ['vitamin-c-serum']
+        regimen:
+          type: string
+          description: Regimen information
+          example: 'Evening only'
