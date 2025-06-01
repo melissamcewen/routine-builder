@@ -303,6 +303,193 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /api/concerns:
+    get:
+      summary: Get all available skincare concerns
+      description: |
+        Returns a list of all unique skincare concerns/targets that The Ordinary products address.
+        Use this to discover available concerns for filtering products.
+      operationId: getConcerns
+      responses:
+        '200':
+          description: Successfully retrieved concerns list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  concerns:
+                    type: array
+                    items:
+                      type: string
+                    description: List of all available skincare concerns, sorted alphabetically
+                    example:
+                      [
+                        'Acne',
+                        'Advanced Signs of Aging',
+                        'Antioxidant Support',
+                        'Barrier Support',
+                        'Dark Circles'
+                      ]
+                  count:
+                    type: integer
+                    description: Total number of available concerns
+                    example: 25
+                  message:
+                    type: string
+                    example: 'Available skincare concerns retrieved successfully'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/products/by-concerns:
+    get:
+      summary: Filter products by concerns (GET with query params)
+      description: |
+        Returns products that target specific skincare concerns.
+        Supports multiple concerns and case-insensitive matching.
+      operationId: getProductsByConcerns
+      parameters:
+        - name: concerns
+          in: query
+          required: true
+          description: Comma-separated list of concerns to filter by
+          schema:
+            type: string
+            example: 'Dullness,Signs of Aging'
+      responses:
+        '200':
+          description: Successfully filtered products by concerns
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  products:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FilteredProduct'
+                  count:
+                    type: integer
+                    description: Number of products that match the concerns
+                    example: 15
+                  requestedConcerns:
+                    type: array
+                    items:
+                      type: string
+                    description: Valid concerns that were used for filtering
+                    example: ['Dullness', 'Signs of Aging']
+                  invalidConcerns:
+                    type: array
+                    items:
+                      type: string
+                    description: Concerns that were not recognized (if any)
+                    example: ['Invalid Concern']
+                  message:
+                    type: string
+                    example: 'Found 15 product(s) targeting the specified concern(s)'
+        '400':
+          description: Missing or invalid concerns parameter
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Filter products by concerns (POST with body)
+      description: |
+        Returns products that target specific skincare concerns.
+        Alternative to GET method that supports larger lists of concerns in request body.
+      operationId: postProductsByConcerns
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                concerns:
+                  oneOf:
+                    - type: string
+                      description: Comma-separated list of concerns
+                      example: 'Dullness,Signs of Aging,Textural Irregularities'
+                    - type: array
+                      items:
+                        type: string
+                      description: Array of concern names
+                      example: ['Dullness', 'Signs of Aging', 'Textural Irregularities']
+              required:
+                - concerns
+            examples:
+              string_format:
+                summary: Comma-separated string format
+                value:
+                  concerns: 'Dullness,Signs of Aging'
+              array_format:
+                summary: Array format
+                value:
+                  concerns: ['Dullness', 'Signs of Aging']
+      responses:
+        '200':
+          description: Successfully filtered products by concerns
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  products:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FilteredProduct'
+                  count:
+                    type: integer
+                    description: Number of products that match the concerns
+                    example: 15
+                  requestedConcerns:
+                    type: array
+                    items:
+                      type: string
+                    description: Valid concerns that were used for filtering
+                    example: ['Dullness', 'Signs of Aging']
+                  invalidConcerns:
+                    type: array
+                    items:
+                      type: string
+                    description: Concerns that were not recognized (if any)
+                    example: ['Invalid Concern']
+                  message:
+                    type: string
+                    example: 'Found 15 product(s) targeting the specified concern(s)'
+        '400':
+          description: Missing or invalid concerns in request body
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
 components:
   schemas:
     Product:
@@ -459,3 +646,35 @@ components:
           type: string
           description: Regimen information
           example: 'Evening only'
+
+    FilteredProduct:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique product identifier
+          example: 'glycolic-acid-7-exfoliating-toner'
+        name:
+          type: string
+          description: Full product name
+          example: 'Glycolic Acid 7% Exfoliating Toner'
+        timeOfDay:
+          type: string
+          enum: ['day', 'night', 'both', '']
+          description: When the product should be used
+          example: 'night'
+        step:
+          type: string
+          enum: ['Prep', 'Treat', 'Seal', '']
+          description: Step in skincare routine
+          example: 'Prep'
+        targets:
+          type: array
+          items:
+            type: string
+          description: Skin concerns this product targets
+          example: ['Textural Irregularities', 'Dullness', 'Uneven Skin Tone']
+        format:
+          type: string
+          description: Product format/texture
+          example: 'Toner'
